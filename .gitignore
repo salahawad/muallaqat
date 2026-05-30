@@ -16,3 +16,9 @@ build/
 # Misc
 .vercel
 *.tsbuildinfo
+
+# Playwright
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
