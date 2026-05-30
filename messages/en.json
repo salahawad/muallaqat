@@ -17,6 +17,36 @@
     "explore": "Explore",
     "tribute": "In Memory of Awad Shaaban"
   },
+  "Explore": {
+    "title": "Explore the Diwan",
+    "lead": "Wander the poems by feeling, age, or form — or search for a line, a poet, or a meter.",
+    "search": "Search a poem, a poet, a line…",
+    "all": "All",
+    "era": "Age",
+    "emotion": "Feeling",
+    "type": "Form",
+    "clear": "Clear filters",
+    "empty": "No poem matches your search.",
+    "by": "by",
+    "results": "results",
+    "resultsOne": "result",
+    "emotions": {
+      "ghazal": "Love",
+      "fakhr": "Pride",
+      "ritha": "Elegy",
+      "hija": "Satire",
+      "hikma": "Wisdom",
+      "hamasa": "Valor"
+    },
+    "types": {
+      "qasida": "Ode",
+      "muallaqa": "Mu'allaqa",
+      "nathr": "Prose",
+      "hija": "Satire",
+      "muwashshah": "Muwashshah",
+      "free": "Free verse"
+    }
+  },
   "Tribute": {
     "name": "Awad Shaaban",
     "title": "In Memory of Awad Shaaban",
