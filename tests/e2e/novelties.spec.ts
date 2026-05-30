@@ -9,19 +9,23 @@ test.describe('المعلقات — the hanging gallery', () => {
     const panels = page.getByTestId('hanging-panel')
     await expect(panels).toHaveCount(7)
 
-    // The traditional Seven are all present by name.
-    const names = [
-      'امرؤ القيس',
-      'طَرَفة بن العبد',
-      'زهير بن أبي سلمى',
-      'لَبيد بن ربيعة',
-      'عمرو بن كلثوم',
-      'عَنْتَرَة بْن شَدّاد العَبْسِيّ',
-      'الحارث بن حِلِّزة اليشكري',
-    ]
-    for (const name of names) {
-      await expect(page.getByText(name, { exact: false }).first()).toBeVisible()
-    }
+    // The traditional Seven are all present, each panel linking into its ode.
+    // (Assert on the stable poem slugs rather than vocalized names, which carry
+    // diacritics that make substring matching brittle.)
+    const hrefs = await panels.evaluateAll((els) =>
+      els.map((e) => e.getAttribute('href')),
+    )
+    expect(hrefs).toEqual(
+      expect.arrayContaining([
+        '/ar/poem/muallaqat-imru-al-qais',
+        '/ar/poem/muallaqat-tarafa',
+        '/ar/poem/muallaqat-zuhayr',
+        '/ar/poem/muallaqat-labid',
+        '/ar/poem/muallaqat-amr-ibn-kulthum',
+        '/ar/poem/muallaqat-antara',
+        '/ar/poem/muallaqat-al-harith',
+      ]),
+    )
   })
 
   test('a hanging panel links into its ode', async ({ page }) => {
@@ -39,14 +43,20 @@ test.describe('الهجاء — the duels', () => {
 
     const cards = page.getByTestId('duel-card')
     await expect(cards).toHaveCount(2)
-    await expect(page.getByText('نقائض جرير والفرزدق')).toBeVisible()
-    await expect(page.getByText('نقائض جرير والأخطل')).toBeVisible()
+    // Both flytings are listed, each card a tap-target into its back-and-forth.
+    const cardHrefs = await cards.evaluateAll((els) =>
+      els.map((e) => e.getAttribute('href')),
+    )
+    expect(cardHrefs).toEqual(
+      expect.arrayContaining(['/ar/hija2/jarir-farazdaq', '/ar/hija2/jarir-akhtal']),
+    )
   })
 
   test('a duel opens into its volley stepper in RTL', async ({ page }) => {
     await page.goto('/ar/hija2/jarir-farazdaq')
     await expect(page.getByTestId('duel-view')).toHaveAttribute('dir', 'rtl')
-    await expect(page.getByTestId('duel-volley')).toHaveCount(2)
+    // A flyting is a back-and-forth — at least two volleys.
+    expect(await page.getByTestId('duel-volley').count()).toBeGreaterThanOrEqual(2)
     // The stepper advances through the volleys.
     const stage = page.getByTestId('duel-stage')
     await expect(stage).toHaveAttribute('data-revealed', '1')

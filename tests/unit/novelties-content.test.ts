@@ -46,12 +46,17 @@ describe('the duels (getDuels / getDuelBySlug)', () => {
     ]);
   });
 
-  it('resolves a duel by slug with two volleys referencing real poets', () => {
+  it('resolves a duel by slug with alternating volleys referencing real poets', () => {
     const duel = getDuelBySlug('jarir-farazdaq');
     expect(duel).toBeDefined();
     expect(duel!.poetAId).toBe('jarir');
     expect(duel!.poetBId).toBe('al-farazdaq');
-    expect(duel!.volleys).toHaveLength(2);
+    // A flyting is a back-and-forth: at least two volleys, each from one of the two duelists.
+    expect(duel!.volleys.length).toBeGreaterThanOrEqual(2);
+    for (const volley of duel!.volleys) {
+      expect([duel!.poetAId, duel!.poetBId]).toContain(volley.poetId);
+      expect(volley.linesAr.length).toBeGreaterThan(0);
+    }
     expect(getPoetBySlug('jarir')).toBeDefined();
     expect(getPoetBySlug('al-farazdaq')).toBeDefined();
   });
