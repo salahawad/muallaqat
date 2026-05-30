@@ -1,4 +1,13 @@
 import type { Poet, Poem } from '@/lib/schemas';
+import { RobedFigure } from '@/components/diwan/RobedFigure';
+
+/** A stable pose (0|1|2) per poet, derived from the id so the row varies but
+ *  never shuffles between renders. */
+function poseFor(id: string): number {
+  let h = 0;
+  for (let i = 0; i < id.length; i++) h = (h * 31 + id.charCodeAt(i)) >>> 0;
+  return h % 3;
+}
 
 /**
  * A poet brought forward as an illuminated cartouche: a robed figure seated in
@@ -34,13 +43,7 @@ export function PoetSeal({ poet, poem, locale }: PoetSealProps) {
       {/* The robed presence, seated in shadow under a pool of lamplight. */}
       <span className="poet-cartouche__figure" aria-hidden="true">
         <span className="poet-cartouche__lamp" />
-        <svg className="poet-cartouche__robe" viewBox="0 0 120 140" preserveAspectRatio="xMidYMax meet">
-          {/* head + shoulders + a seated robe silhouette */}
-          <circle cx="60" cy="34" r="16" />
-          <path d="M60 50 q-10 0 -16 8 q-14 16 -18 50 q-2 18 -2 32 h72 q0 -14 -2 -32 q-4 -34 -18 -50 q-6 -8 -16 -8 Z" />
-          {/* a suggestion of the headdress drape */}
-          <path d="M44 30 q16 -22 32 0 q-4 -6 -16 -6 q-12 0 -16 6 Z" />
-        </svg>
+        <RobedFigure pose={poseFor(poet.id)} className="poet-cartouche__robe" />
       </span>
 
       <span className="poet-cartouche__plate">

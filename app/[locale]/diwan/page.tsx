@@ -39,20 +39,24 @@ export default async function DiwanPage({ params }: Props) {
 
   return (
     <main className="diwan" data-testid="diwan">
-      <header className="diwan__intro">
-        <div className="diwan__intro-glow" aria-hidden="true" />
-        <p className="diwan__intro-kicker font-kufi">
-          {isAr ? 'ديوانُ العربِ الحيّ' : 'The Living Diwan of the Arabs'}
-        </p>
-        <h1 className="diwan__title font-display">{isAr ? 'الديوان' : 'The Diwan'}</h1>
-        <p className="diwan__subtitle font-ui">
-          {isAr
-            ? `رحلةٌ بين خمسة عصورٍ و${toArabicNumerals(poetCount)} من فحول الشعراء — من معلّقات الجاهلية إلى نهضة الحديث.`
-            : `A journey through five eras and ${poetCount} master poets — from the odes of the Jahiliyya to the modern Nahda.`}
-        </p>
-        <span className="diwan__scroll-hint font-kufi" aria-hidden="true">
-          {isAr ? 'تابِع النزول ↓' : 'scroll ↓'}
-        </span>
+      <header className="diwan__intro diwan__intro--majlis">
+        <EraDiorama variant="desert-night" />
+        <Campfire />
+        <div className="diwan__intro-veil" aria-hidden="true" />
+        <div className="diwan__intro-content">
+          <p className="diwan__intro-kicker font-kufi">
+            {isAr ? 'اجلِس في مجلس العرب' : 'Take your seat in the majlis'}
+          </p>
+          <h1 className="diwan__title font-display">{isAr ? 'الديوان' : 'The Diwan'}</h1>
+          <p className="diwan__subtitle font-ui">
+            {isAr
+              ? `حول النار، بين خمسة عصورٍ و${toArabicNumerals(poetCount)} من فحول الشعراء — من معلّقات الجاهلية إلى نهضة الحديث.`
+              : `Around the fire, through five eras and ${poetCount} master poets — from the odes of the Jahiliyya to the modern Nahda.`}
+          </p>
+          <span className="diwan__scroll-hint font-kufi" aria-hidden="true">
+            {isAr ? 'تابِع النزول ↓' : 'scroll ↓'}
+          </span>
+        </div>
       </header>
 
       {eras.map((era) => {
