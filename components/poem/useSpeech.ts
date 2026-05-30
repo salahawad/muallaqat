@@ -61,17 +61,20 @@ export function useSpeech(
 
   // --- Capability + voice detection (voices load asynchronously) -------------
   useEffect(() => {
-    if (typeof window === 'undefined' || !('speechSynthesis' in window)) return;
+    if (typeof window === 'undefined' || !window.speechSynthesis) return;
     const synth = window.speechSynthesis;
+    // The synthesiser exists, so offer the control. We don't gate on finding a
+    // matching voice: voice lists load late (or stay empty) on many browsers,
+    // and hiding the button there makes the feature look broken. If no matching
+    // voice is found we leave `voice` unset and let the browser use its default.
+    setSupported(true);
     const target = lang.toLowerCase();
     const pick = () => {
       const voices = synth.getVoices();
       const matches = voices.filter((v) => v.lang?.toLowerCase().startsWith(target));
       // Prefer a locally-installed voice: local voices speak instantly and are
       // far more likely to emit the word-boundary events the highlight rides on.
-      const chosen = matches.find((v) => v.localService) ?? matches[0] ?? null;
-      voiceRef.current = chosen;
-      setSupported(Boolean(chosen));
+      voiceRef.current = matches.find((v) => v.localService) ?? matches[0] ?? null;
     };
     pick();
     synth.addEventListener?.('voiceschanged', pick);

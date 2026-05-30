@@ -57,8 +57,15 @@ describe('PoetReader', () => {
     expect(screen.getByTestId('poet-listen')).toHaveTextContent('استمع');
   });
 
-  it('hides the control when there is no voice for the locale', () => {
+  it('still offers the control when no matching voice is listed', () => {
     synth.getVoices = vi.fn(() => []);
+    renderReader();
+    expect(screen.getByTestId('poet-listen')).toBeInTheDocument();
+    expect(screen.getByTestId('poet-bio')).toBeInTheDocument();
+  });
+
+  it('hides the control only when the Speech API is unavailable', () => {
+    vi.stubGlobal('speechSynthesis', undefined);
     renderReader();
     expect(screen.queryByTestId('poet-listen')).not.toBeInTheDocument();
     expect(screen.getByTestId('poet-bio')).toBeInTheDocument();

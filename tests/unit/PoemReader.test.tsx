@@ -67,8 +67,15 @@ describe('PoemReader', () => {
     expect(screen.getByTestId('poem-listen')).toHaveTextContent('استمع');
   });
 
-  it('hides the control entirely when there is no Arabic voice', () => {
+  it('still offers the control when no Arabic voice is listed (browser may speak with a default)', () => {
     synth.getVoices = vi.fn(() => []);
+    renderReader();
+    expect(screen.getByTestId('poem-listen')).toBeInTheDocument();
+    expect(screen.getAllByTestId('poem-bayt')).toHaveLength(lines.length);
+  });
+
+  it('hides the control only when the Speech API is unavailable', () => {
+    vi.stubGlobal('speechSynthesis', undefined);
     renderReader();
     expect(screen.queryByTestId('poem-listen')).not.toBeInTheDocument();
     // …but the verse still renders.
