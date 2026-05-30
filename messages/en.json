@@ -1,0 +1,13 @@
+{
+  "Doorway": {
+    "title": "The Living Diwan",
+    "enter": "Enter the Diwan",
+    "dedication": "For Awad Shaaban"
+  },
+  "Nav": {
+    "tribute": "Tribute"
+  },
+  "Tribute": {
+    "name": "Awad Shaaban"
+  }
+}
