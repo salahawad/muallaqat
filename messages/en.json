@@ -62,5 +62,20 @@
     "quotes": "In His Words",
     "born": "Born",
     "died": "Died"
+  },
+  "About": {
+    "kicker": "About",
+    "title": "About مُعلّقات",
+    "lead": "مُعلّقات is a living diwan — a son's gift to his father: the Lebanese writer, novelist and translator Awad Shaaban (Beirut, 1931–2025). It gathers the finest of Arabic literature — the Muʿallaqāt, the odes, prose, and invective — in faith to his creed: \"Writing is not merely talent; it is a responsibility toward the word and toward humanity.\"",
+    "collectionHeading": "What this diwan gathers",
+    "collectionBody": "A curated collection spanning the five eras — Jahili, Umayyad, Abbasid, Andalusi, and Modern — that presents each poet as a human being, not a name in an index. It is not an exhaustive survey of all that was ever said, but a rich beginning, meant to grow.",
+    "sourcingHeading": "On verifying the texts",
+    "sourcingBody": "Every classical text here is published verbatim, after being cross-checked against no fewer than two reputable public-domain sources (Arabic Wikisource, al-Diwan, Poets Gate, and others) that agree on the consonantal text and the order of words and verses. For the Seven Muʿallaqāt, the recension of al-Zawzanī is our tiebreaker. Vocalization is best-effort; the consonantal text and its order are the standard we hold to.",
+    "integrityHeading": "Textual integrity & rights",
+    "integrityBody": "Classical works are in the public domain and are published in full, with attribution. Works by modern authors still under copyright are not hosted in full; we present only brief fair-use excerpts or links to their authorized sources. The father's own writings appear only as his family permits. Every text carries its source.",
+    "creditsHeading": "How the site was made",
+    "creditsBody": "This diwan inherits its palette and type from Awad Shaaban's own site (awadshaaban.com): the cream, ink, and gold, and the self-hosted Amiri, Cairo, and Reem Kufi typefaces. It is built with Next.js, Tailwind, and next-intl, Arabic-first and right-to-left.",
+    "toTribute": "In memory of Awad Shaaban",
+    "toDiwan": "Enter the Diwan"
   }
 }
