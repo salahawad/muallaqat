@@ -39,6 +39,7 @@ export default async function DiwanPage({ params }: Props) {
   const poets = getPoets();
   const poems = getPoems();
   const poetCount = poets.length;
+  const poemCount = poems.length;
   const tribute = getTribute();
 
   return (
@@ -54,8 +55,8 @@ export default async function DiwanPage({ params }: Props) {
           <h1 className="diwan__title font-display">{isAr ? 'الديوان' : 'The Diwan'}</h1>
           <p className="diwan__subtitle font-ui">
             {isAr
-              ? `حول النار، بين خمسة عصورٍ و${toArabicNumerals(poetCount)} من فحول الشعراء — من معلّقات الجاهلية إلى نهضة الحديث.`
-              : `Around the fire, through five eras and ${poetCount} master poets — from the odes of the Jahiliyya to the modern Nahda.`}
+              ? `حول النار، بين خمسة عصورٍ و${toArabicNumerals(poetCount)} من فحول الشعراء و${toArabicNumerals(poemCount)} قصيدة — من معلّقات الجاهلية إلى نهضة الحديث.`
+              : `Around the fire, through five eras, ${poetCount} master poets, and ${poemCount} poems — from the odes of the Jahiliyya to the modern Nahda.`}
           </p>
           <span className="diwan__scroll-hint font-kufi" aria-hidden="true">
             {isAr ? 'تابِع النزول ↓' : 'scroll ↓'}

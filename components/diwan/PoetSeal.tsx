@@ -26,7 +26,7 @@ export function PoetSeal({ poet, poem, locale }: PoetSealProps) {
   const isAr = locale === 'ar';
   const name = isAr ? poet.nameAr : poet.nameEn;
   const matla = poem?.linesAr?.[0];
-  const href = poem ? `/${locale}/poem/${poem.slug}` : `/${locale}/poet/${poet.slug}`;
+  const href = `/${locale}/poet/${poet.slug}`;
   const years =
     poet.birthYear || poet.deathYear
       ? `${poet.birthYear ?? ''}${poet.deathYear ? `–${poet.deathYear}` : ''}`
@@ -58,13 +58,7 @@ export function PoetSeal({ poet, poem, locale }: PoetSealProps) {
       ) : null}
 
       <span className="poet-cartouche__cta font-kufi">
-        {poem?.isMuallaqa
-          ? isAr
-            ? 'اقرأ المعلّقة'
-            : 'Read the Muʿallaqa'
-          : isAr
-            ? 'اقرأ القصيدة'
-            : 'Read the poem'}
+        {isAr ? 'اقرأ ديوانه' : 'Read his verse'}
         <span aria-hidden="true"> ←</span>
       </span>
     </a>
