@@ -3,7 +3,9 @@ import {
   getDuels,
   getDuelBySlug,
   getMuallaqat,
+  getPoets,
   getPoetBySlug,
+  getPoems,
   getPoemBySlug,
 } from '@/lib/content';
 
@@ -85,11 +87,13 @@ describe('newly seeded poets and poems parse', () => {
     }
   });
 
-  it('seeds al-Akhtal in the Umayyad era with no signature poem', () => {
+  it('seeds al-Akhtal in the Umayyad era with three resolvable signature poems', () => {
     const poet = getPoetBySlug('al-akhtal');
     expect(poet).toBeDefined();
     expect(poet!.eraId).toBe('umawi');
-    expect(poet!.signaturePoemIds).toHaveLength(0);
+    expect(poet!.signaturePoemIds.length).toBeGreaterThanOrEqual(3);
+    const poemIds = new Set(getPoems().map((p) => p.id));
+    for (const id of poet!.signaturePoemIds) expect(poemIds.has(id)).toBe(true);
   });
 
   it('seeds the four new Muʿallaqat as poems', () => {
