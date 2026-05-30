@@ -1,0 +1,22 @@
+{
+  "voice": "ar-XA-Wavenet-C",
+  "eraId": "hadith",
+  "marks": [
+    {
+      "name": "b0",
+      "time": 0.015
+    },
+    {
+      "name": "b1",
+      "time": 6.94
+    },
+    {
+      "name": "b2",
+      "time": 13.595
+    },
+    {
+      "name": "b3",
+      "time": 20.072
+    }
+  ]
+}

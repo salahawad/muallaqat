@@ -1,0 +1,30 @@
+{
+  "voice": "ar-XA-Wavenet-B",
+  "eraId": "jahili",
+  "marks": [
+    {
+      "name": "b0",
+      "time": 0.015
+    },
+    {
+      "name": "b1",
+      "time": 7.571
+    },
+    {
+      "name": "b2",
+      "time": 15.277
+    },
+    {
+      "name": "b3",
+      "time": 22.65
+    },
+    {
+      "name": "b4",
+      "time": 30.212
+    },
+    {
+      "name": "b5",
+      "time": 37.558
+    }
+  ]
+}
