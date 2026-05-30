@@ -37,6 +37,30 @@ describe('content loaders', () => {
     expect(poem!.source.length).toBeGreaterThanOrEqual(2);
   });
 
+  it('spans every era with verified poets and poems', () => {
+    const poets = getPoets();
+    const poems = getPoems();
+    // The curated collection has grown well beyond the seed.
+    expect(poets.length).toBeGreaterThanOrEqual(11);
+    expect(poems.length).toBeGreaterThanOrEqual(11);
+    // Every era is now represented by at least one poet.
+    for (const era of getEras()) {
+      expect(poets.some((p) => p.eraId === era.id)).toBe(true);
+    }
+    // Every poem cites at least two sources, and at least four Mu'allaqat are present.
+    expect(poems.every((p) => p.source.length >= 2)).toBe(true);
+    expect(poems.filter((p) => p.isMuallaqa).length).toBeGreaterThanOrEqual(3);
+  });
+
+  it('every poet has a valid, resolvable signature poem', () => {
+    const poemIds = new Set(getPoems().map((p) => p.id));
+    for (const poet of getPoets()) {
+      for (const id of poet.signaturePoemIds) {
+        expect(poemIds.has(id)).toBe(true);
+      }
+    }
+  });
+
   it('every poem references an existing poet and era', () => {
     const poetIds = new Set(getPoets().map((p) => p.id));
     const eraIds = new Set(getEras().map((e) => e.id));
