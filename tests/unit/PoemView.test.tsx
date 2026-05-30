@@ -8,7 +8,7 @@ const poet = getPoetBySlug('imru-al-qais');
 const labels = {
   meter: 'البحر',
   rhyme: 'القافية',
-  backToPoet: 'الشاعر',
+  backToDiwan: 'الديوان',
   listen: { play: 'استمع', pause: 'إيقاف مؤقت', resume: 'متابعة', stop: 'إنهاء' },
 };
 
@@ -38,5 +38,11 @@ describe('PoemView', () => {
     render(<PoemView poem={poem} poet={poet} locale="ar" labels={labels} />);
     const link = screen.getByRole('link', { name: 'امرؤ القيس' });
     expect(link).toHaveAttribute('href', '/ar/poet/imru-al-qais');
+  });
+
+  it('offers a way back to the Diwan', () => {
+    render(<PoemView poem={poem} poet={poet} locale="ar" labels={labels} />);
+    const back = screen.getByRole('link', { name: /الديوان/ });
+    expect(back).toHaveAttribute('href', '/ar/diwan');
   });
 });

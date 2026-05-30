@@ -5,6 +5,7 @@ import { setRequestLocale } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
 import { getPoets, getPoetBySlug, getPoems, getEras } from '@/lib/content';
 import { GoldDivider } from '@/components/ornament/GoldDivider';
+import { PoetReader } from '@/components/poet/PoetReader';
 
 type Props = {
   params: Promise<{ locale: string; slug: string }>;
@@ -43,6 +44,14 @@ export default async function PoetPage({ params }: Props) {
     <main className="poet paper-grain">
       <header className="poet__hero">
         <div className="poet__hero-glow" aria-hidden="true" />
+        <nav className="poet__return">
+          <a className="return-link font-kufi" href={`/${locale}/diwan`}>
+            <span className="return-link__arrow" aria-hidden="true">
+              {isAr ? '→' : '←'}
+            </span>
+            {isAr ? 'الديوان' : 'The Diwan'}
+          </a>
+        </nav>
         {era ? (
           <p className="poet__era font-kufi">{isAr ? era.nameAr : era.nameEn}</p>
         ) : null}
@@ -54,16 +63,16 @@ export default async function PoetPage({ params }: Props) {
       </header>
 
       <div className="poet__body">
-        <p className="poet__bio font-ui">{isAr ? poet.bioAr : poet.bioEn}</p>
-
-        {(isAr ? poet.humanStoryAr : poet.humanStoryEn) ? (
-          <>
-            <GoldDivider />
-            <blockquote className="poet__story font-display" lang={isAr ? 'ar' : undefined} dir={isAr ? 'rtl' : undefined}>
-              {isAr ? poet.humanStoryAr : poet.humanStoryEn}
-            </blockquote>
-          </>
-        ) : null}
+        <PoetReader
+          bio={isAr ? poet.bioAr : poet.bioEn}
+          story={(isAr ? poet.humanStoryAr : poet.humanStoryEn) || undefined}
+          lang={locale}
+          labels={
+            isAr
+              ? { play: 'استمع', pause: 'إيقاف مؤقت', resume: 'متابعة', stop: 'إنهاء' }
+              : { play: 'Listen', pause: 'Pause', resume: 'Resume', stop: 'Stop' }
+          }
+        />
 
         {poems.length > 0 ? (
           <>

@@ -47,3 +47,32 @@ export function segmentLine(line: string): WordToken[] {
 export function wordIndexAt(tokens: WordToken[], charIndex: number): number {
   return tokens.findIndex((t) => charIndex >= t.start && charIndex < t.end);
 }
+
+// Sentence/clause terminators — Arabic full stop family plus the Latin set, and
+// the Arabic comma/semicolon, which mark natural breath pauses in prose.
+const CLAUSE_END = /[.!?؟؛،]/;
+
+/**
+ * Break a paragraph of prose into short clauses for speech.
+ *
+ * Long paragraphs spoken as a single utterance trip a well-known Chrome bug
+ * that silences synthesis after ~15s; splitting at clause boundaries keeps each
+ * utterance short while the pauses fall where a reader would naturally breathe.
+ * The terminating punctuation stays attached to its clause. Whitespace-only
+ * fragments are dropped.
+ */
+export function segmentSentences(text: string): string[] {
+  const out: string[] = [];
+  let buf = '';
+  for (const ch of text) {
+    buf += ch;
+    if (CLAUSE_END.test(ch)) {
+      const clause = buf.trim();
+      if (clause) out.push(clause);
+      buf = '';
+    }
+  }
+  const tail = buf.trim();
+  if (tail) out.push(tail);
+  return out;
+}

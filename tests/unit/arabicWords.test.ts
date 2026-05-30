@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { segmentLine, wordIndexAt } from '@/lib/arabicWords';
+import { segmentLine, wordIndexAt, segmentSentences } from '@/lib/arabicWords';
 
 describe('segmentLine', () => {
   it('splits a bayt into words with correct character offsets', () => {
@@ -41,5 +41,26 @@ describe('wordIndexAt', () => {
   it('returns -1 when the index lands on a separating space', () => {
     const spaceIdx = tokens[0].end; // the space after the first word
     expect(wordIndexAt(tokens, spaceIdx)).toBe(-1);
+  });
+});
+
+describe('segmentSentences', () => {
+  it('splits Arabic prose at full stops and clause marks, keeping punctuation', () => {
+    const text = 'زهير حكيم الشعراء. نظم معلقته بعد الحرب، ومدح من حقن الدماء.';
+    const clauses = segmentSentences(text);
+    expect(clauses).toEqual([
+      'زهير حكيم الشعراء.',
+      'نظم معلقته بعد الحرب،',
+      'ومدح من حقن الدماء.',
+    ]);
+  });
+
+  it('keeps a trailing clause that has no terminator', () => {
+    expect(segmentSentences('بلا نقطة في النهاية')).toEqual(['بلا نقطة في النهاية']);
+  });
+
+  it('handles Latin punctuation and drops empty fragments', () => {
+    expect(segmentSentences('A poet. A knight!  ')).toEqual(['A poet.', 'A knight!']);
+    expect(segmentSentences('   ')).toEqual([]);
   });
 });

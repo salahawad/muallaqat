@@ -31,8 +31,17 @@ export type UseSpeechResult = {
  * - The word highlight is best-effort: many voices (notably Chrome's remote
  *   Arabic voice) do not emit boundary events, in which case `activeWord` stays
  *   -1 and the caller falls back to lighting the whole active line.
+ *
+ * `lines` are the units spoken in order — bayts for a poem, clauses for prose.
+ * `lang` selects the voice (and is set on each utterance); `rate` tunes pace
+ * (verse reads a touch slower than prose).
  */
-export function useSpeech(lines: string[]): UseSpeechResult {
+type UseSpeechOptions = { lang?: string; rate?: number };
+
+export function useSpeech(
+  lines: string[],
+  { lang = 'ar', rate = 0.9 }: UseSpeechOptions = {},
+): UseSpeechResult {
   const [supported, setSupported] = useState(false);
   const [state, setState] = useState<SpeechState>('idle');
   const [activeLine, setActiveLine] = useState(-1);
@@ -54,19 +63,20 @@ export function useSpeech(lines: string[]): UseSpeechResult {
   useEffect(() => {
     if (typeof window === 'undefined' || !('speechSynthesis' in window)) return;
     const synth = window.speechSynthesis;
+    const target = lang.toLowerCase();
     const pick = () => {
       const voices = synth.getVoices();
-      const arabic = voices.filter((v) => v.lang?.toLowerCase().startsWith('ar'));
+      const matches = voices.filter((v) => v.lang?.toLowerCase().startsWith(target));
       // Prefer a locally-installed voice: local voices speak instantly and are
       // far more likely to emit the word-boundary events the highlight rides on.
-      const chosen = arabic.find((v) => v.localService) ?? arabic[0] ?? null;
+      const chosen = matches.find((v) => v.localService) ?? matches[0] ?? null;
       voiceRef.current = chosen;
       setSupported(Boolean(chosen));
     };
     pick();
     synth.addEventListener?.('voiceschanged', pick);
     return () => synth.removeEventListener?.('voiceschanged', pick);
-  }, []);
+  }, [lang]);
 
   // --- Keep Chrome alive: it silently pauses long-running synthesis ----------
   useEffect(() => {
@@ -90,8 +100,8 @@ export function useSpeech(lines: string[]): UseSpeechResult {
       setActiveWord(-1);
 
       const utterance = new SpeechSynthesisUtterance(lines[index]);
-      utterance.lang = 'ar';
-      utterance.rate = 0.9; // a measured pace, fitting for verse
+      utterance.lang = lang;
+      utterance.rate = rate;
       if (voiceRef.current) utterance.voice = voiceRef.current;
 
       utterance.onboundary = (event: SpeechSynthesisEvent) => {
@@ -110,7 +120,7 @@ export function useSpeech(lines: string[]): UseSpeechResult {
 
       synth.speak(utterance);
     },
-    [lines],
+    [lines, lang, rate],
   );
 
   const play = useCallback(() => {

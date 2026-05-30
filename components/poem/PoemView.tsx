@@ -13,7 +13,7 @@ type PoemViewProps = {
   labels: {
     meter: string;
     rhyme: string;
-    backToPoet: string;
+    backToDiwan: string;
     listen: ListenLabels;
   };
 };
@@ -23,6 +23,15 @@ export function PoemView({ poem, poet, locale, labels }: PoemViewProps) {
 
   return (
     <article className="poem" data-testid="poem-view">
+      <nav className="poem__return">
+        <a className="return-link font-kufi" href={`/${locale}/diwan`}>
+          <span className="return-link__arrow" aria-hidden="true">
+            {isAr ? '→' : '←'}
+          </span>
+          {labels.backToDiwan}
+        </a>
+      </nav>
+
       <header className="poem__header">
         {poem.isMuallaqa ? (
           <span className="poem__badge font-kufi">مُعلّقة</span>
