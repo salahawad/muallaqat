@@ -2,7 +2,7 @@
 
 import { Fragment, useMemo, useState, type ReactNode } from 'react';
 import { segmentLine } from '@/lib/arabicWords';
-import { useSpeech } from './useSpeech';
+import { useRecitation } from './useRecitation';
 import { downloadVerseCard } from './verseCard';
 
 export type ListenLabels = {
@@ -24,6 +24,12 @@ export type ReaderLabels = {
 type PoemReaderProps = {
   /** The bayts of the poem, one full line (sadr + ʿajuz) per entry. */
   lines: string[];
+  /**
+   * The poem's slug. When a recitation has been generated for it
+   * (`public/audio/<slug>.{mp3,json}`), that real voice plays; otherwise the
+   * reader falls back to the browser voice. Omit it to force the browser voice.
+   */
+  slug?: string;
   isMuallaqa: boolean;
   labels: ReaderLabels;
   /** Optional faithful English lines, aligned to `lines`. */
@@ -45,6 +51,7 @@ type View = 'ar' | 'en' | 'translit';
  */
 export function PoemReader({
   lines,
+  slug,
   isMuallaqa,
   labels,
   linesEn,
@@ -54,7 +61,7 @@ export function PoemReader({
 }: PoemReaderProps) {
   const tokensPerLine = useMemo(() => lines.map(segmentLine), [lines]);
   const { supported, state, activeLine, activeWord, play, pause, resume, stop } =
-    useSpeech(lines);
+    useRecitation(slug, lines);
   const [view, setView] = useState<View>('ar');
 
   const hasEn = Array.isArray(linesEn) && linesEn.length > 0;
