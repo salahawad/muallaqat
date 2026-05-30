@@ -3,7 +3,13 @@ import { render, screen, fireEvent, act } from '@testing-library/react';
 import { PoemReader } from '@/components/poem/PoemReader';
 import { segmentLine } from '@/lib/arabicWords';
 
-const labels = { play: 'استمع', pause: 'إيقاف مؤقت', resume: 'متابعة', stop: 'إنهاء' };
+const labels = {
+  listen: { play: 'استمع', pause: 'إيقاف مؤقت', resume: 'متابعة', stop: 'إنهاء' },
+  arabic: 'العربية',
+  english: 'الإنجليزية',
+  translit: 'النطق',
+  save: 'احفظ البيت',
+};
 const lines = ['قِفَا نَبْكِ مِنْ', 'فَتُوْضِحَ فَالمِقْراةِ'];
 
 class FakeUtterance {
@@ -52,7 +58,15 @@ afterEach(() => {
 });
 
 const renderReader = () =>
-  render(<PoemReader lines={lines} isMuallaqa labels={labels} />);
+  render(
+    <PoemReader
+      lines={lines}
+      isMuallaqa
+      labels={labels}
+      poetName="امرؤ القيس"
+      poemTitle="مُعلّقة امرئ القيس"
+    />,
+  );
 
 describe('PoemReader', () => {
   it('renders every bayt with its words as spans', () => {

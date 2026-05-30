@@ -2,11 +2,12 @@ import { notFound } from 'next/navigation';
 import { hasLocale } from 'next-intl';
 import { setRequestLocale, getTranslations } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
-import { getEras, getPoets, getPoems } from '@/lib/content';
+import { getEras, getPoets, getPoems, getTribute } from '@/lib/content';
 import { PoetSeal } from '@/components/diwan/PoetSeal';
 import { DiwanClosing } from '@/components/diwan/DiwanClosing';
 import { EraDiorama } from '@/components/diwan/EraDiorama';
 import { Campfire } from '@/components/diwan/Campfire';
+import { KeeperPanel } from '@/components/diwan/KeeperPanel';
 
 const DIORAMA_VARIANT: Record<string, 'desert-night' | 'duel' | 'golden-court' | 'garden' | 'nahda'> = {
   jahili: 'desert-night',
@@ -38,6 +39,7 @@ export default async function DiwanPage({ params }: Props) {
   const poets = getPoets();
   const poems = getPoems();
   const poetCount = poets.length;
+  const tribute = getTribute();
 
   return (
     <main className="diwan" data-testid="diwan">
@@ -109,6 +111,21 @@ export default async function DiwanPage({ params }: Props) {
                   {isAr ? 'قريبًا' : 'coming soon'}
                 </p>
               )}
+
+              {era.id === 'hadith' ? (
+                <KeeperPanel
+                  nameAr={tribute.nameAr}
+                  nameEn={tribute.nameEn}
+                  years={`${tribute.birthYear}–${tribute.deathYear}`}
+                  creed={tribute.creedAr}
+                  locale={locale}
+                  href={`/${locale}/tribute`}
+                  labels={{
+                    kicker: isAr ? 'حارسُ الكلمة' : 'Keeper of the Word',
+                    cta: isAr ? 'في ذكراه' : 'In his memory',
+                  }}
+                />
+              ) : null}
 
               {era.id === 'jahili' ? (
                 <a className="era-scene__gate font-kufi" href={`/${locale}/muallaqat`}>

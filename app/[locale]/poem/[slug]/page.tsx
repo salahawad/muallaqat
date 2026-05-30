@@ -50,9 +50,21 @@ export default async function PoemPage({ params }: Props) {
           meter: isAr ? 'البحر' : 'Meter',
           rhyme: isAr ? 'القافية' : 'Rhyme',
           backToDiwan: isAr ? 'الديوان' : 'The Diwan',
-          listen: isAr
-            ? { play: 'استمع', pause: 'إيقاف مؤقت', resume: 'متابعة', stop: 'إنهاء' }
-            : { play: 'Listen', pause: 'Pause', resume: 'Resume', stop: 'Stop' },
+          reader: isAr
+            ? {
+                listen: { play: 'استمع', pause: 'إيقاف مؤقت', resume: 'متابعة', stop: 'إنهاء' },
+                arabic: 'العربية',
+                english: 'الإنجليزية',
+                translit: 'النطق',
+                save: 'احفظ البيت',
+              }
+            : {
+                listen: { play: 'Listen', pause: 'Pause', resume: 'Resume', stop: 'Stop' },
+                arabic: 'Arabic',
+                english: 'English',
+                translit: 'Transliteration',
+                save: 'Save verse',
+              },
         }}
       />
     </main>

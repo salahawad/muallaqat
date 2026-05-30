@@ -2173,3 +2173,72 @@
     transform: none !important;
   }
 }
+
+/* ============================================================
+   In-voice 404 — "this verse is lost"
+   ============================================================ */
+.lost {
+  min-height: 100dvh; display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 1rem; text-align: center; padding: 4rem 1.5rem;
+  background: radial-gradient(120% 80% at 50% 20%, #14101f, #06080f 70%); color: var(--color-cream);
+  position: relative; isolation: isolate;
+}
+.lost__glow { position: absolute; inset: 0; z-index: -1; background: radial-gradient(40% 40% at 50% 35%, rgba(212,168,85,0.16), transparent 70%); }
+.lost__num { font-size: 2rem; color: var(--color-gold); letter-spacing: 0.3em; opacity: 0.7; }
+.lost__title { font-size: clamp(2.2rem, 7vw, 4rem); color: var(--color-gold-light); text-shadow: 0 0 26px rgba(212,168,85,0.35); }
+.lost__lead { font-family: var(--font-display); max-width: 34ch; font-size: 1.3rem; line-height: 2; color: var(--color-cream); opacity: 0.85; }
+.lost__lead-en { max-width: 44ch; font-size: 0.95rem; color: var(--color-cream); opacity: 0.6; font-style: italic; }
+.lost__links { display: flex; gap: 1.5rem; margin-top: 1rem; }
+.lost__link { color: var(--color-gold-pale); border: 1px solid rgba(212,168,85,0.4); border-radius: 999px; padding: 0.5rem 1.4rem; transition: background 0.2s, color 0.2s; }
+.lost__link:hover { background: var(--color-gold-light); color: #1a130a; }
+.lost__link--muted { opacity: 0.6; }
+
+/* ============================================================
+   Keeper of the Word — عوض شعبان in the Modern era
+   ============================================================ */
+.keeper-panel {
+  position: relative; display: flex; flex-direction: column; align-items: center; gap: 0.7rem;
+  max-width: 34rem; margin: 1.5rem auto 0; padding: 2.5rem 2rem;
+  text-align: center; border-radius: 10px;
+  background: linear-gradient(180deg, rgba(107,45,62,0.25), rgba(6,8,16,0.55));
+  border: 1px solid var(--color-gold);
+  box-shadow: 0 30px 60px -34px rgba(0,0,0,0.9), inset 0 0 50px rgba(184,135,58,0.12);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.keeper-panel:hover { transform: translateY(-4px); box-shadow: 0 40px 70px -30px rgba(212,168,85,0.5); }
+.keeper-panel__kicker { font-size: 0.85rem; letter-spacing: 0.1em; color: var(--color-gold-light); opacity: 0.9; }
+.keeper-panel__name { font-size: clamp(2rem, 5vw, 2.8rem); color: var(--color-gold-pale); text-shadow: 0 0 24px rgba(212,168,85,0.4); }
+.keeper-panel__years { font-size: 0.8rem; color: var(--color-gold); opacity: 0.8; }
+.keeper-panel__creed {
+  font-family: var(--font-display); max-width: 30ch; font-size: 1.3rem; line-height: 2.1;
+  color: var(--color-cream); opacity: 0.92; margin-top: 0.5rem;
+}
+.keeper-panel__cta { margin-top: 0.5rem; font-size: 0.9rem; color: var(--color-gold-light); }
+
+/* ============================================================
+   Poem toolbar: AR/EN/translit views + per-bayt save card
+   ============================================================ */
+.poem__toolbar { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 1rem 1.5rem; margin-bottom: 2rem; }
+.poem__views { display: inline-flex; border: 1px solid rgba(212,168,85,0.4); border-radius: 999px; overflow: hidden; }
+.poem__view {
+  font-size: 0.85rem; padding: 0.4rem 1rem; background: transparent; color: var(--color-gold-pale);
+  cursor: pointer; border: 0; transition: background 0.2s, color 0.2s;
+}
+.poem__view:not(:last-child) { border-inline-end: 1px solid rgba(212,168,85,0.25); }
+.poem__view.is-active { background: var(--color-gold); color: #1a130a; font-weight: 600; }
+.poem__bayt-en, .poem__bayt-translit {
+  max-width: 46ch; margin: 0 auto; text-align: center; font-size: 1.15rem; line-height: 1.9;
+  color: var(--color-cream); opacity: 0.92;
+}
+.poem__bayt-translit { font-style: italic; opacity: 0.8; }
+.poem__bayt { position: relative; }
+.poem__save {
+  position: absolute; inset-inline-end: 0.5rem; inset-block-start: 0.5rem;
+  font-size: 0.7rem; color: var(--color-gold); opacity: 0; background: transparent; border: 0; cursor: pointer;
+  padding: 0.2rem 0.5rem; border-radius: 6px; transition: opacity 0.2s, background 0.2s;
+}
+.poem__bayt:hover .poem__save, .poem__save:focus-visible { opacity: 0.85; }
+.poem__save:hover { opacity: 1; background: rgba(212,168,85,0.12); }
+@media (prefers-reduced-motion: reduce) {
+  .poem__save { opacity: 0.6; }
+}

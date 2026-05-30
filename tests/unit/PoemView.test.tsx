@@ -9,7 +9,13 @@ const labels = {
   meter: 'البحر',
   rhyme: 'القافية',
   backToDiwan: 'الديوان',
-  listen: { play: 'استمع', pause: 'إيقاف مؤقت', resume: 'متابعة', stop: 'إنهاء' },
+  reader: {
+    listen: { play: 'استمع', pause: 'إيقاف مؤقت', resume: 'متابعة', stop: 'إنهاء' },
+    arabic: 'العربية',
+    english: 'الإنجليزية',
+    translit: 'النطق',
+    save: 'احفظ البيت',
+  },
 };
 
 describe('PoemView', () => {
