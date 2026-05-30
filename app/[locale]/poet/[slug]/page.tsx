@@ -53,10 +53,10 @@ export default async function PoetPage({ params }: Props) {
           </a>
         </nav>
         {era ? (
-          <p className="poet__era font-kufi">{isAr ? era.nameAr : era.nameEn}</p>
+          <p className="poet__era font-kufi" dir="auto">{isAr ? era.nameAr : era.nameEn}</p>
         ) : null}
-        <h1 className="poet__name font-display">{isAr ? poet.nameAr : poet.nameEn}</h1>
-        <p className="poet__life font-kufi">
+        <h1 className="poet__name font-display" dir="auto">{isAr ? poet.nameAr : poet.nameEn}</h1>
+        <p className="poet__life font-kufi" dir="auto">
           {poet.region}
           {poet.birthYear ? ` · ${poet.birthYear}–${poet.deathYear ?? ''}` : ''}
         </p>

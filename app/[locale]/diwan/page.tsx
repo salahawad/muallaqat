@@ -1,9 +1,10 @@
 import { notFound } from 'next/navigation';
 import { hasLocale } from 'next-intl';
-import { setRequestLocale } from 'next-intl/server';
+import { setRequestLocale, getTranslations } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
 import { getEras, getPoets, getPoems } from '@/lib/content';
 import { PoetSeal } from '@/components/diwan/PoetSeal';
+import { DiwanClosing } from '@/components/diwan/DiwanClosing';
 import { EraDiorama } from '@/components/diwan/EraDiorama';
 import { Campfire } from '@/components/diwan/Campfire';
 
@@ -31,6 +32,7 @@ export default async function DiwanPage({ params }: Props) {
   const locale = rawLocale;
   setRequestLocale(locale);
   const isAr = locale === 'ar';
+  const t = await getTranslations('Nav');
 
   const eras = getEras();
   const poets = getPoets();
@@ -111,6 +113,12 @@ export default async function DiwanPage({ params }: Props) {
           </section>
         );
       })}
+
+      <DiwanClosing
+        dedication={t('lead')}
+        label={t('tribute')}
+        href={`/${locale}/tribute`}
+      />
     </main>
   );
 }

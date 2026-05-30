@@ -48,13 +48,13 @@ export function PoemView({ poem, poet, locale, labels }: PoemViewProps) {
           {poem.meter ? (
             <div className="poem__meta-pair">
               <dt>{labels.meter}</dt>
-              <dd>{poem.meter}</dd>
+              <dd dir="auto">{poem.meter}</dd>
             </div>
           ) : null}
           {poem.rhyme ? (
             <div className="poem__meta-pair">
               <dt>{labels.rhyme}</dt>
-              <dd>{poem.rhyme}</dd>
+              <dd dir="auto">{poem.rhyme}</dd>
             </div>
           ) : null}
         </dl>
