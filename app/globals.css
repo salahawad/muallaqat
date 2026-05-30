@@ -2242,3 +2242,101 @@
 @media (prefers-reduced-motion: reduce) {
   .poem__save { opacity: 0.6; }
 }
+
+/* ============================================================
+   Mobile — the stylesheet was desktop-first; these breakpoints
+   keep every surface within a phone viewport (no horizontal
+   overflow, no clipped Arabic names, comfortable tap targets).
+   ============================================================ */
+@media (max-width: 680px) {
+  /* Never allow a child to force the page wider than the screen. */
+  .era-scene,
+  .diwan__intro,
+  .muallaqat,
+  .hija2-index,
+  .duel-page,
+  .explore-page,
+  .poem-page,
+  .poet,
+  .tribute {
+    overflow-x: hidden;
+  }
+
+  /* Era scenes: lighter padding, single-column poets, wrap everything. */
+  .era-scene { padding: 3.5rem 1rem; }
+  .era-scene__inner { max-width: 100%; }
+  .era-scene__desc { max-width: 100%; font-size: 1.15rem; }
+
+  .era-scene__poets {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  /* Poet cartouche: fits the column, name/verse wrap instead of clipping. */
+  .poet-cartouche { padding: 2rem 1.1rem 1.5rem; }
+  .poet-cartouche__name {
+    font-size: clamp(1.5rem, 7vw, 2rem);
+    overflow-wrap: anywhere;
+    line-height: 1.4;
+  }
+  .poet-cartouche__matla {
+    max-width: 100%;
+    font-size: 1.05rem;
+    overflow-wrap: anywhere;
+  }
+
+  /* The illuminated seal variant (used elsewhere), same treatment. */
+  .poet-seal__name { font-size: clamp(1.4rem, 7vw, 1.9rem); overflow-wrap: anywhere; }
+  .poet-seal__matla { max-width: 100%; overflow-wrap: anywhere; }
+
+  /* Keeper panel + diorama dioramas. */
+  .keeper-panel { padding: 2rem 1.1rem; }
+  .keeper-panel__creed { max-width: 100%; }
+
+  /* Site nav: let it wrap, smaller brand. */
+  .site-nav { gap: 0.5rem 0.9rem; padding: 0.55rem 0.9rem; }
+  .site-nav__links { gap: 0.25rem 0.8rem; }
+  .site-nav__link { font-size: 0.82rem; }
+  .site-nav__brand { font-size: 1.15rem; }
+
+  /* Hanging gallery: one column, fits. */
+  .hanging-gallery { grid-template-columns: 1fr; gap: 2rem 0; padding: 0 1rem; }
+  .hanging-panel__matla { max-width: 100%; overflow-wrap: anywhere; }
+  .hanging-rod { max-width: calc(100% - 2rem); }
+
+  /* Duels: full-width volleys, smaller header. */
+  .duel { padding: 1rem 1rem 2rem; }
+  .duel__volley { max-width: 100%; padding: 1.1rem 1.1rem; }
+  .duel__header { gap: 0.9rem; }
+  .hija2-index__grid { grid-template-columns: 1fr; padding: 0 1rem; }
+
+  /* Explore: single column results, chips wrap. */
+  .explore__results { grid-template-columns: 1fr; }
+  .explore__facet-group { align-items: flex-start; }
+
+  /* Tribute works/translations: single column. */
+  .tribute-works__grid,
+  .tribute-translations { grid-template-columns: 1fr; }
+  .tribute-body { padding: 1rem 1rem 4rem; }
+
+  /* Poem + poet reading surfaces: comfortable margins. */
+  .poem, .poet__body { padding-inline: 1rem; }
+  .poem__bayt-text p { font-size: 1.5rem; }
+  .poem__toolbar { gap: 0.75rem; }
+
+  /* Doorway: keep the name on screen. */
+  .doorway__name { font-size: clamp(2.75rem, 16vw, 5rem); }
+  .doorway__creed { max-width: 100%; }
+
+  /* Headings that were huge on desktop. */
+  .diwan__title, .muallaqat__title, .hija2-index__title,
+  .explore-page__title, .duel-page__title { font-size: clamp(2.2rem, 11vw, 3.5rem); }
+}
+
+/* Very small phones. */
+@media (max-width: 380px) {
+  .era-scene__name { font-size: clamp(2rem, 10vw, 3rem); }
+  .poet-cartouche__matla, .poet-seal__matla { font-size: 0.98rem; }
+  .site-nav__links { width: 100%; }
+}
