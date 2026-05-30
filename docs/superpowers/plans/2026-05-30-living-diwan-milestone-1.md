@@ -1778,9 +1778,12 @@ describe("content/tribute.ts (Awad Shaaban)", () => {
     expect(novelTitles).toContain("درب الجنوب");
   });
 
-  it("lists the seven verified novels and six story collections", () => {
+  it("lists 7 novels, 6 story collections, 1 study, and 12 translations", () => {
     expect(tribute.works.filter((w) => w.type === "novel")).toHaveLength(7);
     expect(tribute.works.filter((w) => w.type === "stories")).toHaveLength(6);
+    expect(tribute.works.filter((w) => w.type === "study")).toHaveLength(1);
+    expect(tribute.works).toHaveLength(14);
+    expect(tribute.translations).toHaveLength(12);
   });
 
   it("points at the public portrait path", () => {
@@ -1850,30 +1853,37 @@ export const tribute: Tribute = {
       eventEn: "Passed away.",
     },
   ],
+  // Authoritative bibliography from books/_meta/books.json: 14 original works
+  // (7 novels, 6 story collections, 1 study) + 12 translations. Publishers in `note`.
   works: [
-    { titleAr: "الآفاق البعيدة", year: 1979, type: "novel" },
-    { titleAr: "الدروب المتقاطعة", year: 1985, type: "novel" },
-    { titleAr: "المغيب في مونتيفيديو", year: 1987, type: "novel" },
-    {
-      titleAr: "درب الجنوب",
-      year: 1988,
-      type: "novel",
-      note: "جائزة اتحاد الكتّاب اللبنانيين 1988",
-    },
-    { titleAr: "زمن التفسخ", year: 1997, type: "novel" },
-    { titleAr: "عندما يحل الظلام والصقيع", year: 2009, type: "novel" },
-    { titleAr: "الملعونون", year: 2012, type: "novel" },
-    { titleAr: "الرهائن", year: 1981, type: "stories" },
-    { titleAr: "الموت المجاني", year: 1988, type: "stories" },
-    { titleAr: "الجندب", year: 1994, type: "stories" },
-    { titleAr: "الفلسطينيات", year: 1998, type: "stories" },
-    { titleAr: "خزين الذكريات", year: 2010, type: "stories" },
-    { titleAr: "في أرض التيه", year: 2014, type: "stories" },
+    { titleAr: "الآفاق البعيدة", year: 1979, type: "novel", note: "دار النهار، بيروت" },
+    { titleAr: "الدروب المتقاطعة", year: 1985, type: "novel", note: "دار الوحدة، بيروت" },
+    { titleAr: "المغيب في مونتيفيديو", year: 1987, type: "novel", note: "دار الوحدة، بيروت" },
+    { titleAr: "درب الجنوب", year: 1988, type: "novel", note: "دار الفارابي — جائزة اتحاد الكتّاب اللبنانيين 1988" },
+    { titleAr: "زمن التفسخ", year: 1997, type: "novel", note: "دار العلم للملايين، بيروت" },
+    { titleAr: "عندما يحل الظلام والصقيع", year: 2009, type: "novel", note: "دار الفارابي" },
+    { titleAr: "الملعونون", year: 2012, type: "novel", note: "دار الفارابي — أربع روايات قصيرة" },
+    { titleAr: "الرهائن", year: 1981, type: "stories", note: "دار الكلمة، بيروت" },
+    { titleAr: "الموت المجاني", year: 1988, type: "stories", note: "دار الأدب الحديث، بيروت" },
+    { titleAr: "الجندب", year: 1994, type: "stories", note: "منشورات اتحاد الكتاب اللبنانيين" },
+    { titleAr: "الفلسطينيات", year: 1998, type: "stories", note: "دار الفارابي، بيروت" },
+    { titleAr: "خزين الذكريات", year: 2010, type: "stories", note: "دار الفارابي، بيروت" },
+    { titleAr: "في أرض التيه", year: 2014, type: "stories", note: "المؤسسة الجامعية، بيروت" },
+    { titleAr: "بيراندللو", year: 1979, type: "study", note: "المؤسسة العربية، بيروت" },
   ],
   translations: [
-    { author: "Gogol", note: "ترجمات أدبية (1961–1992)" },
-    { author: "Chekhov", note: "ترجمات أدبية (1961–1992)" },
-    { author: "Jorge Amado", note: "ترجمات أدبية (1961–1992)" },
+    { author: "نيكولاي غوغول", year: 1961, note: "المعطف" },
+    { author: "أنطون تشيخوف", year: 1962, note: "المبارزة" },
+    { author: "أنطون تشيخوف", year: 1969, note: "السيدة والكلب" },
+    { author: "نيكولاي غوغول", year: 1969, note: "تاراس بولبا" },
+    { author: "نيكولاي غوغول", year: 1969, note: "يوميات مجنون" },
+    { author: "مجموعة كتّاب إيطاليين", year: 1981, note: "القصة الإيطالية" },
+    { author: "جورجي آمادو", year: 1984, note: "غابرييلا: قرنفل وقرفة" },
+    { author: "جورجي آمادو", year: 1988, note: "المحصول الأحمر" },
+    { author: "مانويل فيريرا", year: 1988, note: "ساعة الرحيل" },
+    { author: "جورجي آمادو", year: 1992, note: "الدونا فلور وزوجاها — جزآن" },
+    { author: "جورجي آمادو", year: 1992, note: "البزة والرداء وقميص النوم" },
+    { author: "جورجي آمادو", note: "فارس الأمل" },
   ],
   journalism: [
     "السفير",
@@ -2793,7 +2803,7 @@ describe('tribute (Doorway overture source)', () => {
 ### Task D3: The Doorway page (route '/') wiring the overture
 
 **Files:**
-- Create: `/home/sawad/devrepo/muallaqat/app/[locale]/page.tsx`
+- Modify: `/home/sawad/devrepo/muallaqat/app/[locale]/page.tsx` (replace the minimal placeholder written in Task A3 Step 10 with the full Doorway below)
 - Test: `/home/sawad/devrepo/muallaqat/tests/e2e/doorway.spec.ts`
 
 - [ ] **Step 1: Write the failing Playwright e2e spec for the Doorway.**
@@ -3083,306 +3093,24 @@ beforeAll(() => {
 
 ## Group E: The Tribute memorial page
 
-The portrait exists at `assets/awad-shaaban-portrait.jpg`. Now I have everything needed to draft Group E.
-
-## Group E — The Tribute memorial page
-
-This group builds the `/tribute` memorial from `getTribute()`. It depends on Group C (content layer: `lib/schemas.ts`, `lib/content.ts`, `content/tribute.ts`) and Group B (design primitives: `components/ornament/GoldDivider.tsx`, `components/typography/Verse.tsx`) and Group A (foundation: i18n, fonts, `messages/*.json`, Vitest + Playwright config). All paths, type names, and field names below are taken verbatim from the CONTRACT and VERIFIED RESEARCH.
+This group builds the reverent `/tribute` memorial page for Awad Shaaban. It depends on Group A (tooling, i18n, fonts, layout), Group B (`GoldDivider`, `Verse`), and Group C (schemas, content, `getTribute()`); it ONLY adds focused components under `components/tribute/`, the page `app/[locale]/tribute/page.tsx`, message keys, and tests. It NEVER touches `content/tribute.ts`, the portrait copy into `public/`, `lib/schemas.ts`, `lib/content.ts`, or any Group B component — those already exist and are consumed as-is.
 
 ---
 
-### Task E1: Seed the Tribute content object (`content/tribute.ts`)
-
-**Files:**
-- Create: `/home/sawad/devrepo/muallaqat/content/tribute.ts`
-- Test: `/home/sawad/devrepo/muallaqat/tests/unit/tribute-content.test.ts`
-
-- [ ] **Step 1: Write the failing test for the tribute seed object.**
-  Create `/home/sawad/devrepo/muallaqat/tests/unit/tribute-content.test.ts`:
-  ```ts
-  import { describe, it, expect } from 'vitest'
-  import { TributeSchema } from '../../lib/schemas'
-  import { tribute } from '../../content/tribute'
-
-  describe('content/tribute.ts (Awad Shaaban)', () => {
-    it('passes the TributeSchema validation', () => {
-      const result = TributeSchema.safeParse(tribute)
-      expect(result.success).toBe(true)
-    })
-
-    it('carries the verified name and dates', () => {
-      expect(tribute.nameAr).toBe('عوض شعبان')
-      expect(tribute.nameEn).toBe('Awad Shaaban')
-      expect(tribute.birthYear).toBe(1931)
-      expect(tribute.deathYear).toBe(2025)
-    })
-
-    it('points at the public portrait copy', () => {
-      expect(tribute.portrait).toBe('/awad-shaaban-portrait.jpg')
-    })
-
-    it('carries both verbatim creeds in quotes', () => {
-      const texts = tribute.quotes.map((q) => q.textAr)
-      expect(texts).toContain(
-        'الكتابة ليست موهبة فحسب، بل هي مسؤولية تجاه الكلمة والإنسان.',
-      )
-      expect(texts).toContain(
-        'الأدب مرآة المجتمع ونافذته على المستقبل، فمن يكتب اليوم يرسم ملامح الغد.',
-      )
-    })
-
-    it('lists the 1988 union prize for درب الجنوب in the timeline', () => {
-      const ev = tribute.timeline.find((e) => e.year === 1988)
-      expect(ev).toBeDefined()
-      expect(ev!.eventAr).toContain('درب الجنوب')
-    })
-
-    it('includes درب الجنوب among the novels', () => {
-      const novel = tribute.works.find(
-        (w) => w.titleAr === 'درب الجنوب' && w.type === 'novel',
-      )
-      expect(novel).toBeDefined()
-      expect(novel!.year).toBe(1988)
-    })
-
-    it('records seven novels, six story collections, and three translations', () => {
-      expect(tribute.works.filter((w) => w.type === 'novel')).toHaveLength(7)
-      expect(tribute.works.filter((w) => w.type === 'stories')).toHaveLength(6)
-      expect(tribute.translations).toHaveLength(3)
-    })
-  })
-  ```
-
-- [ ] **Step 2: Run the test and confirm it FAILS.**
-  Command:
-  ```bash
-  pnpm vitest run tests/unit/tribute-content.test.ts
-  ```
-  Expected output (the module does not exist yet):
-  ```
-  Error: Failed to load url ../../content/tribute (resolved id: .../content/tribute) in /home/sawad/devrepo/muallaqat/tests/unit/tribute-content.test.ts. Does the file exist?
-   FAIL  tests/unit/tribute-content.test.ts [ tests/unit/tribute-content.test.ts ]
-  Test Files  1 failed (1)
-  ```
-
-- [ ] **Step 3: Create the tribute seed object.**
-  Create `/home/sawad/devrepo/muallaqat/content/tribute.ts`:
-  ```ts
-  import type { Tribute } from '../lib/schemas'
-
-  // Awad Shaaban (عوض شعبان) — Beirut 1931–2025.
-  // Every fact below is taken verbatim from the VERIFIED TRIBUTE FACTS.
-  export const tribute: Tribute = {
-    nameAr: 'عوض شعبان',
-    nameEn: 'Awad Shaaban',
-    birthYear: 1931,
-    deathYear: 2025,
-    portrait: '/awad-shaaban-portrait.jpg',
-    creedAr: 'الكتابة ليست موهبة فحسب، بل هي مسؤولية تجاه الكلمة والإنسان.',
-    creedEn:
-      'Writing is not merely a gift; it is a responsibility toward the word and toward humankind.',
-    dedicationAr: 'إلى عوض شعبان، أبي ومُعلِّمي الأول.',
-    bioAr:
-      'عوض العوض، المعروف بـ عوض شعبان، روائي وكاتب قصصي وصحفي ومترجم لبناني، وُلد في بيروت عام 1931. هاجر إلى أميركا اللاتينية (البرازيل والأوروغواي والأرجنتين) عام 1953، ثم عاد إلى لبنان عام 1960. أتقن العربية والإنجليزية والبرتغالية والإسبانية والإيطالية. نال جائزة اتحاد الكتاب اللبنانيين عام 1988 عن روايته «درب الجنوب». رحل عام 2025.',
-    bioEn:
-      'Awad al-Awad, known as Awad Shaaban, was a Lebanese novelist, short-story writer, journalist, and translator, born in Beirut in 1931. He emigrated to Latin America (Brazil, Uruguay, Argentina) in 1953, then returned to Lebanon in 1960. He mastered Arabic, English, Portuguese, Spanish, and Italian. He won the Lebanese Writers Union prize in 1988 for his novel «درب الجنوب» (The Southern Path). He died in 2025.',
-    timeline: [
-      {
-        year: 1931,
-        eventAr: 'وُلد في بيروت.',
-        eventEn: 'Born in Beirut.',
-      },
-      {
-        year: 1953,
-        eventAr: 'هاجر إلى أميركا اللاتينية (البرازيل والأوروغواي والأرجنتين).',
-        eventEn: 'Emigrated to Latin America (Brazil, Uruguay, Argentina).',
-      },
-      {
-        year: 1960,
-        eventAr: 'عاد إلى لبنان.',
-        eventEn: 'Returned to Lebanon.',
-      },
-      {
-        year: 1988,
-        eventAr: 'نال جائزة اتحاد الكتاب اللبنانيين عن رواية «درب الجنوب».',
-        eventEn: 'Awarded the Lebanese Writers Union prize for the novel «درب الجنوب».',
-      },
-      {
-        year: 2025,
-        eventAr: 'رحل عن عالمنا.',
-        eventEn: 'Passed away.',
-      },
-    ],
-    works: [
-      { titleAr: 'الآفاق البعيدة', year: 1979, type: 'novel' },
-      { titleAr: 'الدروب المتقاطعة', year: 1985, type: 'novel' },
-      { titleAr: 'المغيب في مونتيفيديو', year: 1987, type: 'novel' },
-      { titleAr: 'درب الجنوب', year: 1988, type: 'novel' },
-      { titleAr: 'زمن التفسخ', year: 1997, type: 'novel' },
-      { titleAr: 'عندما يحل الظلام والصقيع', year: 2009, type: 'novel' },
-      { titleAr: 'الملعونون', year: 2012, type: 'novel' },
-      { titleAr: 'الرهائن', year: 1981, type: 'stories' },
-      { titleAr: 'الموت المجاني', year: 1988, type: 'stories' },
-      { titleAr: 'الجندب', year: 1994, type: 'stories' },
-      { titleAr: 'الفلسطينيات', year: 1998, type: 'stories' },
-      { titleAr: 'خزين الذكريات', year: 2010, type: 'stories' },
-      { titleAr: 'في أرض التيه', year: 2014, type: 'stories' },
-    ],
-    translations: [
-      { author: 'Gogol' },
-      { author: 'Chekhov' },
-      { author: 'Jorge Amado' },
-    ],
-    journalism: [
-      'السفير',
-      'اللواء',
-      'الفكر العربي',
-      'النضال',
-      'اليوم',
-      'التلغراف',
-      'الأنباء',
-      'المحرر',
-    ],
-    quotes: [
-      {
-        textAr: 'الكتابة ليست موهبة فحسب، بل هي مسؤولية تجاه الكلمة والإنسان.',
-        textEn:
-          'Writing is not merely a gift; it is a responsibility toward the word and toward humankind.',
-      },
-      {
-        textAr:
-          'الأدب مرآة المجتمع ونافذته على المستقبل، فمن يكتب اليوم يرسم ملامح الغد.',
-        textEn:
-          'Literature is the mirror of society and its window onto the future; whoever writes today draws the features of tomorrow.',
-      },
-    ],
-  }
-  ```
-
-- [ ] **Step 4: Run the test and confirm it PASSES.**
-  Command:
-  ```bash
-  pnpm vitest run tests/unit/tribute-content.test.ts
-  ```
-  Expected output:
-  ```
-   ✓ tests/unit/tribute-content.test.ts (7 tests) 
-     ✓ content/tribute.ts (Awad Shaaban) > passes the TributeSchema validation
-     ✓ content/tribute.ts (Awad Shaaban) > carries the verified name and dates
-     ✓ content/tribute.ts (Awad Shaaban) > points at the public portrait copy
-     ✓ content/tribute.ts (Awad Shaaban) > carries both verbatim creeds in quotes
-     ✓ content/tribute.ts (Awad Shaaban) > lists the 1988 union prize for درب الجنوب in the timeline
-     ✓ content/tribute.ts (Awad Shaaban) > includes درب الجنوب among the novels
-     ✓ content/tribute.ts (Awad Shaaban) > records seven novels, six story collections, and three translations
-   Test Files  1 passed (1)
-        Tests  7 passed (7)
-  ```
-
-- [ ] **Step 5: Commit.**
-  ```bash
-  git -C /home/sawad/devrepo/muallaqat add content/tribute.ts tests/unit/tribute-content.test.ts
-  git -C /home/sawad/devrepo/muallaqat commit -m "feat(content): seed Awad Shaaban tribute object"
-  ```
-
----
-
-### Task E2: Copy the portrait into `public/` and add a `getTribute()` accessor
-
-**Files:**
-- Create: `/home/sawad/devrepo/muallaqat/public/awad-shaaban-portrait.jpg` (copied from `assets/`)
-- Modify: `/home/sawad/devrepo/muallaqat/lib/content.ts`
-- Test: `/home/sawad/devrepo/muallaqat/tests/unit/get-tribute.test.ts`
-
-- [ ] **Step 1: Copy the portrait asset into the public directory.**
-  Command:
-  ```bash
-  mkdir -p /home/sawad/devrepo/muallaqat/public && cp /home/sawad/devrepo/muallaqat/assets/awad-shaaban-portrait.jpg /home/sawad/devrepo/muallaqat/public/awad-shaaban-portrait.jpg && ls -l /home/sawad/devrepo/muallaqat/public/awad-shaaban-portrait.jpg
-  ```
-  Expected output (file present, ~152625 bytes):
-  ```
-  -rw-rw-r-- 1 sawad sawad 152625 ... /home/sawad/devrepo/muallaqat/public/awad-shaaban-portrait.jpg
-  ```
-
-- [ ] **Step 2: Write the failing test for `getTribute()`.**
-  Create `/home/sawad/devrepo/muallaqat/tests/unit/get-tribute.test.ts`:
-  ```ts
-  import { describe, it, expect } from 'vitest'
-  import { getTribute } from '../../lib/content'
-
-  describe('getTribute()', () => {
-    it('returns the validated tribute object', () => {
-      const t = getTribute()
-      expect(t.nameAr).toBe('عوض شعبان')
-      expect(t.nameEn).toBe('Awad Shaaban')
-      expect(t.birthYear).toBe(1931)
-      expect(t.deathYear).toBe(2025)
-    })
-
-    it('returns the same frozen instance every call', () => {
-      expect(getTribute()).toBe(getTribute())
-      expect(Object.isFrozen(getTribute())).toBe(true)
-    })
-  })
-  ```
-
-- [ ] **Step 3: Run the test and confirm it FAILS.**
-  Command:
-  ```bash
-  pnpm vitest run tests/unit/get-tribute.test.ts
-  ```
-  Expected output (`getTribute` is not yet exported):
-  ```
-   FAIL  tests/unit/get-tribute.test.ts > getTribute() > returns the validated tribute object
-  TypeError: getTribute is not a function
-   Test Files  1 failed (1)
-  ```
-
-- [ ] **Step 4: Add the `getTribute()` accessor to the content loader.**
-  Append the following to the end of `/home/sawad/devrepo/muallaqat/lib/content.ts` (the `tribute` const is already exported by the Group C loader):
-  ```ts
-
-  /** Accessor for the validated, frozen Tribute object (Awad Shaaban). */
-  export function getTribute(): Tribute {
-    return tribute;
-  }
-  ```
-
-- [ ] **Step 5: Run the test and confirm it PASSES.**
-  Command:
-  ```bash
-  pnpm vitest run tests/unit/get-tribute.test.ts
-  ```
-  Expected output:
-  ```
-   ✓ tests/unit/get-tribute.test.ts (2 tests)
-     ✓ getTribute() > returns the validated tribute object
-     ✓ getTribute() > returns the same frozen instance every call
-   Test Files  1 passed (1)
-        Tests  2 passed (2)
-  ```
-
-- [ ] **Step 6: Commit.**
-  ```bash
-  git -C /home/sawad/devrepo/muallaqat add public/awad-shaaban-portrait.jpg lib/content.ts tests/unit/get-tribute.test.ts
-  git -C /home/sawad/devrepo/muallaqat commit -m "feat(content): expose getTribute() and copy portrait to public"
-  ```
-
----
-
-### Task E3: `Portrait` sub-section component
+### Task E1: `Portrait` sub-section component
 
 **Files:**
 - Create: `/home/sawad/devrepo/muallaqat/components/tribute/Portrait.tsx`
-- Test: `/home/sawad/devrepo/muallaqat/tests/unit/tribute-Portrait.test.tsx`
+- Test: `/home/sawad/devrepo/muallaqat/tests/unit/Portrait.test.tsx`
 
-- [ ] **Step 1: Write the failing test.**
-  Create `/home/sawad/devrepo/muallaqat/tests/unit/tribute-Portrait.test.tsx`:
+- [ ] **Step 1: Write the failing unit test for Portrait.**
+  Create `/home/sawad/devrepo/muallaqat/tests/unit/Portrait.test.tsx`:
   ```tsx
   import { render, screen } from '@testing-library/react'
   import { Portrait } from '@/components/tribute/Portrait'
 
-  describe('tribute/Portrait', () => {
-    it('renders the portrait image with the name as alt text', () => {
+  describe('Portrait', () => {
+    it('renders the portrait image with the name as its accessible alt text', () => {
       render(
         <Portrait
           src="/awad-shaaban-portrait.jpg"
@@ -3392,10 +3120,10 @@ This group builds the `/tribute` memorial from `getTribute()`. It depends on Gro
         />,
       )
       const img = screen.getByRole('img', { name: 'عوض شعبان' })
-      expect(img).toHaveAttribute('src', '/awad-shaaban-portrait.jpg')
+      expect(img).toBeInTheDocument()
     })
 
-    it('renders the name and the life span', () => {
+    it('renders the name and the 1931–2025 dates caption', () => {
       render(
         <Portrait
           src="/awad-shaaban-portrait.jpg"
@@ -3405,703 +3133,1025 @@ This group builds the `/tribute` memorial from `getTribute()`. It depends on Gro
         />,
       )
       expect(screen.getByText('عوض شعبان')).toBeInTheDocument()
-      expect(screen.getByText('1931 – 2025')).toBeInTheDocument()
+      expect(screen.getByText('١٩٣١ – ٢٠٢٥')).toBeInTheDocument()
+    })
+
+    it('points the image at the served portrait path', () => {
+      render(
+        <Portrait
+          src="/awad-shaaban-portrait.jpg"
+          name="عوض شعبان"
+          birthYear={1931}
+          deathYear={2025}
+        />,
+      )
+      const img = screen.getByRole('img', { name: 'عوض شعبان' })
+      expect(img.getAttribute('src')).toContain('awad-shaaban-portrait.jpg')
     })
   })
   ```
 
 - [ ] **Step 2: Run the test and confirm it FAILS.**
-  Command:
+  Run:
   ```bash
-  pnpm vitest run tests/unit/tribute-Portrait.test.tsx
+  cd /home/sawad/devrepo/muallaqat && pnpm vitest run tests/unit/Portrait.test.tsx
   ```
-  Expected output:
+  EXPECTED output (the component module does not exist yet):
   ```
-  Error: Failed to resolve import "@/components/tribute/Portrait"
-   FAIL  tests/unit/tribute-Portrait.test.tsx [ tests/unit/tribute-Portrait.test.tsx ]
+   FAIL  tests/unit/Portrait.test.tsx [ tests/unit/Portrait.test.tsx ]
+  Error: Failed to load url @/components/tribute/Portrait (resolved id: @/components/tribute/Portrait). Does the file exist?
+
    Test Files  1 failed (1)
+        Tests  no tests
   ```
 
-- [ ] **Step 3: Implement the Portrait component.**
+- [ ] **Step 3: Write the minimal Portrait implementation.**
   Create `/home/sawad/devrepo/muallaqat/components/tribute/Portrait.tsx`:
   ```tsx
-  type PortraitProps = {
-    src: string;
-    name: string;
-    birthYear: number;
-    deathYear: number;
-  };
+  import Image from 'next/image'
 
-  /** Reverent portrait header: framed photo, name in Amiri, life span. */
+  /**
+   * Portrait — the memorial portrait of Awad Shaaban with a name + dates caption.
+   *
+   * Uses next/image with the served portrait path (tribute.portrait, e.g.
+   * "/awad-shaaban-portrait.jpg"). The name is the image alt text so assistive
+   * tech announces who is pictured. The caption renders the Arabic name in the
+   * Amiri display family and the life dates rendered in Arabic-Indic numerals.
+   */
+  type PortraitProps = {
+    /** Served portrait path (tribute.portrait). */
+    src: string
+    /** Display name (tribute.nameAr) — also the image alt text. */
+    name: string
+    /** Birth year (tribute.birthYear). */
+    birthYear: number
+    /** Death year (tribute.deathYear). */
+    deathYear: number
+  }
+
   export function Portrait({ src, name, birthYear, deathYear }: PortraitProps) {
+    const dates = `${birthYear.toLocaleString('ar-EG', { useGrouping: false })} – ${deathYear.toLocaleString('ar-EG', { useGrouping: false })}`
     return (
-      <section className="flex flex-col items-center gap-6 py-12 text-center">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
+      <figure className="mx-auto flex max-w-sm flex-col items-center gap-4 text-center">
+        <Image
           src={src}
           alt={name}
-          width={224}
-          height={224}
-          className="h-56 w-56 rounded-full border-4 border-gold object-cover shadow-lg"
+          width={320}
+          height={400}
+          priority
+          className="rounded-md border border-gold-pale object-cover shadow-lg"
         />
-        <h1 className="font-display text-5xl text-ink">{name}</h1>
-        <p className="font-kufi text-xl text-gold">
-          {birthYear} – {deathYear}
-        </p>
-      </section>
-    );
+        <figcaption className="flex flex-col items-center gap-1">
+          <span className="font-display text-3xl text-ink">{name}</span>
+          <span className="font-kufi text-lg text-gold">{dates}</span>
+        </figcaption>
+      </figure>
+    )
   }
   ```
 
 - [ ] **Step 4: Run the test and confirm it PASSES.**
-  Command:
+  Run:
   ```bash
-  pnpm vitest run tests/unit/tribute-Portrait.test.tsx
+  cd /home/sawad/devrepo/muallaqat && pnpm vitest run tests/unit/Portrait.test.tsx
   ```
-  Expected output:
+  EXPECTED output:
   ```
-   ✓ tests/unit/tribute-Portrait.test.tsx (2 tests)
-     ✓ tribute/Portrait > renders the portrait image with the name as alt text
-     ✓ tribute/Portrait > renders the name and the life span
-   Test Files  1 passed (1)
-        Tests  2 passed (2)
-  ```
+   ✓ tests/unit/Portrait.test.tsx (3 tests)
+     ✓ Portrait > renders the portrait image with the name as its accessible alt text
+     ✓ Portrait > renders the name and the 1931–2025 dates caption
+     ✓ Portrait > points the image at the served portrait path
 
-- [ ] **Step 5: Commit.**
-  ```bash
-  git -C /home/sawad/devrepo/muallaqat add components/tribute/Portrait.tsx tests/unit/tribute-Portrait.test.tsx
-  git -C /home/sawad/devrepo/muallaqat commit -m "feat(tribute): add Portrait sub-section"
-  ```
-
----
-
-### Task E4: `Bio` sub-section component
-
-**Files:**
-- Create: `/home/sawad/devrepo/muallaqat/components/tribute/Bio.tsx`
-- Test: `/home/sawad/devrepo/muallaqat/tests/unit/tribute-Bio.test.tsx`
-
-- [ ] **Step 1: Write the failing test.**
-  Create `/home/sawad/devrepo/muallaqat/tests/unit/tribute-Bio.test.tsx`:
-  ```tsx
-  import { render, screen } from '@testing-library/react'
-  import { Bio } from '@/components/tribute/Bio'
-
-  describe('tribute/Bio', () => {
-    it('renders the heading and the biography text', () => {
-      render(<Bio heading="سيرة" text="روائي وكاتب قصصي وصحفي ومترجم لبناني." />)
-      expect(screen.getByText('سيرة')).toBeInTheDocument()
-      expect(
-        screen.getByText('روائي وكاتب قصصي وصحفي ومترجم لبناني.'),
-      ).toBeInTheDocument()
-    })
-  })
-  ```
-
-- [ ] **Step 2: Run the test and confirm it FAILS.**
-  Command:
-  ```bash
-  pnpm vitest run tests/unit/tribute-Bio.test.tsx
-  ```
-  Expected output:
-  ```
-  Error: Failed to resolve import "@/components/tribute/Bio"
-   FAIL  tests/unit/tribute-Bio.test.tsx [ tests/unit/tribute-Bio.test.tsx ]
-   Test Files  1 failed (1)
-  ```
-
-- [ ] **Step 3: Implement the Bio component.**
-  Create `/home/sawad/devrepo/muallaqat/components/tribute/Bio.tsx`:
-  ```tsx
-  type BioProps = {
-    heading: string;
-    text: string;
-  };
-
-  /** Biography prose block, set in the UI font with comfortable measure. */
-  export function Bio({ heading, text }: BioProps) {
-    return (
-      <section className="mx-auto max-w-2xl py-10 text-start">
-        <h2 className="font-kufi mb-4 text-2xl text-gold">{heading}</h2>
-        <p className="font-ui text-lg leading-loose text-ink-light">{text}</p>
-      </section>
-    );
-  }
-  ```
-
-- [ ] **Step 4: Run the test and confirm it PASSES.**
-  Command:
-  ```bash
-  pnpm vitest run tests/unit/tribute-Bio.test.tsx
-  ```
-  Expected output:
-  ```
-   ✓ tests/unit/tribute-Bio.test.tsx (1 test)
-     ✓ tribute/Bio > renders the heading and the biography text
-   Test Files  1 passed (1)
-        Tests  1 passed (1)
-  ```
-
-- [ ] **Step 5: Commit.**
-  ```bash
-  git -C /home/sawad/devrepo/muallaqat add components/tribute/Bio.tsx tests/unit/tribute-Bio.test.tsx
-  git -C /home/sawad/devrepo/muallaqat commit -m "feat(tribute): add Bio sub-section"
-  ```
-
----
-
-### Task E5: `Timeline` sub-section component
-
-**Files:**
-- Create: `/home/sawad/devrepo/muallaqat/components/tribute/Timeline.tsx`
-- Test: `/home/sawad/devrepo/muallaqat/tests/unit/tribute-Timeline.test.tsx`
-
-- [ ] **Step 1: Write the failing test.**
-  Create `/home/sawad/devrepo/muallaqat/tests/unit/tribute-Timeline.test.tsx`:
-  ```tsx
-  import { render, screen } from '@testing-library/react'
-  import { Timeline } from '@/components/tribute/Timeline'
-  import type { TributeEvent } from '@/lib/schemas'
-
-  const events: TributeEvent[] = [
-    { year: 1931, eventAr: 'وُلد في بيروت.', eventEn: 'Born in Beirut.' },
-    {
-      year: 1953,
-      eventAr: 'هاجر إلى أميركا اللاتينية.',
-      eventEn: 'Emigrated to Latin America.',
-    },
-    {
-      year: 1988,
-      eventAr: 'نال جائزة اتحاد الكتاب اللبنانيين عن رواية «درب الجنوب».',
-      eventEn: 'Awarded the Lebanese Writers Union prize for «درب الجنوب».',
-    },
-  ]
-
-  describe('tribute/Timeline', () => {
-    it('renders the heading', () => {
-      render(<Timeline heading="مسيرة حياة" events={events} locale="ar" />)
-      expect(screen.getByText('مسيرة حياة')).toBeInTheDocument()
-    })
-
-    it('renders every year and its Arabic event when locale is ar', () => {
-      render(<Timeline heading="مسيرة حياة" events={events} locale="ar" />)
-      expect(screen.getByText('1931')).toBeInTheDocument()
-      expect(screen.getByText('وُلد في بيروت.')).toBeInTheDocument()
-      expect(
-        screen.getByText(
-          'نال جائزة اتحاد الكتاب اللبنانيين عن رواية «درب الجنوب».',
-        ),
-      ).toBeInTheDocument()
-    })
-
-    it('renders the English event when locale is en', () => {
-      render(<Timeline heading="A Life" events={events} locale="en" />)
-      expect(screen.getByText('Born in Beirut.')).toBeInTheDocument()
-      expect(
-        screen.getByText('Emigrated to Latin America.'),
-      ).toBeInTheDocument()
-    })
-  })
-  ```
-
-- [ ] **Step 2: Run the test and confirm it FAILS.**
-  Command:
-  ```bash
-  pnpm vitest run tests/unit/tribute-Timeline.test.tsx
-  ```
-  Expected output:
-  ```
-  Error: Failed to resolve import "@/components/tribute/Timeline"
-   FAIL  tests/unit/tribute-Timeline.test.tsx [ tests/unit/tribute-Timeline.test.tsx ]
-   Test Files  1 failed (1)
-  ```
-
-- [ ] **Step 3: Implement the Timeline component.**
-  Create `/home/sawad/devrepo/muallaqat/components/tribute/Timeline.tsx`:
-  ```tsx
-  import type { TributeEvent } from '@/lib/schemas';
-
-  type TimelineProps = {
-    heading: string;
-    events: TributeEvent[];
-    locale: 'ar' | 'en';
-  };
-
-  /** Vertical life timeline; year + localized event per row. */
-  export function Timeline({ heading, events, locale }: TimelineProps) {
-    return (
-      <section className="mx-auto max-w-2xl py-10 text-start">
-        <h2 className="font-kufi mb-6 text-2xl text-gold">{heading}</h2>
-        <ol className="flex flex-col gap-6 border-s-2 border-gold-pale ps-6">
-          {events.map((event) => (
-            <li key={event.year} className="flex flex-col gap-1">
-              <span className="font-kufi text-xl text-gold">{event.year}</span>
-              <span className="font-ui text-lg text-ink-light">
-                {locale === 'ar' ? event.eventAr : event.eventEn}
-              </span>
-            </li>
-          ))}
-        </ol>
-      </section>
-    );
-  }
-  ```
-
-- [ ] **Step 4: Run the test and confirm it PASSES.**
-  Command:
-  ```bash
-  pnpm vitest run tests/unit/tribute-Timeline.test.tsx
-  ```
-  Expected output:
-  ```
-   ✓ tests/unit/tribute-Timeline.test.tsx (3 tests)
-     ✓ tribute/Timeline > renders the heading
-     ✓ tribute/Timeline > renders every year and its Arabic event when locale is ar
-     ✓ tribute/Timeline > renders the English event when locale is en
    Test Files  1 passed (1)
         Tests  3 passed (3)
   ```
 
 - [ ] **Step 5: Commit.**
   ```bash
-  git -C /home/sawad/devrepo/muallaqat add components/tribute/Timeline.tsx tests/unit/tribute-Timeline.test.tsx
-  git -C /home/sawad/devrepo/muallaqat commit -m "feat(tribute): add Timeline sub-section"
+  cd /home/sawad/devrepo/muallaqat && git add components/tribute/Portrait.tsx tests/unit/Portrait.test.tsx && git commit -m "feat(tribute): add Portrait sub-section with name and life dates"
   ```
 
 ---
 
-### Task E6: `Works` sub-section component (novels, stories, translations)
+### Task E2: `Bio` sub-section component
 
 **Files:**
-- Create: `/home/sawad/devrepo/muallaqat/components/tribute/Works.tsx`
-- Test: `/home/sawad/devrepo/muallaqat/tests/unit/tribute-Works.test.tsx`
+- Create: `/home/sawad/devrepo/muallaqat/components/tribute/Bio.tsx`
+- Test: `/home/sawad/devrepo/muallaqat/tests/unit/Bio.test.tsx`
 
-- [ ] **Step 1: Write the failing test.**
-  Create `/home/sawad/devrepo/muallaqat/tests/unit/tribute-Works.test.tsx`:
+- [ ] **Step 1: Write the failing unit test for Bio.**
+  Create `/home/sawad/devrepo/muallaqat/tests/unit/Bio.test.tsx`:
   ```tsx
   import { render, screen } from '@testing-library/react'
-  import { Works } from '@/components/tribute/Works'
-  import type { TributeWork, TributeTranslation } from '@/lib/schemas'
+  import { Bio } from '@/components/tribute/Bio'
 
-  const works: TributeWork[] = [
-    { titleAr: 'الآفاق البعيدة', year: 1979, type: 'novel' },
-    { titleAr: 'درب الجنوب', year: 1988, type: 'novel' },
-    { titleAr: 'الرهائن', year: 1981, type: 'stories' },
-    { titleAr: 'الجندب', year: 1994, type: 'stories' },
-  ]
+  const BIO_AR =
+    'عوض العوض، المعروف بـ عوض شعبان، روائي وكاتب قصصي وصحفي ومترجم لبناني وُلد في بيروت عام 1931.'
+  const BIO_EN =
+    'Awad al-Awad, known as Awad Shaaban, was a Lebanese novelist born in Beirut in 1931.'
 
-  const translations: TributeTranslation[] = [
-    { author: 'Gogol' },
-    { author: 'Chekhov' },
-    { author: 'Jorge Amado' },
-  ]
-
-  describe('tribute/Works', () => {
-    it('renders the three section headings', () => {
-      render(
-        <Works
-          novelsHeading="روايات"
-          storiesHeading="مجموعات قصصية"
-          translationsHeading="ترجمات"
-          works={works}
-          translations={translations}
-        />,
-      )
-      expect(screen.getByText('روايات')).toBeInTheDocument()
-      expect(screen.getByText('مجموعات قصصية')).toBeInTheDocument()
-      expect(screen.getByText('ترجمات')).toBeInTheDocument()
+  describe('Bio', () => {
+    it('renders the Arabic biography when locale is ar', () => {
+      render(<Bio bioAr={BIO_AR} bioEn={BIO_EN} locale="ar" />)
+      expect(screen.getByText(BIO_AR)).toBeInTheDocument()
+      expect(screen.queryByText(BIO_EN)).toBeNull()
     })
 
-    it('renders novels with their titles and years', () => {
-      render(
-        <Works
-          novelsHeading="روايات"
-          storiesHeading="مجموعات قصصية"
-          translationsHeading="ترجمات"
-          works={works}
-          translations={translations}
-        />,
-      )
-      expect(screen.getByText('درب الجنوب')).toBeInTheDocument()
-      expect(screen.getByText('1988')).toBeInTheDocument()
-      expect(screen.getByText('الآفاق البعيدة')).toBeInTheDocument()
-      expect(screen.getByText('1979')).toBeInTheDocument()
+    it('renders the English biography when locale is en', () => {
+      render(<Bio bioAr={BIO_AR} bioEn={BIO_EN} locale="en" />)
+      expect(screen.getByText(BIO_EN)).toBeInTheDocument()
+      expect(screen.queryByText(BIO_AR)).toBeNull()
     })
 
-    it('renders story collections with their titles', () => {
-      render(
-        <Works
-          novelsHeading="روايات"
-          storiesHeading="مجموعات قصصية"
-          translationsHeading="ترجمات"
-          works={works}
-          translations={translations}
-        />,
-      )
-      expect(screen.getByText('الرهائن')).toBeInTheDocument()
-      expect(screen.getByText('الجندب')).toBeInTheDocument()
-    })
-
-    it('renders the translated authors', () => {
-      render(
-        <Works
-          novelsHeading="روايات"
-          storiesHeading="مجموعات قصصية"
-          translationsHeading="ترجمات"
-          works={works}
-          translations={translations}
-        />,
-      )
-      expect(screen.getByText('Gogol')).toBeInTheDocument()
-      expect(screen.getByText('Chekhov')).toBeInTheDocument()
-      expect(screen.getByText('Jorge Amado')).toBeInTheDocument()
+    it('marks the Arabic biography paragraph as right-to-left Arabic', () => {
+      const { container } = render(<Bio bioAr={BIO_AR} bioEn={BIO_EN} locale="ar" />)
+      const para = container.querySelector('p') as HTMLElement
+      expect(para).toHaveAttribute('dir', 'rtl')
+      expect(para).toHaveAttribute('lang', 'ar')
     })
   })
   ```
 
 - [ ] **Step 2: Run the test and confirm it FAILS.**
-  Command:
+  Run:
   ```bash
-  pnpm vitest run tests/unit/tribute-Works.test.tsx
+  cd /home/sawad/devrepo/muallaqat && pnpm vitest run tests/unit/Bio.test.tsx
   ```
-  Expected output:
+  EXPECTED output (the component module does not exist yet):
   ```
-  Error: Failed to resolve import "@/components/tribute/Works"
-   FAIL  tests/unit/tribute-Works.test.tsx [ tests/unit/tribute-Works.test.tsx ]
+   FAIL  tests/unit/Bio.test.tsx [ tests/unit/Bio.test.tsx ]
+  Error: Failed to load url @/components/tribute/Bio (resolved id: @/components/tribute/Bio). Does the file exist?
+
    Test Files  1 failed (1)
+        Tests  no tests
   ```
 
-- [ ] **Step 3: Implement the Works component.**
-  Create `/home/sawad/devrepo/muallaqat/components/tribute/Works.tsx`:
+- [ ] **Step 3: Write the minimal Bio implementation.**
+  Create `/home/sawad/devrepo/muallaqat/components/tribute/Bio.tsx`:
   ```tsx
-  import type { TributeWork, TributeTranslation } from '@/lib/schemas';
-
-  type WorksProps = {
-    novelsHeading: string;
-    storiesHeading: string;
-    translationsHeading: string;
-    works: TributeWork[];
-    translations: TributeTranslation[];
-  };
-
-  function WorkGrid({ items }: { items: TributeWork[] }) {
-    return (
-      <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-        {items.map((work) => (
-          <li
-            key={`${work.titleAr}-${work.year}`}
-            className="flex items-baseline justify-between gap-4 border-s-2 border-gold-pale ps-4"
-          >
-            <span className="font-display text-xl text-ink">{work.titleAr}</span>
-            <span className="font-kufi text-gold">{work.year}</span>
-          </li>
-        ))}
-      </ul>
-    );
+  /**
+   * Bio — the localized biography of Awad Shaaban.
+   *
+   * Renders bioAr for the Arabic locale and bioEn for English. The paragraph
+   * carries dir/lang so Arabic copy shapes and flows right-to-left even when the
+   * surrounding page is English. Body copy uses the Cairo UI family.
+   */
+  type BioProps = {
+    /** Arabic biography (tribute.bioAr). */
+    bioAr: string
+    /** English biography (tribute.bioEn). */
+    bioEn: string
+    /** Active locale. */
+    locale: string
   }
 
-  /** Works grid: novels + story collections (title + year) and translations. */
-  export function Works({
-    novelsHeading,
-    storiesHeading,
-    translationsHeading,
-    works,
-    translations,
-  }: WorksProps) {
-    const novels = works.filter((work) => work.type === 'novel');
-    const stories = works.filter((work) => work.type === 'stories');
-
+  export function Bio({ bioAr, bioEn, locale }: BioProps) {
+    const isArabic = locale === 'ar'
+    const text = isArabic ? bioAr : bioEn
     return (
-      <section className="mx-auto max-w-3xl py-10 text-start">
-        <div className="mb-10">
-          <h2 className="font-kufi mb-4 text-2xl text-gold">{novelsHeading}</h2>
-          <WorkGrid items={novels} />
-        </div>
-
-        <div className="mb-10">
-          <h2 className="font-kufi mb-4 text-2xl text-gold">{storiesHeading}</h2>
-          <WorkGrid items={stories} />
-        </div>
-
-        <div>
-          <h2 className="font-kufi mb-4 text-2xl text-gold">
-            {translationsHeading}
-          </h2>
-          <ul className="flex flex-wrap gap-3">
-            {translations.map((translation) => (
-              <li
-                key={translation.author}
-                className="font-ui rounded-full border border-gold-pale px-4 py-1 text-ink-light"
-              >
-                {translation.author}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-    );
+      <p
+        dir={isArabic ? 'rtl' : 'ltr'}
+        lang={isArabic ? 'ar' : 'en'}
+        className="mx-auto max-w-2xl font-ui text-lg leading-loose text-ink-light"
+      >
+        {text}
+      </p>
+    )
   }
   ```
 
 - [ ] **Step 4: Run the test and confirm it PASSES.**
-  Command:
+  Run:
   ```bash
-  pnpm vitest run tests/unit/tribute-Works.test.tsx
+  cd /home/sawad/devrepo/muallaqat && pnpm vitest run tests/unit/Bio.test.tsx
   ```
-  Expected output:
+  EXPECTED output:
   ```
-   ✓ tests/unit/tribute-Works.test.tsx (4 tests)
-     ✓ tribute/Works > renders the three section headings
-     ✓ tribute/Works > renders novels with their titles and years
-     ✓ tribute/Works > renders story collections with their titles
-     ✓ tribute/Works > renders the translated authors
+   ✓ tests/unit/Bio.test.tsx (3 tests)
+     ✓ Bio > renders the Arabic biography when locale is ar
+     ✓ Bio > renders the English biography when locale is en
+     ✓ Bio > marks the Arabic biography paragraph as right-to-left Arabic
+
+   Test Files  1 passed (1)
+        Tests  3 passed (3)
+  ```
+
+- [ ] **Step 5: Commit.**
+  ```bash
+  cd /home/sawad/devrepo/muallaqat && git add components/tribute/Bio.tsx tests/unit/Bio.test.tsx && git commit -m "feat(tribute): add localized Bio sub-section"
+  ```
+
+---
+
+### Task E3: `Timeline` sub-section component
+
+**Files:**
+- Create: `/home/sawad/devrepo/muallaqat/components/tribute/Timeline.tsx`
+- Test: `/home/sawad/devrepo/muallaqat/tests/unit/Timeline.test.tsx`
+
+- [ ] **Step 1: Write the failing unit test for Timeline.**
+  Create `/home/sawad/devrepo/muallaqat/tests/unit/Timeline.test.tsx`:
+  ```tsx
+  import { render, screen } from '@testing-library/react'
+  import { Timeline } from '@/components/tribute/Timeline'
+  import type { TributeEvent } from '@/lib/schemas'
+
+  const EVENTS: TributeEvent[] = [
+    { year: 2025, eventAr: 'رحل عن عالمنا.', eventEn: 'Passed away.' },
+    { year: 1931, eventAr: 'وُلد في بيروت.', eventEn: 'Born in Beirut.' },
+    { year: 1988, eventAr: 'نال الجائزة.', eventEn: 'Won the award.' },
+  ]
+
+  describe('Timeline', () => {
+    it('renders one list item per event', () => {
+      render(<Timeline events={EVENTS} locale="ar" />)
+      expect(screen.getAllByRole('listitem')).toHaveLength(EVENTS.length)
+    })
+
+    it('renders the Arabic event text when locale is ar', () => {
+      render(<Timeline events={EVENTS} locale="ar" />)
+      expect(screen.getByText('وُلد في بيروت.')).toBeInTheDocument()
+      expect(screen.getByText('رحل عن عالمنا.')).toBeInTheDocument()
+    })
+
+    it('renders the English event text when locale is en', () => {
+      render(<Timeline events={EVENTS} locale="en" />)
+      expect(screen.getByText('Born in Beirut.')).toBeInTheDocument()
+      expect(screen.getByText('Passed away.')).toBeInTheDocument()
+    })
+
+    it('orders events chronologically by year (ascending)', () => {
+      const { container } = render(<Timeline events={EVENTS} locale="en" />)
+      const years = Array.from(
+        container.querySelectorAll('[data-timeline-year]'),
+      ).map((el) => Number(el.getAttribute('data-timeline-year')))
+      expect(years).toEqual([1931, 1988, 2025])
+    })
+  })
+  ```
+
+- [ ] **Step 2: Run the test and confirm it FAILS.**
+  Run:
+  ```bash
+  cd /home/sawad/devrepo/muallaqat && pnpm vitest run tests/unit/Timeline.test.tsx
+  ```
+  EXPECTED output (the component module does not exist yet):
+  ```
+   FAIL  tests/unit/Timeline.test.tsx [ tests/unit/Timeline.test.tsx ]
+  Error: Failed to load url @/components/tribute/Timeline (resolved id: @/components/tribute/Timeline). Does the file exist?
+
+   Test Files  1 failed (1)
+        Tests  no tests
+  ```
+
+- [ ] **Step 3: Write the minimal Timeline implementation.**
+  Create `/home/sawad/devrepo/muallaqat/components/tribute/Timeline.tsx`:
+  ```tsx
+  import type { TributeEvent } from '@/lib/schemas'
+
+  /**
+   * Timeline — the life timeline of Awad Shaaban.
+   *
+   * Renders each event as a list item carrying the year and the localized event
+   * text (eventAr for ar, eventEn for en). Events are sorted chronologically
+   * (ascending year) without mutating the input array. Each row exposes a
+   * data-timeline-year marker so ordering can be asserted deterministically.
+   */
+  type TimelineProps = {
+    /** The life events (tribute.timeline). */
+    events: TributeEvent[]
+    /** Active locale. */
+    locale: string
+  }
+
+  export function Timeline({ events, locale }: TimelineProps) {
+    const isArabic = locale === 'ar'
+    const ordered = [...events].sort((a, b) => a.year - b.year)
+    return (
+      <ol className="mx-auto flex max-w-2xl flex-col gap-4">
+        {ordered.map((event) => (
+          <li
+            key={event.year}
+            data-timeline-year={event.year}
+            className="flex items-baseline gap-4"
+          >
+            <span className="font-kufi text-xl font-bold text-gold">
+              {event.year}
+            </span>
+            <span
+              dir={isArabic ? 'rtl' : 'ltr'}
+              lang={isArabic ? 'ar' : 'en'}
+              className="font-ui text-lg text-ink-light"
+            >
+              {isArabic ? event.eventAr : event.eventEn}
+            </span>
+          </li>
+        ))}
+      </ol>
+    )
+  }
+  ```
+
+- [ ] **Step 4: Run the test and confirm it PASSES.**
+  Run:
+  ```bash
+  cd /home/sawad/devrepo/muallaqat && pnpm vitest run tests/unit/Timeline.test.tsx
+  ```
+  EXPECTED output:
+  ```
+   ✓ tests/unit/Timeline.test.tsx (4 tests)
+     ✓ Timeline > renders one list item per event
+     ✓ Timeline > renders the Arabic event text when locale is ar
+     ✓ Timeline > renders the English event text when locale is en
+     ✓ Timeline > orders events chronologically by year (ascending)
+
    Test Files  1 passed (1)
         Tests  4 passed (4)
   ```
 
 - [ ] **Step 5: Commit.**
   ```bash
-  git -C /home/sawad/devrepo/muallaqat add components/tribute/Works.tsx tests/unit/tribute-Works.test.tsx
-  git -C /home/sawad/devrepo/muallaqat commit -m "feat(tribute): add Works sub-section with novels, stories, translations"
+  cd /home/sawad/devrepo/muallaqat && git add components/tribute/Timeline.tsx tests/unit/Timeline.test.tsx && git commit -m "feat(tribute): add chronological Timeline sub-section"
   ```
 
 ---
 
-### Task E7: `Quotes` sub-section component (the two creeds)
+### Task E4: `Works` sub-section component (novels, story collections, study)
+
+**Files:**
+- Create: `/home/sawad/devrepo/muallaqat/components/tribute/Works.tsx`
+- Test: `/home/sawad/devrepo/muallaqat/tests/unit/Works.test.tsx`
+
+- [ ] **Step 1: Write the failing unit test for Works.**
+  Create `/home/sawad/devrepo/muallaqat/tests/unit/Works.test.tsx`:
+  ```tsx
+  import { render, screen, within } from '@testing-library/react'
+  import { Works } from '@/components/tribute/Works'
+  import type { TributeWork } from '@/lib/schemas'
+
+  const WORKS: TributeWork[] = [
+    { titleAr: 'درب الجنوب', year: 1988, type: 'novel', note: 'دار الفارابي' },
+    { titleAr: 'الآفاق البعيدة', year: 1979, type: 'novel', note: 'دار النهار، بيروت' },
+    { titleAr: 'الرهائن', year: 1981, type: 'stories', note: 'دار الكلمة، بيروت' },
+    { titleAr: 'بيراندللو', year: 1979, type: 'study', note: 'المؤسسة العربية، بيروت' },
+  ]
+
+  const LABELS = {
+    novels: 'روايات',
+    stories: 'مجموعات قصصية',
+    study: 'دراسة',
+  }
+
+  describe('Works', () => {
+    it('renders the localized section headings for each work type', () => {
+      render(<Works works={WORKS} labels={LABELS} />)
+      expect(screen.getByRole('heading', { name: 'روايات' })).toBeInTheDocument()
+      expect(screen.getByRole('heading', { name: 'مجموعات قصصية' })).toBeInTheDocument()
+      expect(screen.getByRole('heading', { name: 'دراسة' })).toBeInTheDocument()
+    })
+
+    it('lists each work title with its year and publisher note', () => {
+      render(<Works works={WORKS} labels={LABELS} />)
+      expect(screen.getByText('درب الجنوب')).toBeInTheDocument()
+      expect(screen.getByText('دار الفارابي')).toBeInTheDocument()
+      expect(screen.getByText('1988')).toBeInTheDocument()
+    })
+
+    it('groups works under the matching type heading', () => {
+      render(<Works works={WORKS} labels={LABELS} />)
+      const novelsGroup = screen.getByRole('group', { name: 'روايات' })
+      expect(within(novelsGroup).getByText('درب الجنوب')).toBeInTheDocument()
+      expect(within(novelsGroup).getByText('الآفاق البعيدة')).toBeInTheDocument()
+      expect(within(novelsGroup).queryByText('الرهائن')).toBeNull()
+    })
+  })
+  ```
+
+- [ ] **Step 2: Run the test and confirm it FAILS.**
+  Run:
+  ```bash
+  cd /home/sawad/devrepo/muallaqat && pnpm vitest run tests/unit/Works.test.tsx
+  ```
+  EXPECTED output (the component module does not exist yet):
+  ```
+   FAIL  tests/unit/Works.test.tsx [ tests/unit/Works.test.tsx ]
+  Error: Failed to load url @/components/tribute/Works (resolved id: @/components/tribute/Works). Does the file exist?
+
+   Test Files  1 failed (1)
+        Tests  no tests
+  ```
+
+- [ ] **Step 3: Write the minimal Works implementation.**
+  Create `/home/sawad/devrepo/muallaqat/components/tribute/Works.tsx`:
+  ```tsx
+  import type { TributeWork } from '@/lib/schemas'
+
+  /**
+   * Works — Awad Shaaban's original works grouped by type.
+   *
+   * Renders three sections — novels, story collections, study — each under a
+   * localized heading supplied via `labels`. Within each section every work is
+   * a list item carrying its Arabic title, its year, and its publisher (the
+   * `note` field). Each section is a labelled group so the grouping can be
+   * asserted. A section is omitted entirely when it has no works.
+   */
+  type WorksLabels = {
+    /** Heading for type "novel". */
+    novels: string
+    /** Heading for type "stories". */
+    stories: string
+    /** Heading for type "study". */
+    study: string
+  }
+
+  type WorksProps = {
+    /** All original works (tribute.works). */
+    works: TributeWork[]
+    /** Localized section headings. */
+    labels: WorksLabels
+  }
+
+  const SECTIONS: { type: TributeWork['type']; labelKey: keyof WorksLabels }[] = [
+    { type: 'novel', labelKey: 'novels' },
+    { type: 'stories', labelKey: 'stories' },
+    { type: 'study', labelKey: 'study' },
+  ]
+
+  export function Works({ works, labels }: WorksProps) {
+    return (
+      <div className="mx-auto flex max-w-2xl flex-col gap-8">
+        {SECTIONS.map(({ type, labelKey }) => {
+          const heading = labels[labelKey]
+          const items = works.filter((work) => work.type === type)
+          if (items.length === 0) {
+            return null
+          }
+          return (
+            <section
+              key={type}
+              role="group"
+              aria-label={heading}
+              className="flex flex-col gap-3"
+            >
+              <h3 className="font-display text-2xl text-gold">{heading}</h3>
+              <ul className="flex flex-col gap-2">
+                {items.map((work) => (
+                  <li
+                    key={`${work.titleAr}-${work.year}`}
+                    className="flex flex-col gap-0.5"
+                  >
+                    <span className="font-ui text-lg text-ink">
+                      <span dir="rtl" lang="ar">
+                        {work.titleAr}
+                      </span>{' '}
+                      <span className="font-kufi text-base text-ink-muted">
+                        {work.year}
+                      </span>
+                    </span>
+                    {work.note ? (
+                      <span
+                        dir="rtl"
+                        lang="ar"
+                        className="font-ui text-sm text-ink-muted"
+                      >
+                        {work.note}
+                      </span>
+                    ) : null}
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )
+        })}
+      </div>
+    )
+  }
+  ```
+
+- [ ] **Step 4: Run the test and confirm it PASSES.**
+  Run:
+  ```bash
+  cd /home/sawad/devrepo/muallaqat && pnpm vitest run tests/unit/Works.test.tsx
+  ```
+  EXPECTED output:
+  ```
+   ✓ tests/unit/Works.test.tsx (3 tests)
+     ✓ Works > renders the localized section headings for each work type
+     ✓ Works > lists each work title with its year and publisher note
+     ✓ Works > groups works under the matching type heading
+
+   Test Files  1 passed (1)
+        Tests  3 passed (3)
+  ```
+
+- [ ] **Step 5: Commit.**
+  ```bash
+  cd /home/sawad/devrepo/muallaqat && git add components/tribute/Works.tsx tests/unit/Works.test.tsx && git commit -m "feat(tribute): add Works sub-section grouped by type"
+  ```
+
+---
+
+### Task E5: `Translations` sub-section component
+
+**Files:**
+- Create: `/home/sawad/devrepo/muallaqat/components/tribute/Translations.tsx`
+- Test: `/home/sawad/devrepo/muallaqat/tests/unit/Translations.test.tsx`
+
+- [ ] **Step 1: Write the failing unit test for Translations.**
+  Create `/home/sawad/devrepo/muallaqat/tests/unit/Translations.test.tsx`:
+  ```tsx
+  import { render, screen } from '@testing-library/react'
+  import { Translations } from '@/components/tribute/Translations'
+  import type { TributeTranslation } from '@/lib/schemas'
+
+  const TRANSLATIONS: TributeTranslation[] = [
+    { author: 'نيكولاي غوغول', year: 1961, note: 'المعطف' },
+    { author: 'أنطون تشيخوف', year: 1962, note: 'المبارزة' },
+    { author: 'جورجي آمادو', note: 'فارس الأمل' },
+  ]
+
+  describe('Translations', () => {
+    it('renders one list item per translation', () => {
+      render(<Translations translations={TRANSLATIONS} />)
+      expect(screen.getAllByRole('listitem')).toHaveLength(TRANSLATIONS.length)
+    })
+
+    it('renders the author, the translated title note, and the year', () => {
+      render(<Translations translations={TRANSLATIONS} />)
+      expect(screen.getByText('نيكولاي غوغول')).toBeInTheDocument()
+      expect(screen.getByText('المعطف')).toBeInTheDocument()
+      expect(screen.getByText('1961')).toBeInTheDocument()
+    })
+
+    it('renders a translation that has no year without crashing', () => {
+      render(<Translations translations={TRANSLATIONS} />)
+      expect(screen.getByText('فارس الأمل')).toBeInTheDocument()
+      expect(screen.getByText('جورجي آمادو')).toBeInTheDocument()
+    })
+  })
+  ```
+
+- [ ] **Step 2: Run the test and confirm it FAILS.**
+  Run:
+  ```bash
+  cd /home/sawad/devrepo/muallaqat && pnpm vitest run tests/unit/Translations.test.tsx
+  ```
+  EXPECTED output (the component module does not exist yet):
+  ```
+   FAIL  tests/unit/Translations.test.tsx [ tests/unit/Translations.test.tsx ]
+  Error: Failed to load url @/components/tribute/Translations (resolved id: @/components/tribute/Translations). Does the file exist?
+
+   Test Files  1 failed (1)
+        Tests  no tests
+  ```
+
+- [ ] **Step 3: Write the minimal Translations implementation.**
+  Create `/home/sawad/devrepo/muallaqat/components/tribute/Translations.tsx`:
+  ```tsx
+  import type { TributeTranslation } from '@/lib/schemas'
+
+  /**
+   * Translations — the literary works Awad Shaaban translated into Arabic.
+   *
+   * Each entry is a list item showing the translated work's Arabic title (the
+   * `note` field), the original author, and the publication year when present.
+   * Authors and titles are Arabic, so the row is dir="rtl" lang="ar". A missing
+   * year is simply omitted (the year field is optional on TributeTranslation).
+   */
+  type TranslationsProps = {
+    /** The translations (tribute.translations). */
+    translations: TributeTranslation[]
+  }
+
+  export function Translations({ translations }: TranslationsProps) {
+    return (
+      <ul dir="rtl" lang="ar" className="mx-auto flex max-w-2xl flex-col gap-3">
+        {translations.map((translation, index) => (
+          <li
+            key={`${translation.author}-${translation.note ?? ''}-${index}`}
+            className="flex flex-col gap-0.5"
+          >
+            <span className="font-ui text-lg text-ink">
+              {translation.note ? (
+                <span className="font-display">{translation.note}</span>
+              ) : null}
+              {translation.year ? (
+                <span className="font-kufi text-base text-ink-muted">
+                  {' '}
+                  {translation.year}
+                </span>
+              ) : null}
+            </span>
+            <span className="font-ui text-sm text-ink-muted">
+              {translation.author}
+            </span>
+          </li>
+        ))}
+      </ul>
+    )
+  }
+  ```
+
+- [ ] **Step 4: Run the test and confirm it PASSES.**
+  Run:
+  ```bash
+  cd /home/sawad/devrepo/muallaqat && pnpm vitest run tests/unit/Translations.test.tsx
+  ```
+  EXPECTED output:
+  ```
+   ✓ tests/unit/Translations.test.tsx (3 tests)
+     ✓ Translations > renders one list item per translation
+     ✓ Translations > renders the author, the translated title note, and the year
+     ✓ Translations > renders a translation that has no year without crashing
+
+   Test Files  1 passed (1)
+        Tests  3 passed (3)
+  ```
+
+- [ ] **Step 5: Commit.**
+  ```bash
+  cd /home/sawad/devrepo/muallaqat && git add components/tribute/Translations.tsx tests/unit/Translations.test.tsx && git commit -m "feat(tribute): add Translations sub-section"
+  ```
+
+---
+
+### Task E6: `Journalism` sub-section component
+
+**Files:**
+- Create: `/home/sawad/devrepo/muallaqat/components/tribute/Journalism.tsx`
+- Test: `/home/sawad/devrepo/muallaqat/tests/unit/Journalism.test.tsx`
+
+- [ ] **Step 1: Write the failing unit test for Journalism.**
+  Create `/home/sawad/devrepo/muallaqat/tests/unit/Journalism.test.tsx`:
+  ```tsx
+  import { render, screen } from '@testing-library/react'
+  import { Journalism } from '@/components/tribute/Journalism'
+
+  const OUTLETS = ['السفير', 'اللواء', 'الفكر العربي', 'المحرر']
+
+  describe('Journalism', () => {
+    it('renders one list item per newspaper or journal', () => {
+      render(<Journalism outlets={OUTLETS} />)
+      expect(screen.getAllByRole('listitem')).toHaveLength(OUTLETS.length)
+    })
+
+    it('renders each outlet name', () => {
+      render(<Journalism outlets={OUTLETS} />)
+      for (const outlet of OUTLETS) {
+        expect(screen.getByText(outlet)).toBeInTheDocument()
+      }
+    })
+
+    it('marks the list as right-to-left Arabic', () => {
+      const { container } = render(<Journalism outlets={OUTLETS} />)
+      const list = container.firstElementChild as HTMLElement
+      expect(list).toHaveAttribute('dir', 'rtl')
+      expect(list).toHaveAttribute('lang', 'ar')
+    })
+  })
+  ```
+
+- [ ] **Step 2: Run the test and confirm it FAILS.**
+  Run:
+  ```bash
+  cd /home/sawad/devrepo/muallaqat && pnpm vitest run tests/unit/Journalism.test.tsx
+  ```
+  EXPECTED output (the component module does not exist yet):
+  ```
+   FAIL  tests/unit/Journalism.test.tsx [ tests/unit/Journalism.test.tsx ]
+  Error: Failed to load url @/components/tribute/Journalism (resolved id: @/components/tribute/Journalism). Does the file exist?
+
+   Test Files  1 failed (1)
+        Tests  no tests
+  ```
+
+- [ ] **Step 3: Write the minimal Journalism implementation.**
+  Create `/home/sawad/devrepo/muallaqat/components/tribute/Journalism.tsx`:
+  ```tsx
+  /**
+   * Journalism — the newspapers and journals Awad Shaaban wrote for.
+   *
+   * Renders the outlet names (tribute.journalism, an array of Arabic strings)
+   * as a right-to-left Arabic list. Purely textual; no links in M1.
+   */
+  type JournalismProps = {
+    /** The outlet names (tribute.journalism). */
+    outlets: string[]
+  }
+
+  export function Journalism({ outlets }: JournalismProps) {
+    return (
+      <ul
+        dir="rtl"
+        lang="ar"
+        className="mx-auto flex max-w-2xl flex-wrap justify-center gap-x-6 gap-y-2"
+      >
+        {outlets.map((outlet) => (
+          <li key={outlet} className="font-ui text-lg text-ink-light">
+            {outlet}
+          </li>
+        ))}
+      </ul>
+    )
+  }
+  ```
+
+- [ ] **Step 4: Run the test and confirm it PASSES.**
+  Run:
+  ```bash
+  cd /home/sawad/devrepo/muallaqat && pnpm vitest run tests/unit/Journalism.test.tsx
+  ```
+  EXPECTED output:
+  ```
+   ✓ tests/unit/Journalism.test.tsx (3 tests)
+     ✓ Journalism > renders one list item per newspaper or journal
+     ✓ Journalism > renders each outlet name
+     ✓ Journalism > marks the list as right-to-left Arabic
+
+   Test Files  1 passed (1)
+        Tests  3 passed (3)
+  ```
+
+- [ ] **Step 5: Commit.**
+  ```bash
+  cd /home/sawad/devrepo/muallaqat && git add components/tribute/Journalism.tsx tests/unit/Journalism.test.tsx && git commit -m "feat(tribute): add Journalism sub-section"
+  ```
+
+---
+
+### Task E7: `Quotes` sub-section component (renders via `Verse`)
 
 **Files:**
 - Create: `/home/sawad/devrepo/muallaqat/components/tribute/Quotes.tsx`
-- Test: `/home/sawad/devrepo/muallaqat/tests/unit/tribute-Quotes.test.tsx`
+- Test: `/home/sawad/devrepo/muallaqat/tests/unit/Quotes.test.tsx`
 
-- [ ] **Step 1: Write the failing test.**
-  Create `/home/sawad/devrepo/muallaqat/tests/unit/tribute-Quotes.test.tsx`:
+- [ ] **Step 1: Write the failing unit test for Quotes.**
+  Create `/home/sawad/devrepo/muallaqat/tests/unit/Quotes.test.tsx`:
   ```tsx
   import { render, screen } from '@testing-library/react'
   import { Quotes } from '@/components/tribute/Quotes'
   import type { TributeQuote } from '@/lib/schemas'
 
-  const quotes: TributeQuote[] = [
+  const QUOTES: TributeQuote[] = [
     {
       textAr: 'الكتابة ليست موهبة فحسب، بل هي مسؤولية تجاه الكلمة والإنسان.',
       textEn:
-        'Writing is not merely a gift; it is a responsibility toward the word and toward humankind.',
+        'Writing is not merely a talent; it is a responsibility toward the word and toward humankind.',
     },
     {
-      textAr:
-        'الأدب مرآة المجتمع ونافذته على المستقبل، فمن يكتب اليوم يرسم ملامح الغد.',
+      textAr: 'الأدب مرآة المجتمع ونافذته على المستقبل، فمن يكتب اليوم يرسم ملامح الغد.',
       textEn:
-        'Literature is the mirror of society and its window onto the future; whoever writes today draws the features of tomorrow.',
+        "Literature is society's mirror and its window onto the future.",
     },
   ]
 
-  describe('tribute/Quotes', () => {
-    it('renders the heading', () => {
-      render(<Quotes heading="عقيدته في الكتابة" quotes={quotes} locale="ar" />)
-      expect(screen.getByText('عقيدته في الكتابة')).toBeInTheDocument()
+  describe('Quotes', () => {
+    it('renders every Arabic quote text', () => {
+      render(<Quotes quotes={QUOTES} locale="ar" />)
+      for (const quote of QUOTES) {
+        expect(screen.getByText(quote.textAr)).toBeInTheDocument()
+      }
     })
 
-    it('renders both creeds in Arabic when locale is ar', () => {
-      render(<Quotes heading="عقيدته في الكتابة" quotes={quotes} locale="ar" />)
-      expect(
-        screen.getByText(
-          'الكتابة ليست موهبة فحسب، بل هي مسؤولية تجاه الكلمة والإنسان.',
-        ),
-      ).toBeInTheDocument()
-      expect(
-        screen.getByText(
-          'الأدب مرآة المجتمع ونافذته على المستقبل، فمن يكتب اليوم يرسم ملامح الغد.',
-        ),
-      ).toBeInTheDocument()
+    it('renders each Arabic quote inside a right-to-left Amiri verse container', () => {
+      const { container } = render(<Quotes quotes={QUOTES} locale="ar" />)
+      const verses = container.querySelectorAll('[data-verse-line]')
+      expect(verses).toHaveLength(QUOTES.length)
+      const firstVerse = verses[0].parentElement as HTMLElement
+      expect(firstVerse).toHaveAttribute('dir', 'rtl')
+      expect(firstVerse).toHaveClass('font-display')
     })
 
-    it('renders the English creed when locale is en', () => {
-      render(<Quotes heading="His Creed" quotes={quotes} locale="en" />)
+    it('shows the English text beneath each quote when locale is en', () => {
+      render(<Quotes quotes={QUOTES} locale="en" />)
       expect(
         screen.getByText(
-          'Writing is not merely a gift; it is a responsibility toward the word and toward humankind.',
+          'Writing is not merely a talent; it is a responsibility toward the word and toward humankind.',
         ),
       ).toBeInTheDocument()
     })
 
-    it('marks each blockquote container as right-to-left when locale is ar', () => {
-      const { container } = render(
-        <Quotes heading="عقيدته في الكتابة" quotes={quotes} locale="ar" />,
-      )
-      const blockquote = container.querySelector('blockquote')
-      expect(blockquote).toHaveAttribute('dir', 'rtl')
+    it('does not show English text when locale is ar', () => {
+      render(<Quotes quotes={QUOTES} locale="ar" />)
+      expect(
+        screen.queryByText(
+          'Writing is not merely a talent; it is a responsibility toward the word and toward humankind.',
+        ),
+      ).toBeNull()
     })
   })
   ```
 
 - [ ] **Step 2: Run the test and confirm it FAILS.**
-  Command:
+  Run:
   ```bash
-  pnpm vitest run tests/unit/tribute-Quotes.test.tsx
+  cd /home/sawad/devrepo/muallaqat && pnpm vitest run tests/unit/Quotes.test.tsx
   ```
-  Expected output:
+  EXPECTED output (the component module does not exist yet):
   ```
-  Error: Failed to resolve import "@/components/tribute/Quotes"
-   FAIL  tests/unit/tribute-Quotes.test.tsx [ tests/unit/tribute-Quotes.test.tsx ]
+   FAIL  tests/unit/Quotes.test.tsx [ tests/unit/Quotes.test.tsx ]
+  Error: Failed to load url @/components/tribute/Quotes (resolved id: @/components/tribute/Quotes). Does the file exist?
+
    Test Files  1 failed (1)
+        Tests  no tests
   ```
 
-- [ ] **Step 3: Implement the Quotes component.**
+- [ ] **Step 3: Write the minimal Quotes implementation (reuses the Group B Verse component).**
   Create `/home/sawad/devrepo/muallaqat/components/tribute/Quotes.tsx`:
   ```tsx
-  import type { TributeQuote } from '@/lib/schemas';
+  import { Verse } from '@/components/typography/Verse'
+  import type { TributeQuote } from '@/lib/schemas'
 
+  /**
+   * Quotes — Awad Shaaban's own words.
+   *
+   * Each quote's Arabic text (textAr) is rendered beautifully through the
+   * Group B <Verse /> component (Amiri, right-to-left, line semantics). When
+   * the locale is English the optional English text (textEn) is shown beneath
+   * the verse as a quiet gloss.
+   */
   type QuotesProps = {
-    heading: string;
-    quotes: TributeQuote[];
-    locale: 'ar' | 'en';
-  };
+    /** The quotes (tribute.quotes). */
+    quotes: TributeQuote[]
+    /** Active locale. */
+    locale: string
+  }
 
-  /** The two creeds, rendered as reverent blockquotes in the display font. */
-  export function Quotes({ heading, quotes, locale }: QuotesProps) {
-    const dir = locale === 'ar' ? 'rtl' : 'ltr';
+  export function Quotes({ quotes, locale }: QuotesProps) {
+    const showEnglish = locale === 'en'
     return (
-      <section className="mx-auto max-w-2xl py-10 text-center">
-        <h2 className="font-kufi mb-8 text-2xl text-gold">{heading}</h2>
-        <div className="flex flex-col gap-10">
-          {quotes.map((quote, index) => (
-            <blockquote
-              key={index}
-              dir={dir}
-              className="font-display text-2xl leading-relaxed text-ink"
-            >
-              {locale === 'ar' ? quote.textAr : (quote.textEn ?? quote.textAr)}
-            </blockquote>
-          ))}
-        </div>
-      </section>
-    );
+      <div className="mx-auto flex max-w-2xl flex-col gap-8 text-center">
+        {quotes.map((quote, index) => (
+          <figure key={index} className="flex flex-col gap-2">
+            <Verse linesAr={[quote.textAr]} className="text-2xl text-ink" />
+            {showEnglish && quote.textEn ? (
+              <figcaption
+                lang="en"
+                className="font-ui text-base italic text-ink-muted"
+              >
+                {quote.textEn}
+              </figcaption>
+            ) : null}
+          </figure>
+        ))}
+      </div>
+    )
   }
   ```
 
 - [ ] **Step 4: Run the test and confirm it PASSES.**
-  Command:
+  Run:
   ```bash
-  pnpm vitest run tests/unit/tribute-Quotes.test.tsx
+  cd /home/sawad/devrepo/muallaqat && pnpm vitest run tests/unit/Quotes.test.tsx
   ```
-  Expected output:
+  EXPECTED output:
   ```
-   ✓ tests/unit/tribute-Quotes.test.tsx (4 tests)
-     ✓ tribute/Quotes > renders the heading
-     ✓ tribute/Quotes > renders both creeds in Arabic when locale is ar
-     ✓ tribute/Quotes > renders the English creed when locale is en
-     ✓ tribute/Quotes > marks each blockquote container as right-to-left when locale is ar
+   ✓ tests/unit/Quotes.test.tsx (4 tests)
+     ✓ Quotes > renders every Arabic quote text
+     ✓ Quotes > renders each Arabic quote inside a right-to-left Amiri verse container
+     ✓ Quotes > shows the English text beneath each quote when locale is en
+     ✓ Quotes > does not show English text when locale is ar
+
    Test Files  1 passed (1)
         Tests  4 passed (4)
   ```
 
 - [ ] **Step 5: Commit.**
   ```bash
-  git -C /home/sawad/devrepo/muallaqat add components/tribute/Quotes.tsx tests/unit/tribute-Quotes.test.tsx
-  git -C /home/sawad/devrepo/muallaqat commit -m "feat(tribute): add Quotes sub-section for the two creeds"
+  cd /home/sawad/devrepo/muallaqat && git add components/tribute/Quotes.tsx tests/unit/Quotes.test.tsx && git commit -m "feat(tribute): add Quotes sub-section rendered via Verse"
   ```
 
 ---
 
-### Task E8: Tribute translation keys (AR/EN section headings)
+### Task E8: Tribute message keys (AR/EN section headings)
 
 **Files:**
 - Modify: `/home/sawad/devrepo/muallaqat/messages/ar.json`
 - Modify: `/home/sawad/devrepo/muallaqat/messages/en.json`
-- Test: `/home/sawad/devrepo/muallaqat/tests/unit/tribute-messages.test.ts`
+- Test: `/home/sawad/devrepo/muallaqat/tests/unit/tributeMessages.test.ts`
 
-- [ ] **Step 1: Write the failing test for the Tribute message keys.**
-  Create `/home/sawad/devrepo/muallaqat/tests/unit/tribute-messages.test.ts`:
+- [ ] **Step 1: Write the failing messages test (asserts the Tribute namespace carries the section keys in both locales with identical structure).**
+  Create `/home/sawad/devrepo/muallaqat/tests/unit/tributeMessages.test.ts`:
   ```ts
   import { describe, it, expect } from 'vitest'
   import ar from '../../messages/ar.json'
   import en from '../../messages/en.json'
 
-  const REQUIRED_KEYS = [
-    'bioHeading',
-    'timelineHeading',
-    'novelsHeading',
-    'storiesHeading',
-    'translationsHeading',
-    'quotesHeading',
-  ] as const
+  describe('Tribute message catalog', () => {
+    it('exposes the Tribute namespace in both locales', () => {
+      expect(ar.Tribute).toBeDefined()
+      expect(en.Tribute).toBeDefined()
+    })
 
-  describe('Tribute messages', () => {
-    it('ar.json has a Tribute namespace with all section headings', () => {
-      const tribute = (ar as Record<string, Record<string, string>>).Tribute
-      expect(tribute).toBeDefined()
-      for (const key of REQUIRED_KEYS) {
-        expect(typeof tribute[key]).toBe('string')
-        expect(tribute[key].length).toBeGreaterThan(0)
+    it('carries every tribute section heading key in both locales', () => {
+      const keys = [
+        'name',
+        'bio',
+        'timeline',
+        'novels',
+        'stories',
+        'study',
+        'translations',
+        'journalism',
+        'quotes',
+      ]
+      for (const key of keys) {
+        expect(ar.Tribute).toHaveProperty(key)
+        expect(en.Tribute).toHaveProperty(key)
       }
     })
 
-    it('en.json mirrors the ar.json Tribute keys', () => {
-      const arT = (ar as Record<string, Record<string, string>>).Tribute
-      const enT = (en as Record<string, Record<string, string>>).Tribute
-      expect(enT).toBeDefined()
-      expect(Object.keys(enT).sort()).toEqual(Object.keys(arT).sort())
+    it('shares identical key structure (ar mirrors en)', () => {
+      expect(Object.keys(ar.Tribute).sort()).toEqual(Object.keys(en.Tribute).sort())
+    })
+
+    it('renders the Arabic headings verbatim', () => {
+      expect(ar.Tribute.novels).toBe('روايات')
+      expect(ar.Tribute.stories).toBe('مجموعات قصصية')
+      expect(ar.Tribute.study).toBe('دراسة')
     })
   })
   ```
 
 - [ ] **Step 2: Run the test and confirm it FAILS.**
-  Command:
+  Run:
   ```bash
-  pnpm vitest run tests/unit/tribute-messages.test.ts
+  cd /home/sawad/devrepo/muallaqat && pnpm vitest run tests/unit/tributeMessages.test.ts
   ```
-  Expected output (the `Tribute` namespace currently only has `name` from Group A's seed):
+  EXPECTED output (the Tribute namespace currently has only `name`, so the heading keys are missing):
   ```
-   FAIL  tests/unit/tribute-messages.test.ts > Tribute messages > ar.json has a Tribute namespace with all section headings
-  AssertionError: expected undefined to be 'string'
+   FAIL  tests/unit/tributeMessages.test.ts [ tests/unit/tributeMessages.test.ts ]
+  AssertionError: expected {} to have property "bio"
+   ❯ tests/unit/tributeMessages.test.ts
+
    Test Files  1 failed (1)
+        Tests  1 passed | 3 failed (4)
   ```
 
-- [ ] **Step 3: Add the Tribute section headings to `messages/ar.json`.**
-  Replace the existing `"Tribute"` block in `/home/sawad/devrepo/muallaqat/messages/ar.json` (which contains only `"name"`) with this expanded block (keep the surrounding `Doorway` namespace and JSON structure intact):
+- [ ] **Step 3: Add the Tribute section keys to the Arabic catalog (replace the existing `Tribute` namespace block, keeping `name`).**
+  In `/home/sawad/devrepo/muallaqat/messages/ar.json`, replace this block:
   ```json
-  "Tribute": {
-    "name": "عوض شعبان",
-    "bioHeading": "سيرة",
-    "timelineHeading": "مسيرة حياة",
-    "novelsHeading": "روايات",
-    "storiesHeading": "مجموعات قصصية",
-    "translationsHeading": "ترجمات",
-    "quotesHeading": "عقيدته في الكتابة"
-  }
+    "Tribute": {
+      "name": "عوض شعبان"
+    }
+  ```
+  with:
+  ```json
+    "Tribute": {
+      "name": "عوض شعبان",
+      "bio": "السيرة",
+      "timeline": "محطات في حياته",
+      "novels": "روايات",
+      "stories": "مجموعات قصصية",
+      "study": "دراسة",
+      "translations": "ترجماته",
+      "journalism": "صحافته",
+      "quotes": "من أقواله"
+    }
   ```
 
-- [ ] **Step 4: Add the mirrored Tribute section headings to `messages/en.json`.**
-  Replace the existing `"Tribute"` block in `/home/sawad/devrepo/muallaqat/messages/en.json` (which contains only `"name"`) with this expanded block (keep the surrounding `Doorway` namespace and JSON structure intact):
+- [ ] **Step 4: Add the matching Tribute section keys to the English catalog (replace the existing `Tribute` namespace block, keeping `name`).**
+  In `/home/sawad/devrepo/muallaqat/messages/en.json`, replace this block:
   ```json
-  "Tribute": {
-    "name": "Awad Shaaban",
-    "bioHeading": "Life",
-    "timelineHeading": "A Life in Time",
-    "novelsHeading": "Novels",
-    "storiesHeading": "Story Collections",
-    "translationsHeading": "Translations",
-    "quotesHeading": "His Creed"
-  }
+    "Tribute": {
+      "name": "Awad Shaaban"
+    }
+  ```
+  with:
+  ```json
+    "Tribute": {
+      "name": "Awad Shaaban",
+      "bio": "Biography",
+      "timeline": "Milestones",
+      "novels": "Novels",
+      "stories": "Short-story collections",
+      "study": "Study",
+      "translations": "Translations",
+      "journalism": "Journalism",
+      "quotes": "In his own words"
+    }
   ```
 
 - [ ] **Step 5: Run the test and confirm it PASSES.**
-  Command:
+  Run:
   ```bash
-  pnpm vitest run tests/unit/tribute-messages.test.ts
+  cd /home/sawad/devrepo/muallaqat && pnpm vitest run tests/unit/tributeMessages.test.ts
   ```
-  Expected output:
+  EXPECTED output:
   ```
-   ✓ tests/unit/tribute-messages.test.ts (2 tests)
-     ✓ Tribute messages > ar.json has a Tribute namespace with all section headings
-     ✓ Tribute messages > en.json mirrors the ar.json Tribute keys
+   ✓ tests/unit/tributeMessages.test.ts (4 tests)
+     ✓ Tribute message catalog > exposes the Tribute namespace in both locales
+     ✓ Tribute message catalog > carries every tribute section heading key in both locales
+     ✓ Tribute message catalog > shares identical key structure (ar mirrors en)
+     ✓ Tribute message catalog > renders the Arabic headings verbatim
+
    Test Files  1 passed (1)
-        Tests  2 passed (2)
+        Tests  4 passed (4)
   ```
 
 - [ ] **Step 6: Commit.**
   ```bash
-  git -C /home/sawad/devrepo/muallaqat add messages/ar.json messages/en.json tests/unit/tribute-messages.test.ts
-  git -C /home/sawad/devrepo/muallaqat commit -m "feat(i18n): add Tribute section headings to AR/EN catalogs"
+  cd /home/sawad/devrepo/muallaqat && git add messages/ar.json messages/en.json tests/unit/tributeMessages.test.ts && git commit -m "feat(tribute): add tribute section heading keys in both locales"
   ```
 
 ---
@@ -4112,213 +4162,161 @@ This group builds the `/tribute` memorial from `getTribute()`. It depends on Gro
 - Create: `/home/sawad/devrepo/muallaqat/app/[locale]/tribute/page.tsx`
 - Test: `/home/sawad/devrepo/muallaqat/tests/e2e/tribute.spec.ts`
 
-- [ ] **Step 1: Write the failing Playwright e2e spec.**
+- [ ] **Step 1: Write the failing Tribute e2e (covers both locales, RTL, the name, dates, the award novel, and the creed).**
   Create `/home/sawad/devrepo/muallaqat/tests/e2e/tribute.spec.ts`:
-  ```ts
+  ```typescript
   import { test, expect } from '@playwright/test'
 
   test.describe('The Tribute memorial', () => {
-    test('/ar/tribute shows the Arabic name, dates, prize work, and creed', async ({
-      page,
-    }) => {
+    test('Arabic tribute shows the name, dates, award novel, creed, and is dir="rtl"', async ({ page }) => {
       await page.goto('/ar/tribute')
 
-      // Father's name (verified)
-      await expect(page.getByText('عوض شعبان')).toBeVisible()
+      const html = page.locator('html')
+      await expect(html).toHaveAttribute('dir', 'rtl')
+      await expect(html).toHaveAttribute('lang', 'ar')
 
-      // Birth and death years
-      await expect(page.locator('body')).toContainText('1931')
-      await expect(page.locator('body')).toContainText('2025')
+      // The father's name (heading + portrait alt).
+      await expect(page.getByRole('img', { name: 'عوض شعبان' })).toBeVisible()
+      await expect(page.getByText('عوض شعبان').first()).toBeVisible()
 
-      // The 1988 union-prize novel
-      await expect(page.locator('body')).toContainText('درب الجنوب')
+      // Life dates.
+      await expect(page.getByText('1931', { exact: false }).first()).toBeVisible()
+      await expect(page.getByText('2025', { exact: false }).first()).toBeVisible()
 
-      // The creed (verbatim, verified)
-      await expect(page.locator('body')).toContainText(
-        'الكتابة ليست موهبة فحسب، بل هي مسؤولية تجاه الكلمة والإنسان.',
-      )
+      // The award novel and the creed.
+      await expect(page.getByText('درب الجنوب', { exact: false }).first()).toBeVisible()
+      await expect(page.getByText('الكتابة ليست موهبة فحسب', { exact: false })).toBeVisible()
     })
 
-    test('/en/tribute shows the English equivalents', async ({ page }) => {
+    test('English tribute shows the English name and section labels', async ({ page }) => {
       await page.goto('/en/tribute')
 
-      await expect(page.getByText('Awad Shaaban')).toBeVisible()
-      await expect(page.locator('body')).toContainText('1931')
-      await expect(page.locator('body')).toContainText('2025')
-      await expect(page.locator('body')).toContainText('Novels')
-      await expect(page.locator('body')).toContainText(
-        'Writing is not merely a gift; it is a responsibility toward the word and toward humankind.',
-      )
+      const html = page.locator('html')
+      await expect(html).toHaveAttribute('dir', 'ltr')
+      await expect(html).toHaveAttribute('lang', 'en')
+
+      await expect(page.getByText('Awad Shaaban', { exact: false }).first()).toBeVisible()
+      await expect(page.getByRole('heading', { name: 'Novels' })).toBeVisible()
+      await expect(page.getByRole('heading', { name: 'Translations' })).toBeVisible()
     })
   })
   ```
 
-- [ ] **Step 2: Run the e2e spec and confirm it FAILS.**
-  Command:
+- [ ] **Step 2: Run the Tribute e2e and SHOW the FAILURE (the /tribute route does not exist yet, so navigation 404s and the assertions fail).**
+  Run:
   ```bash
-  pnpm exec playwright test tests/e2e/tribute.spec.ts --project=chromium
+  cd /home/sawad/devrepo/muallaqat && pnpm exec playwright test tests/e2e/tribute.spec.ts
   ```
-  Expected output (the `/tribute` route does not exist yet, so the page 404s and the assertions time out):
+  EXPECTED: both tests fail because the route renders the 404 page (no portrait img / headings), e.g.:
   ```
-   ✘  tests/e2e/tribute.spec.ts:5:7 › The Tribute memorial › /ar/tribute shows the Arabic name, dates, prize work, and creed
-      Error: expect(locator).toBeVisible() failed
-      Locator: getByText('عوض شعبان')
-   2 failed
+  Error: expect(locator).toBeVisible() failed
+  ...
+  1) [chromium] › tribute.spec.ts › The Tribute memorial › Arabic tribute shows the name, dates, award novel, creed, and is dir="rtl"
   ```
 
-- [ ] **Step 3: Implement the Tribute memorial page.**
-  Create `/home/sawad/devrepo/muallaqat/app/[locale]/tribute/page.tsx`:
-  ```tsx
-  import { setRequestLocale, getTranslations } from 'next-intl/server';
-  import { getTribute } from '@/lib/content';
-  import { GoldDivider } from '@/components/ornament/GoldDivider';
-  import { Portrait } from '@/components/tribute/Portrait';
-  import { Bio } from '@/components/tribute/Bio';
-  import { Timeline } from '@/components/tribute/Timeline';
-  import { Works } from '@/components/tribute/Works';
-  import { Quotes } from '@/components/tribute/Quotes';
+- [ ] **Step 3: Implement the Tribute page (server component: await params, setRequestLocale, getTranslations + getTribute; compose the sub-sections with GoldDivider between them).**
+  Write `/home/sawad/devrepo/muallaqat/app/[locale]/tribute/page.tsx`:
+  ```typescript
+  import {setRequestLocale, getTranslations} from 'next-intl/server';
+  import {getTribute} from '@/lib/content';
+  import {GoldDivider} from '@/components/ornament/GoldDivider';
+  import {Portrait} from '@/components/tribute/Portrait';
+  import {Bio} from '@/components/tribute/Bio';
+  import {Timeline} from '@/components/tribute/Timeline';
+  import {Works} from '@/components/tribute/Works';
+  import {Translations} from '@/components/tribute/Translations';
+  import {Journalism} from '@/components/tribute/Journalism';
+  import {Quotes} from '@/components/tribute/Quotes';
 
   type Props = {
-    params: Promise<{ locale: string }>;
+    params: Promise<{locale: string}>;
   };
 
-  export default async function TributePage({ params }: Props) {
-    const { locale } = await params;
+  export default async function TributePage({params}: Props) {
+    const {locale} = await params;
     // Must be called before any other next-intl API to keep this route static.
     setRequestLocale(locale);
 
     const t = await getTranslations('Tribute');
     const tribute = getTribute();
-    const isAr = locale === 'ar';
-    const lang: 'ar' | 'en' = isAr ? 'ar' : 'en';
 
     return (
-      <main className="mx-auto w-full max-w-4xl px-6 pb-24">
+      <main className="mx-auto flex w-full max-w-3xl flex-col gap-12 px-6 py-16">
         <Portrait
           src={tribute.portrait}
-          name={isAr ? tribute.nameAr : tribute.nameEn}
+          name={locale === 'ar' ? tribute.nameAr : tribute.nameEn}
           birthYear={tribute.birthYear}
           deathYear={tribute.deathYear}
         />
 
         <GoldDivider />
 
-        <Bio
-          heading={t('bioHeading')}
-          text={isAr ? tribute.bioAr : tribute.bioEn}
-        />
+        <section className="flex flex-col gap-4">
+          <h2 className="text-center font-display text-3xl text-gold">{t('bio')}</h2>
+          <Bio bioAr={tribute.bioAr} bioEn={tribute.bioEn} locale={locale} />
+        </section>
 
         <GoldDivider />
 
-        <Timeline
-          heading={t('timelineHeading')}
-          events={tribute.timeline}
-          locale={lang}
-        />
+        <section className="flex flex-col gap-4">
+          <h2 className="text-center font-display text-3xl text-gold">{t('timeline')}</h2>
+          <Timeline events={tribute.timeline} locale={locale} />
+        </section>
 
         <GoldDivider />
 
-        <Works
-          novelsHeading={t('novelsHeading')}
-          storiesHeading={t('storiesHeading')}
-          translationsHeading={t('translationsHeading')}
-          works={tribute.works}
-          translations={tribute.translations}
-        />
+        <section className="flex flex-col gap-4">
+          <Works
+            works={tribute.works}
+            labels={{
+              novels: t('novels'),
+              stories: t('stories'),
+              study: t('study'),
+            }}
+          />
+        </section>
 
         <GoldDivider />
 
-        <Quotes
-          heading={t('quotesHeading')}
-          quotes={tribute.quotes}
-          locale={lang}
-        />
+        <section className="flex flex-col gap-4">
+          <h2 className="text-center font-display text-3xl text-gold">{t('translations')}</h2>
+          <Translations translations={tribute.translations} />
+        </section>
+
+        <GoldDivider />
+
+        <section className="flex flex-col gap-4">
+          <h2 className="text-center font-display text-3xl text-gold">{t('journalism')}</h2>
+          <Journalism outlets={tribute.journalism} />
+        </section>
+
+        <GoldDivider />
+
+        <section className="flex flex-col gap-4">
+          <h2 className="text-center font-display text-3xl text-gold">{t('quotes')}</h2>
+          <Quotes quotes={tribute.quotes} locale={locale} />
+        </section>
       </main>
     );
   }
   ```
 
-- [ ] **Step 4: Run the e2e spec and confirm it PASSES.**
-  Command:
+- [ ] **Step 4: Run the Tribute e2e and SHOW the PASS.**
+  Run:
   ```bash
-  pnpm exec playwright test tests/e2e/tribute.spec.ts --project=chromium
+  cd /home/sawad/devrepo/muallaqat && pnpm exec playwright test tests/e2e/tribute.spec.ts
   ```
-  Expected output:
+  EXPECTED: both tests pass; output ends with:
   ```
-  Running 2 tests using 1 worker
-    ✓  1 tests/e2e/tribute.spec.ts:5:7 › The Tribute memorial › /ar/tribute shows the Arabic name, dates, prize work, and creed
-    ✓  2 tests/e2e/tribute.spec.ts:31:7 › The Tribute memorial › /en/tribute shows the English equivalents
-    2 passed
+  2 passed (...)
   ```
 
 - [ ] **Step 5: Commit.**
   ```bash
-  git -C /home/sawad/devrepo/muallaqat add app/[locale]/tribute/page.tsx tests/e2e/tribute.spec.ts
-  git -C /home/sawad/devrepo/muallaqat commit -m "feat(tribute): assemble the Tribute memorial page with e2e coverage"
+  cd /home/sawad/devrepo/muallaqat && git add "app/[locale]/tribute/page.tsx" tests/e2e/tribute.spec.ts && git commit -m "feat(tribute): wire the Tribute memorial page composing all sub-sections"
   ```
 
 ---
-
-### Task E10: Full Group E regression — unit + e2e green together
-
-**Files:**
-- Test: `/home/sawad/devrepo/muallaqat/tests/unit/tribute-content.test.ts` (existing)
-- Test: `/home/sawad/devrepo/muallaqat/tests/unit/tribute-Portrait.test.tsx` (existing)
-- Test: `/home/sawad/devrepo/muallaqat/tests/unit/tribute-Bio.test.tsx` (existing)
-- Test: `/home/sawad/devrepo/muallaqat/tests/unit/tribute-Timeline.test.tsx` (existing)
-- Test: `/home/sawad/devrepo/muallaqat/tests/unit/tribute-Works.test.tsx` (existing)
-- Test: `/home/sawad/devrepo/muallaqat/tests/unit/tribute-Quotes.test.tsx` (existing)
-- Test: `/home/sawad/devrepo/muallaqat/tests/unit/tribute-messages.test.ts` (existing)
-- Test: `/home/sawad/devrepo/muallaqat/tests/unit/get-tribute.test.ts` (existing)
-- Test: `/home/sawad/devrepo/muallaqat/tests/e2e/tribute.spec.ts` (existing)
-
-- [ ] **Step 1: Run every Group E unit test together and confirm they PASS.**
-  Command:
-  ```bash
-  pnpm vitest run tests/unit/tribute-content.test.ts tests/unit/get-tribute.test.ts tests/unit/tribute-Portrait.test.tsx tests/unit/tribute-Bio.test.tsx tests/unit/tribute-Timeline.test.tsx tests/unit/tribute-Works.test.tsx tests/unit/tribute-Quotes.test.tsx tests/unit/tribute-messages.test.ts
-  ```
-  Expected output:
-  ```
-   ✓ tests/unit/tribute-content.test.ts (7 tests)
-   ✓ tests/unit/get-tribute.test.ts (2 tests)
-   ✓ tests/unit/tribute-Portrait.test.tsx (2 tests)
-   ✓ tests/unit/tribute-Bio.test.tsx (1 test)
-   ✓ tests/unit/tribute-Timeline.test.tsx (3 tests)
-   ✓ tests/unit/tribute-Works.test.tsx (4 tests)
-   ✓ tests/unit/tribute-Quotes.test.tsx (4 tests)
-   ✓ tests/unit/tribute-messages.test.ts (2 tests)
-   Test Files  8 passed (8)
-        Tests  25 passed (25)
-  ```
-
-- [ ] **Step 2: Run the Tribute e2e spec and confirm it PASSES.**
-  Command:
-  ```bash
-  pnpm exec playwright test tests/e2e/tribute.spec.ts --project=chromium
-  ```
-  Expected output:
-  ```
-  Running 2 tests using 1 worker
-    ✓  1 tests/e2e/tribute.spec.ts:5:7 › The Tribute memorial › /ar/tribute shows the Arabic name, dates, prize work, and creed
-    ✓  2 tests/e2e/tribute.spec.ts:31:7 › The Tribute memorial › /en/tribute shows the English equivalents
-    2 passed
-  ```
-
-- [ ] **Step 3: Type-check the whole project to confirm no strict-mode regressions in Group E files.**
-  Command:
-  ```bash
-  pnpm exec tsc --noEmit
-  ```
-  Expected output (no errors; clean exit):
-  ```
-  
-  ```
-
-- [ ] **Step 4: Commit the verified Group E milestone marker.**
-  ```bash
-  git -C /home/sawad/devrepo/muallaqat add -A
-  git -C /home/sawad/devrepo/muallaqat commit -m "test(tribute): verify full Tribute memorial unit + e2e suite green" --allow-empty
-  ```
 
 ---
 
