@@ -1,0 +1,30 @@
+{
+  "voice": "ar-XA-Wavenet-C",
+  "eraId": "umawi",
+  "marks": [
+    {
+      "name": "b0",
+      "time": 0.015
+    },
+    {
+      "name": "b1",
+      "time": 6.001
+    },
+    {
+      "name": "b2",
+      "time": 11.695
+    },
+    {
+      "name": "b3",
+      "time": 17.515
+    },
+    {
+      "name": "b4",
+      "time": 23.246
+    },
+    {
+      "name": "b5",
+      "time": 29.113
+    }
+  ]
+}

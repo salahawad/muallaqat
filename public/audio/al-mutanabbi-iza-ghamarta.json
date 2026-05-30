@@ -1,0 +1,30 @@
+{
+  "voice": "ar-XA-Wavenet-D",
+  "eraId": "abbasi",
+  "marks": [
+    {
+      "name": "b0",
+      "time": 0.015
+    },
+    {
+      "name": "b1",
+      "time": 4.867
+    },
+    {
+      "name": "b2",
+      "time": 9.756
+    },
+    {
+      "name": "b3",
+      "time": 14.789
+    },
+    {
+      "name": "b4",
+      "time": 19.745
+    },
+    {
+      "name": "b5",
+      "time": 24.685
+    }
+  ]
+}

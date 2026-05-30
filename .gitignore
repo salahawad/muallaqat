@@ -12,6 +12,7 @@ build/
 # Env
 .env*
 !.env.example
+credentials.json
 
 # Misc
 .vercel

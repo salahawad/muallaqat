@@ -1,0 +1,30 @@
+{
+  "voice": "ar-XA-Wavenet-A",
+  "eraId": "andalusi",
+  "marks": [
+    {
+      "name": "b0",
+      "time": 0.015
+    },
+    {
+      "name": "b1",
+      "time": 5.679
+    },
+    {
+      "name": "b2",
+      "time": 11.594
+    },
+    {
+      "name": "b3",
+      "time": 17.269
+    },
+    {
+      "name": "b4",
+      "time": 23.165
+    },
+    {
+      "name": "b5",
+      "time": 28.776
+    }
+  ]
+}

@@ -12,7 +12,7 @@ The Living Diwan gathers the canon — المعلقات، الأشعار، ال�
 A reader enters through a memorial overture and descends through five eras, meeting the poets and their verse:
 
 - **`/`** — **The Doorway**: a night-to-dawn overture; the father's name self-writes in gold.
-- **`/diwan`** — **The Living Diwan**: a scroll through five era dioramas (الجاهلي → الأموي → العباسي → الأندلس → الحديث), the poets stepping forward as illuminated seals.
+- **`/diwan`** — **The Living Diwan**: a scroll through five era dioramas (الجاهلي → الأموي → العباسي → الأندلس → الحديث), the poets stepping forward as illuminated seals; the scroll closes on a remembrance (**في ذكرى**) that leads into the tribute.
 - **`/muallaqat`** — **the Seven Muʿallaqāt** hung as illuminated panels, each opening into its full ode.
 - **`/hija2`** — **the النقائض** rendered as interactive back-and-forth duels (Jarīr ↔ al-Farazdaq, Jarīr ↔ al-Akhṭal).
 - **`/poet/[slug]`** & **`/poem/[slug]`** — the human behind the verse, and the full text with meter (بحر), rhyme (قافية), and **read-aloud**: a pre-rendered, expressive Arabic recitation voiced for the poem's era, each bayt lighting up as it is spoken (with a graceful fallback to the visitor's browser voice). See [`docs/recitations.md`](docs/recitations.md).

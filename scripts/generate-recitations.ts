@@ -35,6 +35,7 @@ import { mkdir, writeFile } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { GoogleAuth } from 'google-auth-library';
 
 import { poems } from '../content/poems';
 import { eras } from '../content/eras';
@@ -82,7 +83,21 @@ const ENDPOINT = 'https://texttospeech.googleapis.com/v1beta1/text:synthesize';
 const SSML_BUDGET = 4200;
 
 const API_KEY = process.env.GOOGLE_TTS_API_KEY ?? process.env.GOOGLE_CLOUD_API_KEY;
-const ACCESS_TOKEN = process.env.GOOGLE_ACCESS_TOKEN;
+let ACCESS_TOKEN = process.env.GOOGLE_ACCESS_TOKEN;
+
+/** Resolve an access token from GOOGLE_APPLICATION_CREDENTIALS if no key/token is set. */
+async function resolveAccessToken(): Promise<void> {
+  if (API_KEY || ACCESS_TOKEN) return;
+  const credFile = process.env.GOOGLE_APPLICATION_CREDENTIALS;
+  if (!credFile) return;
+  const auth = new GoogleAuth({
+    keyFile: credFile,
+    scopes: ['https://www.googleapis.com/auth/cloud-platform'],
+  });
+  const client = await auth.getClient();
+  const { token } = await client.getAccessToken();
+  if (token) ACCESS_TOKEN = token;
+}
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const OUT_DIR = path.resolve(__dirname, '..', 'public', 'audio');
@@ -212,6 +227,9 @@ function voiceFor(eraId: string): EraVoice {
 
 async function main() {
   const { force, list, only } = parseArgs(process.argv.slice(2));
+
+  // Try service account auth before checking credentials
+  await resolveAccessToken();
 
   if (list) {
     console.log('Era → voice plan:\n');
