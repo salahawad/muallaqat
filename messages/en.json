@@ -1,13 +1,35 @@
 {
   "Doorway": {
-    "title": "The Living Diwan",
+    "kicker": "A Living Diwan",
+    "title": "Mu'allaqat",
+    "name": "Awad Shaaban",
+    "dates": "1931 — 2025",
+    "creed": "Writing is not merely a talent; it is a responsibility toward the word and toward humankind.",
+    "dedication": "To my father, Awad Shaaban — who taught us that the word is a trust.",
+    "intro": "A gathering of the greatest Arabic writing: the Mu'allaqat, the poems, the prose, and the satire.",
     "enter": "Enter the Diwan",
-    "dedication": "For Awad Shaaban"
+    "skip": "Skip the overture"
   },
   "Nav": {
-    "tribute": "Tribute"
+    "diwan": "The Diwan",
+    "muallaqat": "The Mu'allaqat",
+    "hija": "Satire",
+    "explore": "Explore",
+    "tribute": "In Memory of Awad Shaaban"
   },
   "Tribute": {
-    "name": "Awad Shaaban"
+    "name": "Awad Shaaban",
+    "title": "In Memory of Awad Shaaban",
+    "bio": "Biography",
+    "timeline": "Life Timeline",
+    "works": "Works",
+    "novels": "Novels",
+    "stories": "Short Story Collections",
+    "study": "Studies",
+    "translations": "Translations",
+    "journalism": "Journalism",
+    "quotes": "In His Words",
+    "born": "Born",
+    "died": "Died"
   }
 }
