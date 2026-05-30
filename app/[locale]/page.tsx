@@ -28,6 +28,7 @@ export default async function DoorwayPage({ params }: Props) {
         intro={t('intro')}
         enterLabel={t('enter')}
         skipLabel={t('skip')}
+        countdownTemplate={t('countdown')}
         enterHref={`/${locale}/diwan`}
       />
     </main>

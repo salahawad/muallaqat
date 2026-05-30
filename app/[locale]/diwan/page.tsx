@@ -1,8 +1,9 @@
 import { notFound } from 'next/navigation';
 import { hasLocale } from 'next-intl';
-import { setRequestLocale, getTranslations } from 'next-intl/server';
+import { setRequestLocale } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
 import { getEras, getPoets, getPoems } from '@/lib/content';
+import { PoetSeal } from '@/components/diwan/PoetSeal';
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -10,9 +11,9 @@ type Props = {
 
 /**
  * The Living Diwan — a scroll through the eras. Each era is a full-height scene
- * carrying its own night-palette and motif; the poets and poems seeded into an
- * era surface as gold thresholds the reader can step through. Later milestones
- * deepen each scene (calligraphy, recitation); this is the cinematic spine.
+ * carrying its own night-palette and motif; the poets seeded into an era step
+ * forward as illuminated seals, each bearing their own opening verse, so the
+ * masters greet the reader rather than sitting as labels.
  */
 export default async function DiwanPage({ params }: Props) {
   const { locale: rawLocale } = await params;
@@ -20,25 +21,32 @@ export default async function DiwanPage({ params }: Props) {
   const locale = rawLocale;
   setRequestLocale(locale);
   const isAr = locale === 'ar';
-  const t = await getTranslations('Doorway');
 
   const eras = getEras();
   const poets = getPoets();
   const poems = getPoems();
+  const poetCount = poets.length;
 
   return (
     <main className="diwan" data-testid="diwan">
       <header className="diwan__intro">
+        <div className="diwan__intro-glow" aria-hidden="true" />
+        <p className="diwan__intro-kicker font-kufi">
+          {isAr ? 'ديوانُ العربِ الحيّ' : 'The Living Diwan of the Arabs'}
+        </p>
         <h1 className="diwan__title font-display">{isAr ? 'الديوان' : 'The Diwan'}</h1>
-        <p className="diwan__subtitle font-ui">{t('intro')}</p>
+        <p className="diwan__subtitle font-ui">
+          {isAr
+            ? `رحلةٌ بين خمسة عصورٍ و${toArabicNumerals(poetCount)} من فحول الشعراء — من معلّقات الجاهلية إلى نهضة الحديث.`
+            : `A journey through five eras and ${poetCount} master poets — from the odes of the Jahiliyya to the modern Nahda.`}
+        </p>
         <span className="diwan__scroll-hint font-kufi" aria-hidden="true">
-          {isAr ? '↓ تابع النزول' : '↓ scroll'}
+          {isAr ? 'تابِع النزول ↓' : 'scroll ↓'}
         </span>
       </header>
 
       {eras.map((era) => {
         const eraPoets = poets.filter((p) => p.eraId === era.id);
-        const eraPoems = poems.filter((p) => p.eraId === era.id);
         return (
           <section
             key={era.id}
@@ -68,24 +76,16 @@ export default async function DiwanPage({ params }: Props) {
               </p>
 
               {eraPoets.length > 0 ? (
-                <ul className="era-scene__poets">
+                <div className="era-scene__poets">
                   {eraPoets.map((poet) => {
-                    const sig = eraPoems.find((p) => p.poetId === poet.id);
-                    const href = sig
-                      ? `/${locale}/poem/${sig.slug}`
-                      : `/${locale}/poet/${poet.slug}`;
+                    const sig = poems.find(
+                      (p) => p.id === poet.signaturePoemIds[0] && p.poetId === poet.id,
+                    );
                     return (
-                      <li key={poet.id}>
-                        <a className="era-scene__poet font-display" href={href}>
-                          {isAr ? poet.nameAr : poet.nameEn}
-                          {sig?.isMuallaqa ? (
-                            <span className="era-scene__muallaqa font-kufi">مُعلّقة</span>
-                          ) : null}
-                        </a>
-                      </li>
+                      <PoetSeal key={poet.id} poet={poet} poem={sig} locale={locale} />
                     );
                   })}
-                </ul>
+                </div>
               ) : (
                 <p className="era-scene__soon font-kufi">
                   {isAr ? 'قريبًا' : 'coming soon'}
@@ -97,4 +97,8 @@ export default async function DiwanPage({ params }: Props) {
       })}
     </main>
   );
+}
+
+function toArabicNumerals(n: number): string {
+  return new Intl.NumberFormat('ar-EG', { useGrouping: false }).format(n);
 }

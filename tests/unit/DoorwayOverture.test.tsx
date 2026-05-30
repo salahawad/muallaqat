@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, afterEach } from 'vitest';
-import { render, screen } from '@testing-library/react';
+import { render, screen, act } from '@testing-library/react';
 import { DoorwayOverture } from '@/components/doorway/DoorwayOverture';
 
 const props = {
@@ -56,25 +56,38 @@ describe('DoorwayOverture', () => {
       expect(skip).toHaveAttribute('href', '/ar/diwan');
     });
 
-    it('auto-advances into the Diwan after the overture, for motion visitors', () => {
+    it('shows a visible countdown then auto-advances, for motion visitors', () => {
       vi.useFakeTimers();
       const navigate = vi.fn();
       render(<DoorwayOverture {...props} navigate={navigate} />);
-      // Not before the overture has had time to play out…
-      vi.advanceTimersByTime(3000);
+      // The gate's countdown has not started during the reveal…
+      act(() => {
+        vi.advanceTimersByTime(3000);
+      });
       expect(navigate).not.toHaveBeenCalled();
-      // …but it does glide on after the reveal settles (delay is tunable).
-      vi.advanceTimersByTime(12000);
+      // …it appears after the reveal settles, ticking down visibly…
+      act(() => {
+        vi.advanceTimersByTime(2000); // ~5s in: countdown started
+      });
+      expect(screen.getByTestId('doorway-countdown')).toBeInTheDocument();
+      expect(navigate).not.toHaveBeenCalled();
+      // …and glides on once the 5-second count reaches zero.
+      act(() => {
+        vi.advanceTimersByTime(5000);
+      });
       expect(navigate).toHaveBeenCalledWith('/ar/diwan');
     });
 
-    it('cancels the auto-advance once the visitor interacts', () => {
+    it('cancels the countdown once the visitor interacts', () => {
       vi.useFakeTimers();
       const navigate = vi.fn();
       render(<DoorwayOverture {...props} navigate={navigate} />);
-      window.dispatchEvent(new Event('wheel'));
-      vi.advanceTimersByTime(20000);
+      act(() => {
+        window.dispatchEvent(new Event('wheel'));
+        vi.advanceTimersByTime(20000);
+      });
       expect(navigate).not.toHaveBeenCalled();
+      expect(screen.queryByTestId('doorway-countdown')).not.toBeInTheDocument();
     });
 
     it('never auto-advances reduced-motion visitors, and hides the skip link', () => {

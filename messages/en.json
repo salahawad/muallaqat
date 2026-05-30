@@ -8,7 +8,8 @@
     "dedication": "To my father, Awad Shaaban — who taught us that the word is a trust.",
     "intro": "The Mu'allaqat, the poems, the prose, and the satire.",
     "enter": "Enter the Diwan",
-    "skip": "Skip the overture"
+    "skip": "Skip the overture",
+    "countdown": "Entering the Diwan in {n}… (move or click to stay)"
   },
   "Nav": {
     "diwan": "The Diwan",

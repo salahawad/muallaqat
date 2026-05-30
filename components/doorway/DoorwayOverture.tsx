@@ -35,6 +35,11 @@ type DoorwayOvertureProps = {
   /** Where the gate (and the auto-advance) leads. */
   enterHref: string;
   /**
+   * Countdown hint shown while the timer runs; `{n}` is replaced by the seconds
+   * remaining. Defaults to the Arabic phrasing.
+   */
+  countdownTemplate?: string;
+  /**
    * Force the static (no-animation) presentation. Tests pass this; in the
    * browser it is derived from prefers-reduced-motion.
    */
@@ -47,10 +52,13 @@ type DoorwayOvertureProps = {
 };
 
 /**
- * When (after the staged reveal begins) the overture glides on to the landing
- * on its own. The gate fades in at ~4.5s; this leaves a reading beat after it.
+ * The visible countdown: once the gate has appeared, a 5-second timer ticks down
+ * beside it and then glides on to the Diwan. Any interaction cancels it, leaving
+ * the gate as the explicit way forward. Reduced motion gets no timed redirect.
+ * The gate fades in at ~4.5s, so the count starts after the reveal settles.
  */
-const AUTO_ADVANCE_MS = 8000;
+const COUNTDOWN_START_MS = 4500;
+const COUNTDOWN_SECONDS = 5;
 
 export function DoorwayOverture({
   name,
@@ -62,6 +70,7 @@ export function DoorwayOverture({
   kicker,
   skipLabel,
   enterHref,
+  countdownTemplate = 'الدخول إلى الديوان بعد {n}… (حرّك أو انقر للبقاء)',
   reducedMotion = false,
   navigate,
 }: DoorwayOvertureProps) {
@@ -90,31 +99,58 @@ export function DoorwayOverture({
 
   const animate = !prefersReduced && !reducedMotion;
 
-  // After the overture, glide on to the landing — but only for motion visitors,
-  // and never yank someone who is actively engaged: any interaction cancels it,
-  // leaving the gate (and the skip link) as the explicit ways forward. Reduced
-  // motion gets no timed redirect at all.
+  // The visible countdown. `count` is null until the gate has appeared, then
+  // ticks 5→0 once per second; reaching 0 glides on to the Diwan. Any interaction
+  // cancels it (count → null). Reduced motion never starts it.
+  const [count, setCount] = useState<number | null>(null);
+
   useEffect(() => {
     if (!animate) return;
     const events = ['pointerdown', 'keydown', 'wheel', 'touchstart'];
-    let timer = 0;
-    const cleanup = () => {
-      window.clearTimeout(timer);
+    let startTimer = 0;
+    let tick = 0;
+    let cancelled = false;
+
+    const stop = () => {
+      cancelled = true;
+      window.clearTimeout(startTimer);
+      window.clearInterval(tick);
       events.forEach((e) => window.removeEventListener(e, onInteract));
+      setCount(null);
     };
-    const onInteract = () => cleanup();
+    const onInteract = () => stop();
+
     const go = () => {
-      cleanup();
+      window.clearInterval(tick);
+      events.forEach((e) => window.removeEventListener(e, onInteract));
       if (navigate) navigate(enterHref);
       else window.location.assign(enterHref);
     };
-    timer = window.setTimeout(go, AUTO_ADVANCE_MS);
+
+    // Wait for the reveal to settle, then run the visible 5→0 countdown.
+    startTimer = window.setTimeout(() => {
+      if (cancelled) return;
+      let remaining = COUNTDOWN_SECONDS;
+      setCount(remaining);
+      tick = window.setInterval(() => {
+        remaining -= 1;
+        if (remaining <= 0) {
+          setCount(0);
+          go();
+        } else {
+          setCount(remaining);
+        }
+      }, 1000);
+    }, COUNTDOWN_START_MS);
+
     events.forEach((e) =>
-      window.addEventListener(e, onInteract, { passive: true, once: true })
+      window.addEventListener(e, onInteract, { passive: true, once: true }),
     );
-    return cleanup;
+    return stop;
   }, [animate, enterHref, navigate]);
+
   const state = revealed ? 'in' : 'out';
+  const counting = count !== null && count > 0;
 
   return (
     <div
@@ -174,10 +210,30 @@ export function DoorwayOverture({
 
         <a className="doorway__gate group font-kufi" href={enterHref}>
           <span className="doorway__gate-label">{enterLabel}</span>
-          <span className="doorway__gate-arrow" aria-hidden="true">
-            ←
-          </span>
+          {counting ? (
+            <span
+              className="doorway__gate-count"
+              data-testid="doorway-countdown"
+              style={{ '--count-secs': `${COUNTDOWN_SECONDS}s` } as React.CSSProperties}
+            >
+              <svg className="doorway__gate-ring" viewBox="0 0 36 36" aria-hidden="true">
+                <circle className="doorway__gate-ring-track" cx="18" cy="18" r="16" />
+                <circle className="doorway__gate-ring-progress" cx="18" cy="18" r="16" />
+              </svg>
+              <span className="doorway__gate-num font-kufi">{count}</span>
+            </span>
+          ) : (
+            <span className="doorway__gate-arrow" aria-hidden="true">
+              ←
+            </span>
+          )}
         </a>
+
+        {counting ? (
+          <p className="doorway__gate-hint font-ui" aria-live="polite">
+            {countdownTemplate.replace('{n}', String(count))}
+          </p>
+        ) : null}
       </div>
     </div>
   );
