@@ -54,26 +54,29 @@ type EraVoice = {
   pitch: number;
   /** Silence after each bayt, in milliseconds. */
   gapMs: number;
+  /** Silence at the hemistich caesura (between صدر and عجز), in milliseconds. */
+  caesuraMs: number;
 };
 
 const VOICE_BY_ERA: Record<string, EraVoice> = {
   // Pre-Islamic desert odes — deep, grand, unhurried.
-  jahili: { voice: 'ar-XA-Wavenet-B', rate: 0.84, pitch: -3.0, gapMs: 900 },
+  jahili:   { voice: 'ar-XA-Wavenet-B', rate: 0.72, pitch: -3.0, gapMs: 1400, caesuraMs: 600 },
   // Umayyad tribal pride and satire — vigorous, declamatory.
-  umawi: { voice: 'ar-XA-Wavenet-C', rate: 0.9, pitch: -1.0, gapMs: 800 },
+  umawi:    { voice: 'ar-XA-Wavenet-C', rate: 0.76, pitch: -1.0, gapMs: 1200, caesuraMs: 500 },
   // Abbasid golden court — refined, measured.
-  abbasi: { voice: 'ar-XA-Wavenet-D', rate: 0.92, pitch: 1.0, gapMs: 750 },
+  abbasi:   { voice: 'ar-XA-Wavenet-D', rate: 0.78, pitch: 1.0,  gapMs: 1100, caesuraMs: 450 },
   // Andalusi gardens and muwashshah — lyrical, lighter.
-  andalusi: { voice: 'ar-XA-Wavenet-A', rate: 0.95, pitch: 2.0, gapMs: 700 },
+  andalusi: { voice: 'ar-XA-Wavenet-A', rate: 0.80, pitch: 2.0,  gapMs: 1000, caesuraMs: 400 },
   // The modern Nahda — natural, contemporary.
-  hadith: { voice: 'ar-XA-Wavenet-C', rate: 1.0, pitch: 0.0, gapMs: 650 },
+  hadith:   { voice: 'ar-XA-Wavenet-C', rate: 0.84, pitch: 0.0,  gapMs: 900,  caesuraMs: 350 },
 };
 
 const DEFAULT_VOICE: EraVoice = {
   voice: 'ar-XA-Wavenet-B',
-  rate: 0.9,
+  rate: 0.78,
   pitch: 0.0,
-  gapMs: 750,
+  gapMs: 1100,
+  caesuraMs: 450,
 };
 
 // ── Google TTS plumbing ──────────────────────────────────────────────────────
@@ -118,11 +121,15 @@ function escapeXml(s: string): string {
  * Split a poem's lines into chunks whose SSML stays under the byte budget.
  * Each chunk carries the absolute line indices so marks stay globally correct.
  */
-function chunkLines(lines: string[], gapMs: number): { from: number; to: number }[] {
+function chunkLines(lines: string[], v: EraVoice): { from: number; to: number }[] {
   const chunks: { from: number; to: number }[] = [];
   let from = 0;
   let size = 0;
-  const overhead = (i: number) => `<mark name="b${i}"/>`.length + `<break time="${gapMs}ms"/>`.length;
+  // Account for mark, bayt-end break, and possible caesura break per line.
+  const overhead = (i: number) =>
+    `<mark name="b${i}"/>`.length +
+    `<break time="${v.gapMs}ms"/>`.length +
+    `<break time="${v.caesuraMs}ms"/>`.length;
 
   for (let i = 0; i < lines.length; i++) {
     const cost = Buffer.byteLength(escapeXml(lines[i]), 'utf8') + overhead(i);
@@ -137,10 +144,38 @@ function chunkLines(lines: string[], gapMs: number): { from: number; to: number 
   return chunks;
 }
 
-function buildSsml(lines: string[], from: number, to: number, gapMs: number): string {
+/**
+ * Try to split a bayt into its two hemistichs (صدر and عجز).
+ *
+ * Classical Arabic poetry has a caesura roughly in the middle of each verse.
+ * The text has no explicit separator, so we heuristically split at the
+ * whitespace closest to the midpoint — favouring a position within the
+ * central 30–70 % band so we don't chop off a single word at the edge.
+ */
+function splitHemistichs(bayt: string): [string, string] | null {
+  const words = bayt.split(/\s+/);
+  if (words.length < 4) return null; // too short to split meaningfully
+
+  const mid = Math.floor(words.length / 2);
+  const sadr = words.slice(0, mid).join(' ');
+  const ajuz = words.slice(mid).join(' ');
+  return [sadr, ajuz];
+}
+
+function buildSsml(lines: string[], from: number, to: number, v: EraVoice): string {
   let body = '';
   for (let i = from; i < to; i++) {
-    body += `<mark name="b${i}"/>${escapeXml(lines[i])}<break time="${gapMs}ms"/>`;
+    body += `<mark name="b${i}"/>`;
+
+    const halves = splitHemistichs(lines[i]);
+    if (halves) {
+      // صدر — caesura pause — عجز
+      body += `${escapeXml(halves[0])}<break time="${v.caesuraMs}ms"/>${escapeXml(halves[1])}`;
+    } else {
+      body += escapeXml(lines[i]);
+    }
+
+    body += `<break time="${v.gapMs}ms"/>`;
   }
   // A trailing mark whose timepoint gives us this chunk's total duration, so we
   // can offset the next chunk's marks when the audio is concatenated.
@@ -185,13 +220,13 @@ async function renderPoem(
   v: EraVoice,
 ): Promise<{ marks: { name: string; time: number }[]; audio: Buffer }> {
   const lines = poem.linesAr;
-  const chunks = chunkLines(lines, v.gapMs);
+  const chunks = chunkLines(lines, v);
   const buffers: Buffer[] = [];
   const marks: { name: string; time: number }[] = [];
   let offset = 0; // cumulative seconds across previous chunks
 
   for (const { from, to } of chunks) {
-    const ssml = buildSsml(lines, from, to, v.gapMs);
+    const ssml = buildSsml(lines, from, to, v);
     const { audio, timepoints } = await synthesize(ssml, v);
     buffers.push(audio);
 
