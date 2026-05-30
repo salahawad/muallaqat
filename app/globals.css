@@ -2340,3 +2340,37 @@
   .poet-cartouche__matla, .poet-seal__matla { font-size: 0.98rem; }
   .site-nav__links { width: 100%; }
 }
+
+/* ============================================================
+   Arabic bidi safety — names/titles/prose mix Arabic with neutral
+   characters (parentheses, dates, dashes). `plaintext` resolves
+   each element's base direction from its first strong character,
+   so parens and digits attach to the correct run instead of
+   mirroring. Applied to the text-bearing elements site-wide.
+   ============================================================ */
+.poet-cartouche__name,
+.poet-seal__name,
+.keeper-panel__name,
+.hanging-panel__poet,
+.poem__poet,
+.poem__title,
+.poet__name,
+.duel__poet,
+.duel-card__title,
+.duel-card__rivals,
+.era-scene__name,
+.tribute-portrait__name,
+.tribute-work__title,
+.tribute-translation__work,
+.tribute-translation__author,
+.explore__card,
+.poet__bio,
+.poem__context,
+.duel-page__context,
+.tribute-bio__text,
+.era-scene__desc,
+.poet-cartouche__matla,
+.poet-seal__matla,
+.hanging-panel__matla {
+  unicode-bidi: plaintext;
+}

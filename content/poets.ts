@@ -61,7 +61,7 @@ export const poets: Poet[] = [
   {
     id: "al-khansa",
     slug: "al-khansa",
-    nameAr: "الخَنساء (تُماضِر بنت عمرو)",
+    nameAr: "الخَنساء — تُماضِر بنت عمرو",
     nameEn: "Al-Khansa' (Tumadir bint 'Amr)",
     eraId: "jahili",
     birthYear: 575,
@@ -189,7 +189,7 @@ export const poets: Poet[] = [
   {
     id: "al-farazdaq",
     slug: "al-farazdaq",
-    nameAr: "الفرزدق (همّام بن غالب)",
+    nameAr: "الفرزدق — همّام بن غالب",
     nameEn: "Al-Farazdaq (Hammam ibn Ghalib)",
     eraId: "umawi",
     birthYear: 641,
@@ -221,7 +221,7 @@ export const poets: Poet[] = [
   {
     id: "abu-nuwas",
     slug: "abu-nuwas",
-    nameAr: "أبو نُواس (الحَسَن بن هانئ)",
+    nameAr: "أبو نُواس — الحَسَن بن هانئ",
     nameEn: "Abu Nuwas (al-Hasan ibn Hani)",
     eraId: "abbasi",
     birthYear: 756,
@@ -371,7 +371,7 @@ export const poets: Poet[] = [
   {
     id: "al-akhtal",
     slug: "al-akhtal",
-    nameAr: "الأخطل (غياث بن غوث التغلبي)",
+    nameAr: "الأخطل — غياث بن غوث التغلبي",
     nameEn: "Al-Akhtal (Ghiyath ibn Ghawth al-Taghlibi)",
     eraId: "umawi",
     birthYear: 640,
