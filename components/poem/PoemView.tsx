@@ -62,6 +62,7 @@ export function PoemView({ poem, poet, locale, labels }: PoemViewProps) {
 
       <PoemReader
         lines={poem.linesAr}
+        slug={poem.slug}
         isMuallaqa={poem.isMuallaqa}
         labels={labels.reader}
         linesEn={poem.linesEn}

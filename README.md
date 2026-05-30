@@ -15,7 +15,7 @@ A reader enters through a memorial overture and descends through five eras, meet
 - **`/diwan`** — **The Living Diwan**: a scroll through five era dioramas (الجاهلي → الأموي → العباسي → الأندلس → الحديث), the poets stepping forward as illuminated seals.
 - **`/muallaqat`** — **the Seven Muʿallaqāt** hung as illuminated panels, each opening into its full ode.
 - **`/hija2`** — **the النقائض** rendered as interactive back-and-forth duels (Jarīr ↔ al-Farazdaq, Jarīr ↔ al-Akhṭal).
-- **`/poet/[slug]`** & **`/poem/[slug]`** — the human behind the verse, and the full text with meter (بحر), rhyme (قافية), and **read-aloud**: recited in the visitor's own browser voice, each word highlighting as it is spoken.
+- **`/poet/[slug]`** & **`/poem/[slug]`** — the human behind the verse, and the full text with meter (بحر), rhyme (قافية), and **read-aloud**: a pre-rendered, expressive Arabic recitation voiced for the poem's era, each bayt lighting up as it is spoken (with a graceful fallback to the visitor's browser voice). See [`docs/recitations.md`](docs/recitations.md).
 - **`/explore`** — browse and search by era, emotion/theme, poet, or form.
 - **`/tribute`** — **في ذكرى عوض شعبان**: biography, works, translations, journalism, and his own words.
 - **`/about`** — the why, the sourcing method, and content-integrity notes.
@@ -57,6 +57,7 @@ pnpm dev        # http://localhost:3000  → redirects to /ar
 | `pnpm test` | Unit tests (Vitest) — schema validation + utilities + components |
 | `pnpm test:e2e` | End-to-end journeys (Playwright) |
 | `pnpm lint` | Lint |
+| `pnpm recitations` | Generate per-era Arabic recitations (Google Cloud TTS) into `public/audio/` — see [`docs/recitations.md`](docs/recitations.md) |
 
 ## Accessibility & performance
 
