@@ -5,6 +5,7 @@ import { setRequestLocale } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
 import { getPoets, getPoetBySlug, getPoems, getEras } from '@/lib/content';
 import { GoldDivider } from '@/components/ornament/GoldDivider';
+import { verified } from '@/lib/pending';
 
 type Props = {
   params: Promise<{ locale: string; slug: string }>;
@@ -21,9 +22,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const poet = getPoetBySlug(slug);
   if (!poet) return {};
   const isAr = locale === 'ar';
+  const bio = verified(isAr ? poet.bioAr : poet.bioEn);
   return {
     title: isAr ? poet.nameAr : poet.nameEn,
-    description: isAr ? poet.bioAr.slice(0, 150) : poet.bioEn.slice(0, 150),
+    description: bio?.slice(0, 150),
   };
 }
 
@@ -38,6 +40,8 @@ export default async function PoetPage({ params }: Props) {
   const isAr = locale === 'ar';
   const era = getEras().find((e) => e.id === poet.eraId);
   const poems = getPoems().filter((p) => p.poetId === poet.id);
+  const bio = verified(isAr ? poet.bioAr : poet.bioEn);
+  const humanStory = verified(isAr ? poet.humanStoryAr : poet.humanStoryEn);
 
   return (
     <main className="poet paper-grain">
@@ -54,13 +58,15 @@ export default async function PoetPage({ params }: Props) {
       </header>
 
       <div className="poet__body">
-        <p className="poet__bio font-ui">{isAr ? poet.bioAr : poet.bioEn}</p>
+        <p className="poet__bio font-ui">
+          {bio ?? (isAr ? 'السيرة قيد التحقّق.' : 'Biography pending verification.')}
+        </p>
 
-        {(isAr ? poet.humanStoryAr : poet.humanStoryEn) ? (
+        {humanStory ? (
           <>
             <GoldDivider />
             <blockquote className="poet__story font-display" lang={isAr ? 'ar' : undefined} dir={isAr ? 'rtl' : undefined}>
-              {isAr ? poet.humanStoryAr : poet.humanStoryEn}
+              {humanStory}
             </blockquote>
           </>
         ) : null}

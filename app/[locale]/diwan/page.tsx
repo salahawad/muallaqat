@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
 import { hasLocale } from 'next-intl';
-import { setRequestLocale } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
 import { getEras, getPoets, getPoems } from '@/lib/content';
 import { PoetSeal } from '@/components/diwan/PoetSeal';
@@ -21,6 +21,7 @@ export default async function DiwanPage({ params }: Props) {
   const locale = rawLocale;
   setRequestLocale(locale);
   const isAr = locale === 'ar';
+  const nav = await getTranslations('Nav');
 
   const eras = getEras();
   const poets = getPoets();
@@ -40,6 +41,16 @@ export default async function DiwanPage({ params }: Props) {
             ? `رحلةٌ بين خمسة عصورٍ و${toArabicNumerals(poetCount)} من فحول الشعراء — من معلّقات الجاهلية إلى نهضة الحديث.`
             : `A journey through five eras and ${poetCount} master poets — from the odes of the Jahiliyya to the modern Nahda.`}
         </p>
+        <nav className="diwan__gates" aria-label={isAr ? 'أبواب الديوان' : 'Diwan halls'}>
+          <a className="diwan__gate font-kufi" href={`/${locale}/muallaqat`}>
+            {nav('muallaqat')}
+            <span aria-hidden="true"> {isAr ? '←' : '→'}</span>
+          </a>
+          <a className="diwan__gate font-kufi" href={`/${locale}/hija2`}>
+            {nav('hija')}
+            <span aria-hidden="true"> {isAr ? '←' : '→'}</span>
+          </a>
+        </nav>
         <span className="diwan__scroll-hint font-kufi" aria-hidden="true">
           {isAr ? 'تابِع النزول ↓' : 'scroll ↓'}
         </span>
@@ -91,6 +102,19 @@ export default async function DiwanPage({ params }: Props) {
                   {isAr ? 'قريبًا' : 'coming soon'}
                 </p>
               )}
+
+              {era.id === 'jahili' ? (
+                <a className="era-scene__gate font-kufi" href={`/${locale}/muallaqat`}>
+                  {nav('muallaqat')}
+                  <span aria-hidden="true"> {isAr ? '←' : '→'}</span>
+                </a>
+              ) : null}
+              {era.id === 'umawi' ? (
+                <a className="era-scene__gate font-kufi" href={`/${locale}/hija2`}>
+                  {nav('hija')}
+                  <span aria-hidden="true"> {isAr ? '←' : '→'}</span>
+                </a>
+              ) : null}
             </div>
           </section>
         );
