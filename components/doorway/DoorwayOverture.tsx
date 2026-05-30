@@ -30,14 +30,27 @@ type DoorwayOvertureProps = {
   enterLabel: string;
   /** Small kicker above the title (e.g. «ديوانٌ حيّ»). */
   kicker: string;
-  /** Where the gate leads. */
+  /** Label for the early-exit link that skips the overture (e.g. «تخطَّ المقدّمة»). */
+  skipLabel: string;
+  /** Where the gate (and the auto-advance) leads. */
   enterHref: string;
   /**
    * Force the static (no-animation) presentation. Tests pass this; in the
    * browser it is derived from prefers-reduced-motion.
    */
   reducedMotion?: boolean;
+  /**
+   * How the overture moves on to the landing. Defaults to a full navigation
+   * (matching the plain-anchor gate). Tests inject a spy.
+   */
+  navigate?: (href: string) => void;
 };
+
+/**
+ * When (after the staged reveal begins) the overture glides on to the landing
+ * on its own. The gate fades in at ~4.5s; this leaves a reading beat after it.
+ */
+const AUTO_ADVANCE_MS = 8000;
 
 export function DoorwayOverture({
   name,
@@ -47,8 +60,10 @@ export function DoorwayOverture({
   intro,
   enterLabel,
   kicker,
+  skipLabel,
   enterHref,
   reducedMotion = false,
+  navigate,
 }: DoorwayOvertureProps) {
   // Start "unrevealed" only if we will actually animate. If reducedMotion is
   // forced (tests / SSR fallback), render everything visible from the first paint.
@@ -74,6 +89,31 @@ export function DoorwayOverture({
   }, []);
 
   const animate = !prefersReduced && !reducedMotion;
+
+  // After the overture, glide on to the landing — but only for motion visitors,
+  // and never yank someone who is actively engaged: any interaction cancels it,
+  // leaving the gate (and the skip link) as the explicit ways forward. Reduced
+  // motion gets no timed redirect at all.
+  useEffect(() => {
+    if (!animate) return;
+    const events = ['pointerdown', 'keydown', 'wheel', 'touchstart'];
+    let timer = 0;
+    const cleanup = () => {
+      window.clearTimeout(timer);
+      events.forEach((e) => window.removeEventListener(e, onInteract));
+    };
+    const onInteract = () => cleanup();
+    const go = () => {
+      cleanup();
+      if (navigate) navigate(enterHref);
+      else window.location.assign(enterHref);
+    };
+    timer = window.setTimeout(go, AUTO_ADVANCE_MS);
+    events.forEach((e) =>
+      window.addEventListener(e, onInteract, { passive: true, once: true })
+    );
+    return cleanup;
+  }, [animate, enterHref, navigate]);
   const state = revealed ? 'in' : 'out';
 
   return (
@@ -89,8 +129,16 @@ export function DoorwayOverture({
       <div className="doorway__dawn" aria-hidden="true" />
       <div className="doorway__stars" aria-hidden="true" />
 
+      {/* Early exit for those who'd rather not wait out the overture. Present
+          only while the scene animates — reduced motion shows the gate at once. */}
+      {animate && (
+        <a className="doorway__skip font-ui" href={enterHref}>
+          {skipLabel}
+        </a>
+      )}
+
       <div className="doorway__content relative z-10 flex flex-col items-center gap-6">
-        <p className="doorway__kicker font-kufi text-xs tracking-[0.4em] text-gold-light/80 uppercase">
+        <p className="doorway__kicker font-kufi text-sm text-gold-light/80">
           {kicker}
         </p>
 
@@ -120,7 +168,7 @@ export function DoorwayOverture({
           {dedication}
         </p>
 
-        <p className="doorway__intro font-ui max-w-xl text-balance text-base leading-relaxed text-cream/70">
+        <p className="doorway__intro font-ui max-w-2xl text-balance text-xl leading-relaxed text-cream/85 md:text-2xl">
           {intro}
         </p>
 

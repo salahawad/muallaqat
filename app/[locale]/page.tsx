@@ -27,6 +27,7 @@ export default async function DoorwayPage({ params }: Props) {
         dedication={t('dedication')}
         intro={t('intro')}
         enterLabel={t('enter')}
+        skipLabel={t('skip')}
         enterHref={`/${locale}/diwan`}
       />
     </main>

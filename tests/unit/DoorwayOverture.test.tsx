@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi, afterEach } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import { DoorwayOverture } from '@/components/doorway/DoorwayOverture';
 
@@ -8,8 +8,9 @@ const props = {
   dates: '١٩٣١ — ٢٠٢٥',
   creed: 'الكتابة ليست موهبة فحسب، بل هي مسؤولية تجاه الكلمة والإنسان.',
   dedication: 'إلى أبي، عوض شعبان — الذي علّمنا أنّ الكلمة أمانة.',
-  intro: 'جمعٌ لأعظم ما خطّه العرب.',
+  intro: 'المعلقاتُ والأشعارُ والنثرُ والهجاء.',
   enterLabel: 'ادخل الديوان',
+  skipLabel: 'تخطَّ المقدّمة',
   enterHref: '/ar/diwan',
 };
 
@@ -41,5 +42,50 @@ describe('DoorwayOverture', () => {
     const creed = screen.getByText(props.creed);
     expect(creed).toHaveClass('font-display');
     expect(creed).toHaveAttribute('dir', 'rtl');
+  });
+
+  describe('reaching the landing', () => {
+    afterEach(() => {
+      vi.useRealTimers();
+    });
+
+    it('offers a skip link straight into the Diwan during the overture', () => {
+      // No reducedMotion → the animated path, where the skip affordance shows.
+      render(<DoorwayOverture {...props} navigate={vi.fn()} />);
+      const skip = screen.getByRole('link', { name: /تخطَّ المقدّمة/ });
+      expect(skip).toHaveAttribute('href', '/ar/diwan');
+    });
+
+    it('auto-advances into the Diwan after the overture, for motion visitors', () => {
+      vi.useFakeTimers();
+      const navigate = vi.fn();
+      render(<DoorwayOverture {...props} navigate={navigate} />);
+      // Not before the overture has had time to play out…
+      vi.advanceTimersByTime(3000);
+      expect(navigate).not.toHaveBeenCalled();
+      // …but it does glide on after the reveal settles (delay is tunable).
+      vi.advanceTimersByTime(12000);
+      expect(navigate).toHaveBeenCalledWith('/ar/diwan');
+    });
+
+    it('cancels the auto-advance once the visitor interacts', () => {
+      vi.useFakeTimers();
+      const navigate = vi.fn();
+      render(<DoorwayOverture {...props} navigate={navigate} />);
+      window.dispatchEvent(new Event('wheel'));
+      vi.advanceTimersByTime(20000);
+      expect(navigate).not.toHaveBeenCalled();
+    });
+
+    it('never auto-advances reduced-motion visitors, and hides the skip link', () => {
+      vi.useFakeTimers();
+      const navigate = vi.fn();
+      render(<DoorwayOverture {...props} navigate={navigate} reducedMotion />);
+      vi.advanceTimersByTime(20000);
+      expect(navigate).not.toHaveBeenCalled();
+      expect(
+        screen.queryByRole('link', { name: /تخطَّ المقدّمة/ })
+      ).not.toBeInTheDocument();
+    });
   });
 });
