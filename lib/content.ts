@@ -2,15 +2,18 @@ import {
   EraSchema,
   PoetSchema,
   PoemSchema,
+  DuelSchema,
   TributeSchema,
   type Era,
   type Poet,
   type Poem,
+  type Duel,
   type Tribute,
 } from '@/lib/schemas';
 import { eras as rawEras } from '@/content/eras';
 import { poets as rawPoets } from '@/content/poets';
 import { poems as rawPoems } from '@/content/poems';
+import { duels as rawDuels } from '@/content/duels';
 import { tribute as rawTribute } from '@/content/tribute';
 import { z } from 'zod';
 
@@ -32,7 +35,22 @@ function validate<T>(schema: z.ZodType<T>, data: unknown, label: string): T {
 const eras = validate(z.array(EraSchema), rawEras, 'content/eras.ts');
 const poets = validate(z.array(PoetSchema), rawPoets, 'content/poets.ts');
 const poems = validate(z.array(PoemSchema), rawPoems, 'content/poems.ts');
+const duels = validate(z.array(DuelSchema), rawDuels, 'content/duels.ts');
 const tribute = validate(TributeSchema, rawTribute, 'content/tribute.ts');
+
+/**
+ * The traditional sequence of the Seven Mu'allaqat, as transmitted in the
+ * classical anthologies — the order in which they "hang" in the gallery.
+ */
+const MUALLAQAT_ORDER = [
+  'imru-al-qais',
+  'tarafa',
+  'zuhayr',
+  'labid',
+  'amr-ibn-kulthum',
+  'antara',
+  'al-harith',
+] as const;
 
 export function getEras(): Era[] {
   return [...eras].sort((a, b) => a.order - b.order);
@@ -52,6 +70,29 @@ export function getPoems(): Poem[] {
 
 export function getPoemBySlug(slug: string): Poem | undefined {
   return poems.find((p) => p.slug === slug);
+}
+
+export function getDuels(): Duel[] {
+  return duels;
+}
+
+export function getDuelBySlug(slug: string): Duel | undefined {
+  return duels.find((d) => d.slug === slug);
+}
+
+/**
+ * The Seven Mu'allaqat, ordered by their traditional classical sequence. Any
+ * Mu'allaqa not listed in {@link MUALLAQAT_ORDER} falls to the end, preserving
+ * a stable ordering as the collection grows.
+ */
+export function getMuallaqat(): Poem[] {
+  const rank = (poetId: string) => {
+    const i = MUALLAQAT_ORDER.indexOf(poetId as (typeof MUALLAQAT_ORDER)[number]);
+    return i === -1 ? MUALLAQAT_ORDER.length : i;
+  };
+  return poems
+    .filter((p) => p.isMuallaqa === true)
+    .sort((a, b) => rank(a.poetId) - rank(b.poetId));
 }
 
 export function getTribute(): Tribute {

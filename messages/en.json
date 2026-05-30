@@ -48,6 +48,21 @@
       "free": "Free verse"
     }
   },
+  "Muallaqat": {
+    "title": "The Seven Mu'allaqat",
+    "lede": "Seven odes once hung upon the drapes of the Kaaba — here they hang again.",
+    "legend": "It is told that the Arabs chose the finest odes, wrote them in gold, and hung them upon the Kaaba, so they were called the Mu'allaqat — the Suspended Ones. Each ode hangs here as an illuminated panel that unfurls as you approach.",
+    "backToDiwan": "Back to the Diwan"
+  },
+  "Hija2": {
+    "title": "Satire & the Naqā'iḍ",
+    "lede": "The most famous poetic feuds in Arab history, the rivals trading verse for verse.",
+    "next": "Next volley",
+    "prev": "Previous volley",
+    "volleyOf": "Volley {n} of {total}",
+    "backToDiwan": "Back to the Diwan",
+    "backToHija2": "Back to the flytings"
+  },
   "Tribute": {
     "name": "Awad Shaaban",
     "title": "In Memory of Awad Shaaban",

@@ -1,4 +1,5 @@
 import type { Poet, Poem } from '@/lib/schemas';
+import { verified } from '@/lib/pending';
 
 /**
  * A poet brought forward as an illuminated presence: a gold seal bearing the
@@ -19,7 +20,7 @@ export function PoetSeal({ poet, poem, locale }: PoetSealProps) {
   // The seal carries the first Arabic letter of the name — always Arabic, even
   // in the English UI, because the letterform itself is the emblem.
   const seal = poet.nameAr.replace(/^(ال|أبو |ابن )/, '').trim().charAt(0);
-  const matla = poem?.linesAr?.[0];
+  const matla = verified(poem?.linesAr?.[0]);
   const href = poem ? `/${locale}/poem/${poem.slug}` : `/${locale}/poet/${poet.slug}`;
 
   return (
