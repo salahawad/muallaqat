@@ -1152,4 +1152,1052 @@ export const poems: Poem[] = [
       "https://www.goodreads.com/quotes/672020",
     ],
   },
+
+  // ═══════════════════════════════════════════════════════════════════
+  // Additional poems — 2-3 per poet (Jahili era)
+  // ═══════════════════════════════════════════════════════════════════
+  // ─── Imru' al-Qais ────────────────────────────────────────────────
+  {
+    id: "imru-al-qais-ala-im-sabahan",
+    slug: "imru-al-qais-ala-im-sabahan",
+    titleAr: "أَلا عِمْ صَباحاً أَيُّها الطَلَلُ البالي",
+    titleEn: "Good Morning, O Worn-Out Ruin",
+    poetId: "imru-al-qais",
+    eraId: "jahili",
+    type: "qasida",
+    meter: "الطويل",
+    rhyme: "اللام",
+    themes: ["ghazal"],
+    linesAr: [
+      "أَلا عِم صَباحاً أَيُّها الطَلَلُ البالي وَهَل يَعِمَن مَن كانَ في العُصُرِ الخالي",
+      "وَهَل يَعِمَن إِلّا سَعيدٌ مُخَلَّدٌ قَليلُ الهُمومِ ما يَبيتُ بِأَوجالِ",
+      "وَهَل يَعِمَن مَن كانَ أَحدَثُ عَهدِهِ ثَلاثينَ شَهراً في ثَلاثَةِ أَحوالِ",
+      "دِيارٌ لِسَلمى عافِياتٌ بِذي خالٍ أَلَحَّ عَلَيها كُلُّ أَسحَمَ هَطّالِ",
+      "وَتَحسِبُ سَلمى لا تَزالُ تَرى طَلّاً مِنَ الوَحشِ أَو بيضاً بِمَيثاءِ مِحلالِ",
+      "وَتَحسِبُ سَلمى لا نَزالُ كَعَهدِنا بِوادي الخُزامى أَو عَلى رَسِ أَوعالِ",
+    ],
+    linesEn: [
+      "Good morning, O worn-out ruin — but can he who lived in ages past return the greeting?",
+    ],
+    isMuallaqa: false,
+    contextAr:
+      "لاميّة امرئ القيس الشهيرة، وهي من أطول قصائده وأبرعها. يستهلّها بتحيّة الأطلال الدارسة ثمّ يتغزّل بسلمى في أبيات من أرقّ النسيب الجاهلي.",
+    contextEn:
+      "One of Imru' al-Qais's longest and most celebrated odes, known as his lamiyya. He opens by greeting the crumbling ruins, then weaves an extended ghazal passage about Salma that ranks among the finest love poetry of the pre-Islamic era.",
+    source: ["https://www.aldiwan.net/poem51.html"],
+  },
+  {
+    id: "imru-al-qais-liman-talal",
+    slug: "imru-al-qais-liman-talal",
+    titleAr: "لِمَن طَلَلٌ أَبصَرتُهُ فَشَجاني",
+    titleEn: "Whose Ruin Did I Behold, and It Grieved Me",
+    poetId: "imru-al-qais",
+    eraId: "jahili",
+    type: "qasida",
+    meter: "الطويل",
+    rhyme: "النون",
+    themes: ["ghazal", "fakhr"],
+    linesAr: [
+      "لِمَن طَلَلٌ أَبصَرتُهُ فَشَجاني كَخَطِّ زَبورٍ في عَسيبِ يَمانِ",
+      "دِيارٌ لِهِندٍ وَالرَبابِ وَفَرتَنى لَيالِيَنا بِالنَعفِ مِن بَدَلانِ",
+      "لَيالِيَ يَدعوني الهَوى فَأُجيبَهُ وَأَعيُنُ مَن أَهوى إِلَيَّ رَواني",
+      "فَإِن أُمسِ مَكروباً فَيا رُبَّ بَهمَةٍ كَشَفتُ إِذا ما اِسوَدَّ وَجهُ جَبانِ",
+      "وَإِن أُمسِ مَكروباً فَيا رُبَّ قَينَةٍ مُنَعَّمَةٍ أَعمَلتُها بِكِرانِ",
+      "لَها مِزهَرٌ يَعلو الخَميسَ بِصَوتِهِ أَجَشُّ إِذا ما حَرَّكَتهُ اليَدانِ",
+    ],
+    linesEn: [
+      "Whose ruin did I behold that it grieved me — like script on a Yemeni palm-stalk?",
+    ],
+    isMuallaqa: false,
+    contextAr:
+      "نونيّة امرئ القيس، من أشهر قصائده بعد المعلّقة. يمزج فيها بين الوقوف على الأطلال والتغزّل بهند والرباب، ثمّ ينتقل إلى الفخر بشجاعته في المعارك وسهراته في اللهو.",
+    contextEn:
+      "Imru' al-Qais's celebrated nuniyya, among his most famous odes after the Mu'allaqa. It blends the atlal motif with love poetry about Hind and al-Rabab, then shifts to self-praise for his courage in battle and his nights of revelry.",
+    source: ["https://www.aldiwan.net/poem57.html"],
+  },
+
+  // ─── 'Antara ibn Shaddad ──────────────────────────────────────────
+  {
+    id: "antara-afat-al-diyar",
+    slug: "antara-afat-al-diyar",
+    titleAr: "عَفَتِ الدِيارُ وَباقي الأَطلالِ",
+    titleEn: "The Dwellings Are Effaced and the Ruins Remain",
+    poetId: "antara",
+    eraId: "jahili",
+    type: "qasida",
+    meter: "الكامل",
+    rhyme: "اللام",
+    themes: ["ghazal", "fakhr", "hamasa"],
+    linesAr: [
+      "عَفَتِ الدِيارُ وَباقِيَ الأَطلالِ ريحُ الصَبا وَتَقَلُّبُ الأَحوالِ",
+      "وَعَفا مَغانِيَها وَأَخلَقَ رَسمَها تَردادُ وَكفِ العارِضِ الهَطّالِ",
+      "فَلَئِن صَرَمتِ الحَبلَ يا اِبنَةَ مالِكٍ وَسَمِعتِ فِيَّ مَقالَةَ العُذّالِ",
+      "فَسَلي لِكَيما تُخبَري بِفَعائِلي عِندَ الوَغى وَمَواقِفِ الأَهوالِ",
+      "وَالخَيلُ تَعثُرُ بِالقَنا في جاحِمٍ تَهفو بِهِ وَيَجُلنَ كُلَّ مَجالِ",
+      "وَأَنا المُجَرَّبُ في المَواقِفِ كُلِّها مِن آلِ عَبسٍ مَنصِبي وَفَعالي",
+    ],
+    linesEn: [
+      "The dwellings are effaced and the ruins swept away by the east wind and the turning of time.",
+    ],
+    isMuallaqa: false,
+    contextAr:
+      "من أشهر قصائد عنترة بن شداد بعد معلّقته. يبدؤها بالوقوف على الأطلال الدارسة ثمّ يخاطب ابنة مالك (عبلة) داعياً إياها أن تسأل عن بطولاته في ساحات الوغى، ممزوجاً بفخره بنسبه العبسي.",
+    contextEn:
+      "'Antara's second most celebrated qasida after his Mu'allaqa. He opens with the ruined encampments, then addresses the daughter of Malik (Abla), inviting her to ask about his valor in battle, weaving together love and martial self-praise.",
+    source: ["https://www.aldiwan.net/poem190.html"],
+  },
+  {
+    id: "antara-la-yahmil-al-hiqd",
+    slug: "antara-la-yahmil-al-hiqd",
+    titleAr: "لا يَحمِلُ الحِقدَ مَن تَعلو بِهِ الرُتَبُ",
+    titleEn: "He Who Rises High Bears No Grudge",
+    poetId: "antara",
+    eraId: "jahili",
+    type: "qasida",
+    meter: "البسيط",
+    rhyme: "الباء",
+    themes: ["fakhr", "hikma", "hamasa"],
+    linesAr: [
+      "لا يَحمِلُ الحِقدَ مَن تَعلو بِهِ الرُتَبُ وَلا يَنالُ العُلا مَن طَبعُهُ الغَضَبُ",
+      "وَمَن يِكُن عَبدَ قَومٍ لا يُخالِفُهُم إِذا جَفوهُ وَيَستَرضي إِذا عَتَبوا",
+      "قَد كُنتُ فيما مَضى أَرعى جِمالَهُمُ وَاليَومَ أَحمي حِماهُم كُلَّما نُكِبوا",
+      "لِلَّهِ دَرُّ بَني عَبسٍ لَقَد نَسَلوا مِنَ الأَكارِمِ ما قَد تَنسُلُ العَرَبُ",
+      "لَئِن يَعيبوا سَوادي فَهوَ لي نَسَبٌ يَومَ النِزالِ إِذا ما فاتَني النَسَبُ",
+      "إِن كُنتَ تَعلَمُ يا نُعمانُ أَنَّ يَدي قَصيرَةٌ عَنكَ فَالأَيّامُ تَنقَلِبُ",
+    ],
+    linesEn: [
+      "He who rises high bears no grudge, and he whose nature is anger never attains glory.",
+    ],
+    isMuallaqa: false,
+    contextAr:
+      "قصيدة حكمية وفخرية لعنترة بن شداد يدافع فيها عن نفسه ضدّ من عيّره بسواده وأصله. يمزج فيها بين الحكمة والاعتزاز بالذات، مؤكّداً أنّ الشجاعة والفعل أشرف من النسب.",
+    contextEn:
+      "'Antara's famous poem of wisdom and self-assertion, in which he defends himself against those who mocked his dark skin and slave origins. He blends proverbial wisdom with fierce pride, insisting that courage and deeds outweigh lineage.",
+    source: ["https://www.aldiwan.net/poem126.html"],
+  },
+
+  // ─── Zuhayr ibn Abi Sulma ─────────────────────────────────────────
+  {
+    id: "zuhayr-saha-al-qalb",
+    slug: "zuhayr-saha-al-qalb",
+    titleAr: "صَحا القَلبُ عَن سَلمى وَأَقصَرَ باطِلُه",
+    titleEn: "The Heart Has Sobered from Salma",
+    poetId: "zuhayr",
+    eraId: "jahili",
+    type: "qasida",
+    meter: "الطويل",
+    rhyme: "اللام",
+    themes: ["ghazal", "hikma", "fakhr"],
+    linesAr: [
+      "صَحا القَلبُ عَن سَلمى وَأَقصَرَ باطِلُه وَعُرِّيَ أَفراسُ الصِبا وَرَواحِلُه",
+      "وَأَقصَرتُ عَمّا تَعلَمينَ وَسُدِّدَت عَلَيَّ سِوى قَصدِ السَبيلِ مَعادِلُه",
+      "وَقالَ العَذارى إِنَّما أَنتَ عَمُّنا وَكانَ الشَبابُ كَالخَليطِ نُزايِلُه",
+      "فَأَصبَحتُ ما يَعرِفنَ إِلّا خَليقَتي وَإِلّا سَوادَ الرَأسِ وَالشَيبُ شامِلُه",
+      "لِمَن طَلَلٌ كَالوَحيِ عافٍ مَنازِلُه عَفا الرَسُّ مِنهُ فَالرُسَيسُ فَعاقِلُه",
+      "فَرَقدٌ فَصاراتٌ فَأَكنافُ مَنعِجٍ فَشَرقِيُّ سَلمى حَوضُهُ فَأَجاوِلُه",
+    ],
+    linesEn: [
+      "The heart has sobered from Salma and abandoned its follies, and the steeds of youth have been unsaddled.",
+    ],
+    isMuallaqa: false,
+    contextAr:
+      "من أشهر قصائد زهير بن أبي سلمى بعد معلّقته. يستهلّها بالتغزّل بسلمى والاعتراف بأنّ الشباب قد ولّى، ثمّ ينتقل إلى مدح حصن بن حذيفة الفزاري في أبيات مملوءة بالحكمة.",
+    contextEn:
+      "One of Zuhayr's most celebrated odes after his Mu'allaqa. He opens confessing that his heart has sobered from its youthful love for Salma, then transitions into praise of Husn ibn Hudhayfa al-Fazari, laced with the wisdom for which Zuhayr is renowned.",
+    source: ["https://www.aldiwan.net/poem25063.html"],
+  },
+  {
+    id: "zuhayr-liman-al-diyar",
+    slug: "zuhayr-liman-al-diyar",
+    titleAr: "لِمَنِ الدِيارُ بِقُنَّةِ الحِجرِ",
+    titleEn: "Whose Dwellings Stand at the Summit of al-Hijr",
+    poetId: "zuhayr",
+    eraId: "jahili",
+    type: "qasida",
+    meter: "الكامل",
+    rhyme: "الراء",
+    themes: ["ghazal", "fakhr"],
+    linesAr: [
+      "لِمَنِ الدِيارُ بِقُنَّةِ الحِجرِ أَقوَينَ مِن حِجَجٍ وَمِن شَهرِ",
+      "لَعِبَ الزَمانُ بِها وَغَيَّرَها بَعدي سَوافي المورِ وَالقَطرِ",
+      "قَفراً بِمُندَفَعِ النَحائِتِ مِن ضَفوى أُلاتِ الضالِ وَالسِدرِ",
+      "دَع ذا وَعَدِّ القَولَ في هَرَمٍ خَيرِ البُداةِ وَسَيِّدِ الحَضرِ",
+      "تَاللَهِ قَد عَلِمَت سَراةُ بَني ذُبيانَ عامَ الحَبسِ وَالأَصرِ",
+      "أَن نِعمَ مُعتَرَكُ الجِياعِ إِذا خَبَّ السَفيرُ وَسابِئُ الخَمرِ",
+    ],
+    linesEn: [
+      "Whose are the dwellings at the summit of al-Hijr, deserted for years and months?",
+    ],
+    isMuallaqa: false,
+    contextAr:
+      "قصيدة مدحيّة لزهير بن أبي سلمى في هرم بن سنان المرّي، أحد سيّدَي الصلح في حرب داحس والغبراء. يستهلّها بالوقوف على الأطلال ثمّ ينتقل سريعاً إلى مدح هرم بالكرم والسيادة.",
+    contextEn:
+      "A panegyric by Zuhayr in praise of Harim ibn Sinan al-Murri, one of the two peacemakers in the Dahis and Ghabra war. He opens at the deserted ruins, then pivots swiftly to laud Harim's generosity and chieftaincy.",
+    source: ["https://www.aldiwan.net/poem25056.html"],
+  },
+
+  // ─── al-Khansa' ──────────────────────────────────────────────────
+  {
+    id: "al-khansa-a3ynayi-juda",
+    slug: "al-khansa-a3ynayi-juda",
+    titleAr: "أَعَينَيَّ جودا وَلا تَجمُدا",
+    titleEn: "O My Two Eyes, Flow and Do Not Freeze",
+    poetId: "al-khansa",
+    eraId: "jahili",
+    type: "qasida",
+    meter: "المتقارب",
+    rhyme: "الدال",
+    themes: ["ritha"],
+    linesAr: [
+      "أَعَينَيَّ جودا وَلا تَجمُدا أَلا تَبكِيانِ لِصَخرِ النَدى",
+      "أَلا تَبكِيانِ الجَريءَ الجَميلَ أَلا تَبكِيانِ الفَتى السَيِّدا",
+      "طَويلَ النِجادِ رَفيعَ العِمادِ سادَ عَشيرَتَهُ أَمرَدا",
+      "إِذا القَومُ مَدّوا بِأَيديهِمِ إِلى المَجدِ مَدَّ إِلَيهِ يَدا",
+      "فَنالَ الَّذي فَوقَ أَيديهِمِ مِنَ المَجدِ ثُمَّ مَضى مُصعِدا",
+      "يُكَلِّفُهُ القَومُ ما عالَهُم وَإِن كانَ أَصغَرَهُم مَولِدا",
+    ],
+    linesEn: [
+      "O my two eyes, flow with tears and do not freeze — will you not weep for Sakhr the generous?",
+    ],
+    isMuallaqa: false,
+    contextAr:
+      "ثاني أشهر مرثيّات الخنساء في أخيها صخر بن عمرو. تستهلّها بمخاطبة عينيها مستدرّةً الدمع، ثمّ تعدّد مناقب صخر من شجاعة وسيادة وكرم.",
+    contextEn:
+      "Al-Khansa's second most famous elegy for her brother Sakhr ibn Amr. She opens by commanding her eyes to weep, then enumerates Sakhr's virtues: his bravery, his chieftaincy even in his youth, and his unmatched generosity.",
+    source: ["https://www.aldiwan.net/poem21068.html"],
+  },
+  {
+    id: "al-khansa-bakat-ayni",
+    slug: "al-khansa-bakat-ayni",
+    titleAr: "بَكَت عَيني وَعاوَدَتِ السُهودا",
+    titleEn: "My Eye Wept and Sleeplessness Returned",
+    poetId: "al-khansa",
+    eraId: "jahili",
+    type: "qasida",
+    meter: "الوافر",
+    rhyme: "الدال",
+    themes: ["ritha"],
+    linesAr: [
+      "بَكَت عَيني وَعاوَدَتِ السُهودا وَبِتُّ اللَيلَ جانِحَةً عَميدا",
+      "لِذِكرى مَعشَرٍ وَلَّوا وَخَلَّوا عَلَينا مِن خِلافَتِهِم فُقودا",
+      "وَوافَوا ظِمءَ خامِسَةٍ فَأَمسَوا مَعَ الماضينَ قَد تَبِعوا ثَمودا",
+      "فَكَم مِن فارِسٍ لَكِ أُمَّ عَمروٍ يَحوطُ سِنانُهُ الأَنَسَ الحَريدا",
+      "كَصَخرٍ أَو مُعاوِيَةَ بنِ عَمروٍ إِذا كانَت وُجوهُ القَومِ سودا",
+      "يَرُدُّ الخَيلَ دامِيَةً كُلاها جَديرٌ يَومَ هيجا أَن يَصيدا",
+    ],
+    linesEn: [
+      "My eye wept and sleeplessness returned, and I spent the night bent over with grief.",
+    ],
+    isMuallaqa: false,
+    contextAr:
+      "مرثيّة الخنساء في أخوَيها صخر ومعاوية معاً. تستهلّها بالبكاء والسهاد ثمّ تذكر رحيل قومها وتشبّه فناءهم بمصير ثمود، وتعدّد بطولات صخر ومعاوية في ساحات القتال.",
+    contextEn:
+      "An elegy by al-Khansa mourning both her brothers Sakhr and Mu'awiya. She opens with weeping and insomnia, likens her people's demise to the fate of Thamud, then recounts the martial feats of both brothers in battle.",
+    source: ["https://www.aldiwan.net/poem21069.html"],
+  },
+
+  // ─── al-Nabigha al-Dhubyani ──────────────────────────────────────
+  {
+    id: "al-nabigha-amin-al-miyya",
+    slug: "al-nabigha-amin-al-miyya",
+    titleAr: "أَمِن آلِ مَيَّةَ رائِحٌ أَو مُغتَدِ",
+    titleEn: "Is It from Mayya's Kin That One Departs at Dawn or Dusk",
+    poetId: "al-nabigha",
+    eraId: "jahili",
+    type: "qasida",
+    meter: "الكامل",
+    rhyme: "الدال",
+    themes: ["ghazal", "fakhr"],
+    linesAr: [
+      "أَمِن آلِ مَيَّةَ رائِحٌ أَو مُغتَدِ عَجلانَ ذا زادٍ وَغَيرَ مُزَوَّدِ",
+      "أَفِدَ التَرَحُّلُ غَيرَ أَنَّ رِكابَنا لَمّا تَزُل بِرِحالِنا وَكَأَن قَدِ",
+      "زَعَمَ البَوارِحُ أَنَّ رِحلَتَنا غَداً وَبِذاكَ خَبَّرَنا الغُدافُ الأَسوَدُ",
+      "لا مَرحَباً بِغَدٍ وَلا أَهلاً بِهِ إِن كانَ تَفريقُ الأَحِبَّةِ في غَدِ",
+      "حانَ الرَحيلُ وَلَم تُوَدِّع مَهدَداً وَالصُبحُ وَالإِمساءُ مِنها مَوعِدي",
+      "في إِثرِ غانِيَةٍ رَمَتكَ بِسَهمِها فَأَصابَ قَلبَكَ غَيرَ أَن لَم تُقصِدِ",
+    ],
+    linesEn: [
+      "Is it from Mayya's kin that someone departs at dusk or dawn, hastily provisioned or without provisions?",
+    ],
+    isMuallaqa: false,
+    contextAr:
+      "من أشهر قصائد النابغة الذبياني بعد معلّقته. يستهلّها بالتساؤل عن الراحل من آل ميّة ثمّ يأسى على فراق الأحبّة في أبيات بديعة، ويتنقّل بين الغزل والمدح.",
+    contextEn:
+      "One of al-Nabigha's most famous qasidas after his Mu'allaqa. He opens by asking whether someone departs from Mayya's people, then laments the scattering of loved ones in exquisite verses, moving between ghazal and panegyric.",
+    source: ["https://www.aldiwan.net/poem2002.html"],
+  },
+  {
+    id: "al-nabigha-kilini-lihamm",
+    slug: "al-nabigha-kilini-lihamm",
+    titleAr: "كِليني لِهَمٍّ يا أُمَيمَةَ ناصِبِ",
+    titleEn: "Leave Me to My Wearisome Care, O Umayma",
+    poetId: "al-nabigha",
+    eraId: "jahili",
+    type: "qasida",
+    meter: "الطويل",
+    rhyme: "الباء",
+    themes: ["ghazal", "hikma"],
+    linesAr: [
+      "كِليني لِهَمٍّ يا أُمَيمَةَ ناصِبِ وَلَيلٍ أُقاسيهِ بَطيءِ الكَواكِبِ",
+      "تَطاوَلَ حَتّى قُلتُ لَيسَ بِمُنقَضٍ وَلَيسَ الَّذي يَرعى النُجومَ بِآئِبِ",
+      "وَصَدرٍ أَراحَ اللَيلُ عازِبَ هَمِّهِ تَضاعَفَ فيهِ الحُزنُ مِن كُلِّ جانِبِ",
+      "عَلَيَّ لِعَمروٍ نِعمَةٌ بَعدَ نِعمَةٍ لِوالِدِهِ لَيسَت بِذاتِ عَقارِبِ",
+      "حَلَفتُ يَميناً غَيرَ ذي مَثنَوِيَّةٍ وَلا عِلمَ إِلّا حُسنُ ظَنٍّ بِصاحِبِ",
+      "لَئِن كانَ لِلقَبرَينِ قَبرٍ بِجِلَّقٍ وَقَبرٍ بِصَيداءَ الَّذي عِندَ حارِبِ",
+    ],
+    linesEn: [
+      "Leave me to my wearisome care, O Umayma, and to a night I endure whose stars crawl slowly.",
+    ],
+    isMuallaqa: false,
+    contextAr:
+      "الاعتذاريّة الشهيرة للنابغة الذبياني، قالها يعتذر للنعمان بن المنذر ملك الحيرة بعد أن وشى به الحسّاد. يخاطب ابنته أميمة شاكياً همومه وطول ليله، ثمّ يحلف براءته ويمدح النعمان.",
+    contextEn:
+      "Al-Nabigha's celebrated apology poem (i'tidhariyya), composed to placate al-Nu'man ibn al-Mundhir, king of al-Hira, after envious rivals slandered the poet. He addresses his daughter Umayma, lamenting his cares and sleepless nights, then swears his innocence and praises al-Nu'man.",
+    source: ["https://www.aldiwan.net/poem2017.html"],
+  },
+
+  // ═══════════════════════════════════════════════════════════════════
+  // Additional poems — Umayyad era + remaining Jahili
+  // ═══════════════════════════════════════════════════════════════════
+  // ─────────────────────────────────────────────
+  // JARIR — poem 2
+  // ─────────────────────────────────────────────
+  {
+    id: "jarir-atashu",
+    slug: "jarir-atashu",
+    titleAr: "أَتَصحو بَل فُؤادُكَ غَيرُ صاحِ",
+    titleEn: "Are You Sober, or Is Your Heart Beyond Sobriety?",
+    poetId: "jarir",
+    eraId: "umawi",
+    type: "qasida",
+    meter: "الوافر",
+    rhyme: "الحاء",
+    themes: ["ghazal", "fakhr"],
+    linesAr: [
+      "أَتَصحو بَل فُؤادُكَ غَيرُ صاحِ عَشِيَّةَ هَمَّ صَحبُكَ بِالرَواحِ",
+      "يَقولُ العاذِلاتُ عَلاكَ شَيبٌ أَهَذا الشَيبُ يَمنَعُني مِراحي",
+      "يُكَلِّفُني فُؤادي مِن هَواهُ ظَعائِنَ يَجتَزِعنَ عَلى رُماحِ",
+      "ظَعائِنَ لَم يَدِنَّ مَعَ النَصارى وَلا يَدرينَ ما سَمكُ القَراحِ",
+      "فَبَعضُ الماءِ ماءُ رَبابِ مُزنٍ وَبَعضُ الماءِ مِن سَبَخٍ مِلاحِ",
+      "سَيَكفيكَ العَواذِلَ أَرحَبِيٌّ هِجانُ اللَونِ كَالفَرَدِ اللَياحِ",
+    ],
+    linesEn: [
+      "Are you sober — nay, your heart is past sobriety — / on the evening your companions set out to depart?",
+    ],
+    isMuallaqa: false,
+    contextAr:
+      "من أشهر قصائد جرير في الغزل والمديح، أنشدها أمام الخليفة عبد الملك بن مروان. يفتتحها بمخاطبة نفسه عن حال فؤاده الذي لا يصحو من الهوى رغم الشيب، ثم يصف الظعائن الراحلات ويمزج بين الغزل والفخر.",
+    contextEn:
+      "One of Jarir's most celebrated ghazal-and-panegyric odes, recited before the Umayyad Caliph 'Abd al-Malik ibn Marwan. He opens by addressing himself about a heart that will not sober from passion despite grey hair, describes the departing camel-litters of the beloved, and weaves between love-longing and tribal pride.",
+    source: ["https://www.aldiwan.net/poem5698.html"],
+  },
+
+  // ─────────────────────────────────────────────
+  // JARIR — poem 3
+  // ─────────────────────────────────────────────
+  {
+    id: "jarir-lawla-alhaya",
+    slug: "jarir-lawla-alhaya",
+    titleAr: "لَولا الحَياءُ لَعادَني اِستِعبارُ",
+    titleEn: "Were It Not for Modesty, Weeping Would Return to Me",
+    poetId: "jarir",
+    eraId: "umawi",
+    type: "qasida",
+    meter: "الكامل",
+    rhyme: "الراء",
+    themes: ["ritha", "ghazal"],
+    linesAr: [
+      "لَولا الحَياءُ لَعادَني اِستِعبارُ وَلَزُرتُ قَبرَكِ وَالحَبيبُ يُزارُ",
+      "وَلَقَد نَظَرتُ وَما تَمَتُّعُ نَظرَةٍ في اللَحدِ حَيثُ تَمَكَّنَ المِحفارُ",
+      "فَجَزاكِ رَبُّكِ في عَشيرِكِ نَظرَةً وَسَقى صَداكِ مُجَلجِلٌ مِدرارُ",
+      "وَلَّهتِ قَلبي إِذ عَلَتني كَبرَةٌ وَذَوُو التَمائِمِ مِن بَنيكِ صِغارُ",
+      "أَرعى النُجومَ وَقَد مَضَت غَورِيَّةً عُصَبُ النُجومِ كَأَنَّهُنَّ صِوارُ",
+      "نِعمَ القَرينُ وَكُنتِ عِلقَ مَضِنَّةٍ وارى بِنَعفِ بُلَيَّةَ الأَحجارُ",
+    ],
+    linesEn: [
+      "Were it not for modesty, weeping would return to me, / and I would visit your grave — for the beloved is visited.",
+    ],
+    isMuallaqa: false,
+    contextAr:
+      "من أرقّ المراثي في الشعر العربي كلّه، قالها جرير في رثاء زوجته أمّ حَزرة خالدة بنت سعد. يكشف فيها عن صراع بين عُرف قومه الذي يأنف من بكاء الرجل على امرأته وبين حزنه العميق وحبّه لها، فتحوّلت إلى رمز لوفاء الزوج.",
+    contextEn:
+      "Among the most tender elegies in all of Arabic poetry, composed by Jarir mourning his wife Umm Hazra, Khalida bint Sa'd. It reveals a conflict between tribal custom — which disdained a man weeping over his wife — and his deep grief and love, transforming it into a timeless symbol of spousal devotion.",
+    source: ["https://www.aldiwan.net/poem5740.html"],
+  },
+
+  // ─────────────────────────────────────────────
+  // AL-FARAZDAQ — poem 2
+  // ─────────────────────────────────────────────
+  {
+    id: "al-farazdaq-zayn-al-abidin",
+    slug: "al-farazdaq-zayn-al-abidin",
+    titleAr: "هَذا الَّذي تَعرِفُ البَطحاءُ وَطأَتَهُ",
+    titleEn: "This Is He Whose Tread al-Bathā' Knows",
+    poetId: "al-farazdaq",
+    eraId: "umawi",
+    type: "qasida",
+    meter: "البسيط",
+    rhyme: "الميم",
+    themes: ["fakhr"],
+    linesAr: [
+      "هَذا الَّذي تَعرِفُ البَطحاءُ وَطأَتَهُ وَالبَيتُ يَعرِفُهُ وَالحِلُّ وَالحَرَمُ",
+      "هَذا اِبنُ خَيرِ عِبادِ اللَهِ كُلِّهِمُ هَذا التَقِيُّ النَقِيُّ الطاهِرُ العَلَمُ",
+      "هَذا اِبنُ فاطِمَةٍ إِن كُنتَ جاهِلَهُ بِجَدِّهِ أَنبِياءُ اللَهِ قَد خُتِموا",
+      "وَلَيسَ قَولُكَ مَن هَذا بِضائِرِهِ العُربُ تَعرِفُ مَن أَنكَرتَ وَالعَجَمُ",
+      "كِلتا يَدَيهِ غِياثٌ عَمَّ نَفعُهُما يُستَوكَفانِ وَلا يَعروهُما عَدَمُ",
+      "سَهلُ الخَليقَةِ لا تُخشى بَوادِرُهُ يَزينُهُ اِثنانِ حُسنُ الخُلقِ وَالشِيَمُ",
+    ],
+    linesEn: [
+      "This is he whose tread al-Bathā' knows, / whom the Ka'ba knows, the sanctuary and the sacred precinct.",
+    ],
+    isMuallaqa: false,
+    contextAr:
+      "من أعظم قصائد المدح في تاريخ الشعر العربي، نظمها الفرزدق في مدح عليّ بن الحسين زين العابدين حين سأل هشام بن عبد الملك عنه فتجاهله، فقال الفرزدق هذه القصيدة التي خلّدت الممدوح وقائلها معاً.",
+    contextEn:
+      "One of the greatest panegyrics in Arabic literary history, composed by al-Farazdaq in praise of 'Ali ibn al-Husayn Zayn al-'Abidin when Hisham ibn 'Abd al-Malik pretended not to recognize him during the Hajj. The poem immortalised both its subject and its author.",
+    source: ["https://www.aldiwan.net/poem5493.html"],
+  },
+
+  // ─────────────────────────────────────────────
+  // AL-FARAZDAQ — poem 3
+  // ─────────────────────────────────────────────
+  {
+    id: "al-farazdaq-azafta",
+    slug: "al-farazdaq-azafta",
+    titleAr: "عَزَفتَ بِأَعشاشٍ وَما كِدتَ تَعزِفُ",
+    titleEn: "You Turned from A'shash Though You Hardly Would Turn",
+    poetId: "al-farazdaq",
+    eraId: "umawi",
+    type: "qasida",
+    meter: "الطويل",
+    rhyme: "الفاء",
+    themes: ["ghazal", "fakhr"],
+    linesAr: [
+      "عَزَفتَ بِأَعشاشٍ وَما كِدتَ تَعزِفُ وَأَنكَرتَ مِن حَدراءَ ما كُنتَ تَعرِفُ",
+      "وَلَجَّ بِكَ الهِجرانُ حَتّى كَأَنَّما تَرى المَوتَ في البَيتِ الَّذي كُنتَ تَيلَفُ",
+      "لَجاجَةُ صُرمٍ لَيسَ بِالوَصلِ إِنَّما أَخو الوَصلِ مَن يَدنو وَمَن يَتَلَطَّفُ",
+      "إِذا اِنتَبَهَت حَدراءُ مِن نَومَةِ الضُحى دَعَت وَعَلَيها دِرعُ خَزٍّ وَمِطرَفُ",
+      "بِأَخضَرَ مِن نَعمانَ ثُمَّ جَلَت بِهِ عِذابَ الثَنايا طَيِّباً حينَ يُرشَفُ",
+      "وَمُستَنفِزاتٍ لِلقُلوبِ كَأَنَّها مَهاً حَولَ مَنتوجاتِهِ يَتَصَرَّفُ",
+    ],
+    linesEn: [
+      "You turned away from A'shash though you hardly would turn, / and denied in Hadra' what you once knew.",
+    ],
+    isMuallaqa: false,
+    contextAr:
+      "من قصائد الفرزدق الطوال التي يمزج فيها بين الغزل والفخر والمديح. يفتتحها بوقفة طللية يصف فيها تحوّل أحوال الديار والهجران، ثم ينتقل إلى وصف المحبوبة حدراء في مشهد بديع من مشاهد النعمة والجمال.",
+    contextEn:
+      "One of al-Farazdaq's lengthy odes blending ghazal, self-praise, and panegyric. He opens with a ruin-stop lamenting changed circumstances and estrangement, then transitions to a luminous portrait of his beloved Hadra' waking in silk and sipping fresh miswak.",
+    source: ["https://www.aldiwan.net/poem5335.html"],
+  },
+
+  // ─────────────────────────────────────────────
+  // AL-AKHTAL — poem 1
+  // ─────────────────────────────────────────────
+  {
+    id: "al-akhtal-khaffa-al-qatin",
+    slug: "al-akhtal-khaffa-al-qatin",
+    titleAr: "خَفَّ القَطينُ فَراحوا مِنكَ أَو بَكَروا",
+    titleEn: "The Household Left — They Departed from You at Dusk or Dawn",
+    poetId: "al-akhtal",
+    eraId: "umawi",
+    type: "qasida",
+    meter: "البسيط",
+    rhyme: "الراء",
+    themes: ["ghazal", "hikma"],
+    linesAr: [
+      "خَفَّ القَطينُ فَراحوا مِنكَ أَو بَكَروا وَأَزعَجَتهُم نَوىً في صَرفِها غِيَرُ",
+      "كَأَنَّني شارِبٌ يَومَ اِستُبِدَّ بِهِم مِن قَرقَفٍ ضُمِّنَتها حِمصُ أَو جَدَرُ",
+      "جادَت بِها مِن ذَواتِ القارِ مُترَعَةٌ كَلفاءُ يَنحَتُّ عَن خُرطومِها المَدَرُ",
+      "لَذٌّ أَصابَت حُمَيّاها مُقاتِلَهُ فَلَم تَكَد تَنجَلي عَن قَلبِهِ الخُمَرُ",
+      "كَأَنَّني ذاكَ أَو ذو لَوعَةٍ خَبَلَت أَوصالَهُ أَو أَصابَت قَلبَهُ النُشَرُ",
+      "شَوقاً إِلَيهِم وَوَجداً يَومَ أُتبِعُهُم طَرفي وَمِنهُم بِجَنبَي كَوكَبٍ زُمَرُ",
+    ],
+    linesEn: [
+      "The household departed — they left you at dusk or dawn, / driven by a fate whose turns bring change.",
+    ],
+    isMuallaqa: false,
+    contextAr:
+      "من أطول قصائد الأخطل وأشهرها (84 بيتاً)، تُعدّ من عيون الشعر الأموي. يفتتحها بوصف رحيل الأحبة ثم يشبّه حاله بشارب خمر من حمص أو جَدَر، فيمزج بين الغزل والخمريات بأسلوب جعل الأخطل رائد شعر الخمر قبل أبي نواس.",
+    contextEn:
+      "One of al-Akhtal's longest and most celebrated qasidas (84 verses), considered a masterpiece of Umayyad poetry. He opens with the departure of loved ones, then likens his state to a wine-drinker intoxicated by Homs or Jadar vintages — blending ghazal with khamriyya in a manner that made him a precursor of Abu Nuwas.",
+    source: ["https://www.aldiwan.net/poem6040.html"],
+  },
+
+  // ─────────────────────────────────────────────
+  // AL-AKHTAL — poem 2
+  // ─────────────────────────────────────────────
+  {
+    id: "al-akhtal-kadhabatka",
+    slug: "al-akhtal-kadhabatka",
+    titleAr: "كَذَبَتكَ عَينُكَ أَم رَأَيتَ بِواسِطٍ",
+    titleEn: "Did Your Eye Deceive You, or Did You See at Wasit",
+    poetId: "al-akhtal",
+    eraId: "umawi",
+    type: "qasida",
+    meter: "الكامل",
+    rhyme: "اللام",
+    themes: ["fakhr", "hija"],
+    linesAr: [
+      "كَذَبَتكَ عَينُكَ أَم رَأَيتَ بِواسِطٍ غَلَسَ الظَلامِ مِنَ الرَبابِ خَيالا",
+      "وَتَعَرَّضَت لَكَ بِالأَبالِخِ بَعدَ ما قَطَعَت بِأَبرَقَ خُلَّةً وَوِصالا",
+      "وَتَغَوَّلَت لِتَروعَنا جِنِّيَّةٌ وَالغانِياتُ يُرينَكَ الأَهوالا",
+      "يَمدُدنَ مِن هَفَواتِهِنَّ إِلى الصِبا سَبَباً يَصِدنَ بِهِ الغُواةَ طُوالا",
+      "ما إِن رَأَيتُ كَمَكرِهِنَّ إِذا جَرى فينا وَلا كَحِبالِهِنَّ حِبالا",
+      "المُهدِياتُ لِمَن هَوَينَ مَسَبَّةً وَالمُحسِناتُ لِمَن قَلَينَ مَقالا",
+    ],
+    linesEn: [
+      "Did your eye deceive you, or did you see at Wasit / in the darkness of dusk a phantom from the clouds?",
+    ],
+    isMuallaqa: false,
+    contextAr:
+      "تُعدّ أشهر قصائد الأخطل على الإطلاق، وهي من غرر شعر الهجاء والمديح في العصر الأموي. يفتتحها بخيال طيفٍ ظهر له في واسط، ثم ينتقل إلى هجاء جرير وقبيلته ومدح بني أمية، في 47 بيتاً على بحر الكامل.",
+    contextEn:
+      "Widely regarded as al-Akhtal's single most famous poem, and one of the greatest satirical-panegyric odes of the Umayyad age. He opens with a phantom apparition at Wasit, then pivots to lampooning Jarir and his tribe while praising the Umayyad dynasty — 47 verses in the Kamil meter.",
+    source: ["https://www.aldiwan.net/poem6031.html"],
+  },
+
+  // ─────────────────────────────────────────────
+  // AL-AKHTAL — poem 3
+  // ─────────────────────────────────────────────
+  {
+    id: "al-akhtal-liman-al-diyar",
+    slug: "al-akhtal-liman-al-diyar",
+    titleAr: "لِمَنِ الدِيارُ بِحائِلٍ فَوُعالِ",
+    titleEn: "Whose Are These Dwellings at Hā'il and Wu'āl?",
+    poetId: "al-akhtal",
+    eraId: "umawi",
+    type: "qasida",
+    meter: "الكامل",
+    rhyme: "اللام",
+    themes: ["ghazal", "fakhr"],
+    linesAr: [
+      "لِمَنِ الدِيارُ بِحائِلٍ فَوُعالِ دَرَسَت وَغَيَّرَها سُنونَ خَوالي",
+      "دَرَجَ البَوارِحُ فَوقَها فَتَنَكَّرَت بَعدَ الأَنيسِ مَعارِفُ الأَطلالِ",
+      "فَكَأَنَّما هِيَ مِن تُقادُمِ عَهدَها وَرَقٌ نُشِرنَ مِنَ الكِتابِ بَوالي",
+      "دِمَنٌ تُذَعذِعُها الرِياحُ وَتارَةً تُسقى بِمُرتَجِزِ السَحابِ ثَقالِ",
+      "باتَت يَمانِيَةُ الرِياحِ تَقودُهُ حَتّى اِستَقادَ لَها بِغَيرِ حِبالِ",
+      "في مُظلِمٍ غَدِقِ الرَبابِ كَأَنَّما يَسقي الأَشَقَّ وَعالِجاً بِدَوالي",
+    ],
+    linesEn: [
+      "Whose are these dwellings at Ha'il and Wu'al, / erased and altered by bygone years?",
+    ],
+    isMuallaqa: false,
+    contextAr:
+      "من قصائد الأخطل المعروفة في الوقوف على الأطلال والغزل ثم المديح، يفتتحها بسؤال عن ديار بحائل أقفرت وغيّرتها السنون، فيصفها بالورق البالية والسحاب الثقيل، في نسيج طللي بديع على بحر الكامل.",
+    contextEn:
+      "One of al-Akhtal's well-known odes opening with the atlal (ruin-stop) convention — asking who once dwelt at Ha'il and Wu'al, now erased by passing years. He likens the traces to worn-out manuscript pages and describes the rains that wash over them, in an exquisite Kamil-meter composition.",
+    source: ["https://www.aldiwan.net/poem6033.html"],
+  },
+
+  // ─────────────────────────────────────────────
+  // TARAFA IBN AL-'ABD — poem 2
+  // ─────────────────────────────────────────────
+  {
+    id: "tarafa-likhawla",
+    slug: "tarafa-likhawla",
+    titleAr: "لِخَولَةَ بِالأَجزاعِ مِن إِضَمٍ طَلَل",
+    titleEn: "At the Bends of Idam, Khawla Has a Trace",
+    poetId: "tarafa",
+    eraId: "jahili",
+    type: "qasida",
+    meter: "الطويل",
+    rhyme: "اللام",
+    themes: ["ghazal"],
+    linesAr: [
+      "لِخَولَةَ بِالأَجزاعِ مِن إِضَمٍ طَلَل وَبِالسَفحِ مِن قَوٍّ مُقامٌ وَمُحتَمَل",
+      "تَرَبُّعُهُ مِرباعُها وَمَصيفُها مِياهٌ مِنَ الأَشرافِ يُرمى بِها الحَجَل",
+      "فَلا زالَ غَيثٌ مِن رَبيعٍ وَصَيِّفٍ عَلى دارِها حَيثُ اِستَقَرَّت لَهُ زَجَل",
+      "مَرَتهُ الجَنوبُ ثُمَّ هَبَّت لَهُ الصَبا إِذا مَسَّ مِنها مَسكَناً عُدمُلٌ نَزَل",
+      "كَأَنَّ الخَلايا فيهِ ضَلَّت رِباعُها وَعوذاً إِذا ما هَدَّهُ رَعدُهُ اِحتَفَل",
+      "لَها كَبِدٌ مَلساءُ ذاتُ أَسِرَّةٍ وَكَشحانِ لَم يَنقُض طِوائُهُما الحَبَل",
+    ],
+    linesEn: [
+      "At the bends of Idam, Khawla has a trace, / and on the slope of Qaw a halting-place and a camp.",
+    ],
+    isMuallaqa: false,
+    contextAr:
+      "من قصائد طرفة بن العبد غير المعلّقة، يفتتحها بالوقوف على أطلال خولة في أجزاع إضم، مستعيداً ذكريات ربيعها وصيفها عند المياه. تكشف عن براعة طرفة في الوصف الطبيعي رغم صغر سنّه.",
+    contextEn:
+      "One of Tarafa's non-Mu'allaqa poems, opening with a ruin-stop at Khawla's traces in the bends of Idam, recalling her spring and summer encampments by the waters. It showcases Tarafa's remarkable descriptive power despite his young age.",
+    source: ["https://www.aldiwan.net/poem34009.html"],
+  },
+
+  // ─────────────────────────────────────────────
+  // TARAFA IBN AL-'ABD — poem 3
+  // ─────────────────────────────────────────────
+  {
+    id: "tarafa-sa-ilu",
+    slug: "tarafa-sa-ilu",
+    titleAr: "سائِلوا عَنّا الَّذي يَعرِفُنا",
+    titleEn: "Ask About Us Those Who Know Us",
+    poetId: "tarafa",
+    eraId: "jahili",
+    type: "qasida",
+    meter: "الرمل",
+    rhyme: "الميم",
+    themes: ["fakhr", "hamasa"],
+    linesAr: [
+      "سائِلوا عَنّا الَّذي يَعرِفُنا بِقُوانا يَومَ تَحلاقِ اللِمَم",
+      "يَومَ تُبدي البيضُ عَن أَسوقِها وَتَلُفُّ الخَيلُ أَعراجَ النَعَم",
+      "أَجدَرُ الناسِ بِرَأسٍ صِلدِمٍ حازِمِ الأَمرِ شُجاعٍ في الوَغَم",
+      "كامِلٍ يَحمِلُ آلاءَ الفَتى نَبِهٍ سَيِّدِ ساداتٍ خِضَم",
+      "خَيرُ حَيٍّ مِن مَعَدٍّ عُلِموا لِكَفِيٍّ وَلِجارٍ وَاِبنِ عَم",
+      "يَجبُرُ المَحروبَ فينا مالَهُ بِبِناءٍ وَسَوامٍ وَخَدَم",
+    ],
+    linesEn: [
+      "Ask about us those who know us / on the day of battle when forelocks are shorn.",
+    ],
+    isMuallaqa: false,
+    contextAr:
+      "من قصائد الفخر القبلي لطرفة بن العبد، يتباهى فيها بشجاعة قومه وكرمهم يوم الوغى حين تبدي النساء عن سوقهن فزعاً وتلفّ الخيل النعم. أبياتها حافلة بمعاني الحميّة والنخوة الجاهلية.",
+    contextEn:
+      "A tribal pride poem by Tarafa ibn al-'Abd, boasting of his people's courage and generosity on the day of battle when women bare their legs in panic and horses sweep through the herds. Its verses brim with the fierce honour and chivalry of the Jahili age.",
+    source: ["https://www.aldiwan.net/poem34017.html"],
+  },
+
+  // ─────────────────────────────────────────────
+  // LABID IBN RABI'A — poem 2
+  // ─────────────────────────────────────────────
+  {
+    id: "labid-ala-tasalan",
+    slug: "labid-ala-tasalan",
+    titleAr: "أَلا تَسأَلانِ المَرءَ ماذا يُحاوِلُ",
+    titleEn: "Will You Not Ask a Man What He Strives For?",
+    poetId: "labid",
+    eraId: "jahili",
+    type: "qasida",
+    meter: "الطويل",
+    rhyme: "اللام",
+    themes: ["hikma"],
+    linesAr: [
+      "أَلا تَسأَلانِ المَرءَ ماذا يُحاوِلُ أَنَحبٌ فَيُقضى أَم ضَلالٌ وَباطِلُ",
+      "حَبائِلُهُ مَبثوثَةٌ بِسَبيلِهِ وَيَفنى إِذا ما أَخطَأَتهُ الحَبائِلُ",
+      "إِذا المَرءُ أَسرى لَيلَةً ظَنَّ أَنَّهُ قَضى عَمَلاً وَالمَرءُ ما عاشَ عامِلُ",
+      "فَقولا لَهُ إِن كانَ يَقسِمُ أَمرَهُ أَلَمّا يَعِظكَ الدَهرُ أُمُّكَ هابِلُ",
+      "فَتَعلَمَ أَن لا أَنتَ مُدرِكُ ما مَضى وَلا أَنتَ مِمّا تَحذَرُ النَفسُ وائِلُ",
+      "فَإِن أَنتَ لَم تَصدُقكَ نَفسُكَ فَاِنتَسِب لَعَلَّكَ تَهديكَ القُرونُ الأَوائِلُ",
+    ],
+    linesEn: [
+      "Will you not ask a man what he strives for — / is it fate decreed, or straying and vanity?",
+    ],
+    isMuallaqa: false,
+    contextAr:
+      "من أشهر حِكَم لبيد بن ربيعة ومنها البيت الذي قال عنه النبي ﷺ: \"أصدق كلمة قالها شاعر كلمة لبيد: ألا كل شيء ما خلا الله باطل\". القصيدة تأمّل فلسفي عميق في حال الإنسان بين القدر والسعي والفناء.",
+    contextEn:
+      "One of Labid's most famous wisdom poems, containing the verse the Prophet praised as 'the truest word a poet ever spoke: Indeed everything save God is vain.' The poem is a deep philosophical meditation on the human condition between fate, striving, and mortality.",
+    source: ["https://www.aldiwan.net/poem21189.html"],
+  },
+
+  // ─────────────────────────────────────────────
+  // LABID IBN RABI'A — poem 3
+  // ─────────────────────────────────────────────
+  {
+    id: "labid-balina",
+    slug: "labid-balina",
+    titleAr: "بَلينا وَما تَبلى النُجومُ الطَوالِعُ",
+    titleEn: "We Have Worn Away, but the Rising Stars Do Not",
+    poetId: "labid",
+    eraId: "jahili",
+    type: "qasida",
+    meter: "الطويل",
+    rhyme: "العين",
+    themes: ["ritha", "hikma"],
+    linesAr: [
+      "بَلينا وَما تَبلى النُجومُ الطَوالِعُ وَتَبقى الجِبالُ بَعدَنا وَالمَصانِعُ",
+      "وَقَد كُنتُ في أَكنافِ جارِ مَضِنَّةٍ فَفارَقَني جارٌ بِأَربَدَ نافِعُ",
+      "فَلا جَزِعٌ إِن فَرَّقَ الدَهرُ بَينَنا وَكُلُّ فَتىً يَوماً بِهِ الدَهرُ فاجِعُ",
+      "فَلا أَنا يَأتيني طَريفٌ بِفَرحَةٍ وَلا أَنا مِمّا أَحدَثَ الدَهرُ جازِعُ",
+      "وَما الناسُ إِلّا كَالدِيارِ وَأَهلُها بِها يَومَ حَلّوها وَغَدواً بَلاقِعُ",
+      "وَما المَرءُ إِلّا كَالشِهابِ وَضَوئِهِ يَحورُ رَماداً بَعدَ إِذ هُوَ ساطِعُ",
+    ],
+    linesEn: [
+      "We have worn away, but the rising stars do not wear out, / and the mountains and edifices remain after us.",
+    ],
+    isMuallaqa: false,
+    contextAr:
+      "رثاء لبيد لأخيه أربد بن ربيعة الذي قتله البرق، من أعمق قصائد الرثاء والتأمّل في الأدب الجاهلي. يقارن فيها بين فناء البشر وبقاء النجوم والجبال، ويشبّه الإنسان بالشهاب يصير رماداً بعد أن كان ساطعاً.",
+    contextEn:
+      "Labid's elegy for his brother Arbad ibn Rabi'a, who was killed by lightning — one of the deepest elegiac meditations in Jahili literature. He contrasts human mortality with the permanence of stars and mountains, likening man to a shooting star that turns to ash after its brief blaze.",
+    source: ["https://www.aldiwan.net/poem21175.html"],
+  },
+
+  // ─────────────────────────────────────────────
+  // AL-SHANFARA — poem 2
+  // ─────────────────────────────────────────────
+  {
+    id: "al-shanfara-inna-bilshib",
+    slug: "al-shanfara-inna-bilshib",
+    titleAr: "إِنَّ بِالشِّعبِ الَّذي دونَ سَلعٍ",
+    titleEn: "In the Gorge Below Sal', There Lies a Slain Man",
+    poetId: "al-shanfara",
+    eraId: "jahili",
+    type: "qasida",
+    meter: "المديد",
+    rhyme: "اللام",
+    themes: ["hamasa", "ritha"],
+    linesAr: [
+      "إِنَّ بِالشِّعبِ الَّذي دونَ سَلعٍ لَقَتيلاً دَمُهُ ما يُطَلُّ",
+      "خَلَّفَ العِبءَ عَلَيَّ وَوَلّى أَنا بِالعِبءِ لَهُ مُستَقِلُّ",
+      "وَوَراءَ الثَّأرِ مِنّي اِبنُ أُختٍ مَصِعٌ عُقدَتُهُ ما تُحَلُّ",
+      "مُطرِقٌ يَرشَحُ مَوتاً كَما أَطرَقَ أَفعى يَنفُثُ السَمَّ صِلُّ",
+      "خَبَرٌ ما نابَنا مُصمَئِلٌّ جَلَّ حَتّى دَقَّ فيهِ الأَجَلُّ",
+      "بَزَّنِي الدَهرُ وَكانَ غَشوماً بِأَبِيٍّ جارُهُ ما يُذَلُّ",
+    ],
+    linesEn: [
+      "In the gorge below Sal', there lies a slain man / whose blood shall not go unavenged.",
+    ],
+    isMuallaqa: false,
+    contextAr:
+      "من أشهر قصائد الشنفرى بعد لاميّة العرب، وهي قصيدة ثأر ورثاء على بحر المديد النادر في الشعر الجاهلي. يتوعّد فيها بالانتقام لقتيل سقط في شعب سلع، ويصف نفسه بالأفعى المُطرقة التي تنفث السمّ.",
+    contextEn:
+      "Al-Shanfara's second most famous poem after the Lamiyyat al-'Arab, a vengeance elegy in the rare Madid meter. He vows to avenge a kinsman slain in the gorge of Sal', describing himself as a coiled viper dripping venom — a quintessential expression of su'luk (brigand-poet) fury.",
+    source: ["https://www.aldiwan.net/poem1231.html"],
+  },
+
+  // ─────────────────────────────────────────────
+  // AL-SHANFARA — poem 3
+  // ─────────────────────────────────────────────
+  {
+    id: "al-shanfara-ala-umm-amr",
+    slug: "al-shanfara-ala-umm-amr",
+    titleAr: "أَلا أُمَّ عَمرو أَجمَعَت فَاِستَقَلَّتِ",
+    titleEn: "Alas, Umm 'Amr Has Resolved and Departed",
+    poetId: "al-shanfara",
+    eraId: "jahili",
+    type: "qasida",
+    meter: "الطويل",
+    rhyme: "التاء",
+    themes: ["ghazal", "fakhr"],
+    linesAr: [
+      "أَلا أُمَّ عَمرو أَجمَعَت فَاِستَقَلَّتِ وَما وَدَّعَت جيرانَها إِذ تَوَلَّتِ",
+      "وَقَد سَبَقَتنا أُمُّ عَمرو بِأَمرِها وَكانَت بِأَعناقِ المَطِيَّ أَظَلَّتِ",
+      "بِعَينَيَّ ما أَمسَت فَباتَت فَأَصبَحَت فَقَضَّت أُموراً فَاِستَقَلَّت فَوَلَّتِ",
+      "فَوا كَبِدا عَلى أُمَيمَةَ بَعدَما طَمِعتُ فَهَبها نِعمَةَ العَيشِ زَلَّتِ",
+      "فَيا جارَتي وَأَنتِ غَيرُ مُليمَةٍ إِذا ذُكِرَت وَلا بِذاتِ تَقَلَّتِ",
+      "لَقَد أَعجَبَتني لا سَقوطاً قِناعُها إِذا ما مَشَت وَلا بِذاتِ تَلَفُّتِ",
+    ],
+    linesEn: [
+      "Alas, Umm 'Amr has resolved and departed, / and did not bid farewell to her neighbours when she turned away.",
+    ],
+    isMuallaqa: false,
+    contextAr:
+      "من أطول قصائد الشنفرى (38 بيتاً)، تجمع بين الغزل والفخر والوصف. يفتتحها برحيل أمّ عمرو المفاجئ دون وداع، ثم يصف إعجابه بها حين تمشي دون أن يسقط قناعها أو تلتفت، قبل أن ينتقل إلى الحديث عن حياة الصعلكة والبطولة.",
+    contextEn:
+      "One of al-Shanfara's longest poems (38 verses), weaving ghazal, self-praise, and description. He opens with Umm 'Amr's sudden departure without farewell, admires how she walks without dropping her veil or glancing back, then transitions to the brigand-poet's life of heroic vagrancy.",
+    source: ["https://www.aldiwan.net/poem1205.html"],
+  },
+
+  // ═══════════════════════════════════════════════════════════════════
+  // Additional poems — Abbasid, Andalusi, Modern
+  // ═══════════════════════════════════════════════════════════════════
+  // ───────────────────────────────────────────────
+  // al-Mutanabbi — poem 2 of 3
+  // ───────────────────────────────────────────────
+  {
+    id: "al-mutanabbi-waharra",
+    slug: "al-mutanabbi-waharra",
+    titleAr: "واحَرَّ قَلباهُ مِمَّن قَلبُهُ شَبِمُ",
+    titleEn: "O Burning Heart, from One Whose Heart Is Cold",
+    poetId: "al-mutanabbi",
+    eraId: "abbasi",
+    type: "qasida",
+    meter: "البسيط",
+    rhyme: "الميم",
+    themes: ["fakhr", "hikma"],
+    linesAr: [
+      "واحَرَّ قَلباهُ مِمَّن قَلبُهُ شَبِمُ وَمَن بِجِسمي وَحالي عِندَهُ سَقَمُ",
+      "مالي أُكَتِّمُ حُبّاً قَد بَرى جَسَدي وَتَدَّعي حُبَّ سَيفِ الدَولَةِ الأُمَمُ",
+      "إِن كانَ يَجمَعُنا حُبٌّ لِغُرَّتِهِ فَلَيتَ أَنّا بِقَدرِ الحُبِّ نَقتَسِمُ",
+      "قَد زُرتُهُ وَسُيوفُ الهِندِ مُغمَدَةٌ وَقَد نَظَرتُ إِلَيهِ وَالسُيوفُ دَمُ",
+      "فَكانَ أَحسَنَ خَلقِ اللَهِ كُلِّهِمِ وَكانَ أَحسَنَ ما في الأَحسَنِ الشِيَمُ",
+      "فَوتُ العَدُوِّ الَّذي يَمَّمتَهُ ظَفَرٌ في طَيِّهِ أَسَفٌ في طَيِّهِ نِعَمُ",
+    ],
+    linesEn: ["O burning heart, from one whose heart is cold, / and in whose eyes my body and my state are sickness."],
+    isMuallaqa: false,
+    contextAr: "قصيدة عتاب شهيرة وجّهها المتنبي إلى سيف الدولة الحمداني بعد أن فترت العلاقة بينهما وكثر حسّاده في بلاطه. يفتتحها بشكوى قلبه المحترق ممّن قلبه بارد، ثمّ يفخر بأنّه صاحب الحبّ الحقيقي لا المدّعون. من أبياتها الخالدة: «أَنا الَّذي نَظَرَ الأَعمى إِلى أَدَبي».",
+    contextEn: "A celebrated poem of reproach ('itab) that al-Mutanabbi addressed to Sayf al-Dawla after their relationship cooled and courtly rivals multiplied. He opens with the complaint of a burning heart ignored by one whose heart is cold, then boasts that his love alone is genuine. It contains the immortal verse: 'I am the one at whose literature even the blind have gazed.'",
+    source: [
+      "https://www.aldiwan.net/poem10521.html",
+    ],
+  },
+
+  // ───────────────────────────────────────────────
+  // al-Mutanabbi — poem 3 of 3
+  // ───────────────────────────────────────────────
+  {
+    id: "al-mutanabbi-iza-ghamarta",
+    slug: "al-mutanabbi-iza-ghamarta",
+    titleAr: "إِذا غامَرتَ في شَرَفٍ مَرومِ",
+    titleEn: "If You Venture for Honored Glory",
+    poetId: "al-mutanabbi",
+    eraId: "abbasi",
+    type: "qasida",
+    meter: "الوافر",
+    rhyme: "الميم",
+    themes: ["fakhr", "hikma", "hamasa"],
+    linesAr: [
+      "إِذا غامَرتَ في شَرَفٍ مَرومِ فَلا تَقنَع بِما دونَ النُجومِ",
+      "فَطَعمُ المَوتِ في أَمرٍ صَغيرٍ كَطَعمِ المَوتِ في أَمرٍ عَظيمِ",
+      "سَتَبكي شَجوَها فَرَسي وَمُهري صَفائِحُ دَمعُها ماءُ الجُسومِ",
+      "قَرَبنَ النارَ ثُمَّ نَشَأنَ فيها كَما نَشَأَ العَذارى في النَعيمِ",
+      "وَفارَقنَ الصَياقِلَ مُخلَصاتٍ وَأَيديها كَثيراتُ الكُلومِ",
+      "يَرى الجُبَناءُ أَنَّ العَجزَ عَقلٌ وَتِلكَ خَديعَةُ الطَبعِ اللَئيمِ",
+    ],
+    linesEn: ["If you venture for honored glory, / be not content with anything less than the stars."],
+    isMuallaqa: false,
+    contextAr: "من حِكَم المتنبي الخالدة في الفخر والحماسة، يحثّ فيها على طلب المعالي وعدم الرضا بالدون. يُقرِن بين طعم الموت في الأمر الصغير والعظيم ليدلّل على أنّ الحياة واحدة فينبغي إنفاقها في شرف. ومن أشهر أبياتها: «يَرى الجُبَناءُ أَنَّ العَجزَ عَقلٌ».",
+    contextEn: "Among al-Mutanabbi's most enduring aphorisms on pride and valor, urging the pursuit of the highest honors and refusing anything less than the stars. He equates the taste of death in a small matter with that in a great one, arguing that since life is one, it should be spent pursuing glory. The verse 'Cowards see helplessness as wisdom' became proverbial.",
+    source: [
+      "https://www.aldiwan.net/poem10566.html",
+    ],
+  },
+
+  // ───────────────────────────────────────────────
+  // Abu Nuwas — poem 2 of 3
+  // ───────────────────────────────────────────────
+  {
+    id: "abu-nuwas-da-annaka",
+    slug: "abu-nuwas-da-annaka",
+    titleAr: "دَع عَنكَ لَومي فَإِنَّ اللَومَ إِغراءُ",
+    titleEn: "Leave Off Your Blame, for Blame Is Enticement",
+    poetId: "abu-nuwas",
+    eraId: "abbasi",
+    type: "qasida",
+    meter: "البسيط",
+    rhyme: "الهمزة",
+    themes: ["ghazal", "hikma"],
+    linesAr: [
+      "دَع عَنكَ لَومي فَإِنَّ اللَومَ إِغراءُ وَداوِني بِالَّتي كانَت هِيَ الداءُ",
+      "صَفراءُ لا تَنزِلُ الأَحزانُ ساحَتَها لَو مَسَّها حَجَرٌ مَسَّتهُ سَرّاءُ",
+      "مِن كَفِّ ذاتِ حِرٍ في زِيِّ ذي ذَكَرٍ لَها مُحِبّانِ لوطِيٌّ وَزَنّاءُ",
+      "قامَت بِإِبريقِها وَاللَيلُ مُعتَكِرٌ فَلاحَ مِن وَجهِها في البَيتِ لَألاءُ",
+      "فَأَرسَلَت مِن فَمِ الإِبريقِ صافِيَةً كَأَنَّما أَخذُها بِالعَينِ إِغفاءُ",
+      "رَقَّت عَنِ الماءِ حَتّى ما يُلائِمُها لَطافَةً وَجَفا عَن شَكلِها الماءُ",
+    ],
+    linesEn: ["Leave off your blame, for blame is but enticement; / and cure me with the very thing that was my ailment."],
+    isMuallaqa: false,
+    contextAr: "أشهر خمريات أبي نواس على الإطلاق، ومطلعها من أكثر الأبيات دوراناً في الشعر العربي. يردّ فيها على لائميه بأنّ اللوم لا يزيده إلّا تعلّقاً بالخمر، ثمّ يصف الخمرة الصفراء التي تطرد الأحزان وتفوق الماء لطافةً.",
+    contextEn: "The most celebrated wine poem (khamriyya) in Arabic literature, whose opening hemistich became proverbial. Abu Nuwas rebuffs his critics, declaring that blame only increases his attachment to wine, then describes a golden vintage that banishes sorrow and exceeds water itself in delicacy.",
+    source: [
+      "https://www.aldiwan.net/poem10397.html",
+    ],
+  },
+
+  // ───────────────────────────────────────────────
+  // Abu Nuwas — poem 3 of 3
+  // ───────────────────────────────────────────────
+  {
+    id: "abu-nuwas-ala-fasqini",
+    slug: "abu-nuwas-ala-fasqini",
+    titleAr: "أَلا فَاسقِني خَمراً وَقُل لي هِيَ الخَمرُ",
+    titleEn: "Pour Me Wine and Tell Me: This Is Wine",
+    poetId: "abu-nuwas",
+    eraId: "abbasi",
+    type: "qasida",
+    meter: "الطويل",
+    rhyme: "الراء",
+    themes: ["ghazal", "hikma"],
+    linesAr: [
+      "أَلا فَاسقِني خَمراً وَقُل لي هِيَ الخَمرُ وَلا تَسقِني سِرّاً إِذا أَمكَنَ الجَهرُ",
+      "فَما العَيشُ إِلّا سَكرَةٌ بَعدَ سَكرَةٍ فَإِن طالَ هَذا عِندَهُ قَصُرَ الدَهرُ",
+      "وَما الغَبنُ إِلّا أَن تَراني صاحِياً وَما الغُنمُ إِلّا أَن يُتَعتِعَني السُكرُ",
+      "فَبُح بِاسمِ مَن تَهوى وَدَعني مِنَ الكُنى فَلا خَيرَ في اللَذّاتِ مِن دونِها سِترُ",
+      "وَلا خَيرَ في فِتكٍ بِدونِ مُجانَةٍ وَلا في مُجونٍ لَيسَ يَتبَعُهُ كُفرُ",
+      "بِكُلِّ أَخي فِتكٍ كَأَنَّ جَبينَهُ هِلالٌ وَقَد حَفَّت بِهِ الأَنجُمُ الزُهرُ",
+    ],
+    linesEn: ["Pour me wine and tell me plainly: this is wine; / do not serve me in secret when openness is possible."],
+    isMuallaqa: false,
+    contextAr: "خمرية أخرى من عيون شعر أبي نواس، يدعو فيها إلى الجهر بالشرب ونبذ التستّر، ويرى أنّ الحياة ليست إلّا نشوة بعد نشوة، وأنّ الحرمان هو الصحو والغنيمة هي السُّكر. تجسّد القصيدة فلسفته في المجون الصريح.",
+    contextEn: "Another landmark wine poem by Abu Nuwas, calling for openness in drinking and rejecting concealment. He declares that life is nothing but intoxication after intoxication, and that the real loss is sobriety while the real gain is inebriation. The poem embodies his philosophy of frank hedonism.",
+    source: [
+      "https://www.aldiwan.net/poem21954.html",
+    ],
+  },
+
+  // ───────────────────────────────────────────────
+  // al-Maarri — poem 2 of 3
+  // ───────────────────────────────────────────────
+  {
+    id: "al-maarri-ala-fi-sabil",
+    slug: "al-maarri-ala-fi-sabil",
+    titleAr: "أَلا في سَبيلِ المَجدِ ما أَنا فاعِلُ",
+    titleEn: "Behold, in the Path of Glory, What I Do",
+    poetId: "al-maarri",
+    eraId: "abbasi",
+    type: "qasida",
+    meter: "الطويل",
+    rhyme: "اللام",
+    themes: ["fakhr", "hikma"],
+    linesAr: [
+      "أَلا في سَبيلِ المَجدِ ما أَنا فاعِلُ عَفافٌ وَإِقدامٌ وَحَزمٌ وَنائِلُ",
+      "أَعِندي وَقَد مارَستُ كُلَّ خَفِيَّةٍ يُصَدَّقُ واشٍ أَو يُخَيَّبُ سائِلُ",
+      "أَقَلُّ صُدودي أَنَّني لَكَ مُبغِضٌ وَأَيسَرُ هَجري أَنَّني عَنكَ راحِلُ",
+      "إِذا هَبَّتِ النَكباءُ بَيني وَبَينَكُم فَأَهوَنُ شَيءٍ ما تَقولُ العَواذِلُ",
+      "تُعَدُّ ذُنوبي عِندَ قَومٍ كَثيرَةً وَلا ذَنبَ لي إِلّا العُلى وَالفَواضِلُ",
+      "كَأَنّي إِذا طُلتُ الزَمانَ وَأَهلَهُ رَجَعتُ وَعِندي لِلأَنامِ طَوائِلُ",
+    ],
+    linesEn: ["Behold, in the path of glory, what I do: / chastity, courage, resolve, and generosity."],
+    isMuallaqa: false,
+    contextAr: "قصيدة فخرية من ديوان «سقط الزند»، يعلن فيها المعري أنّ ما يفعله في سبيل المجد هو العفاف والإقدام والحزم والنوال، ويتحدّى الوشاة والعذّال، مؤكّداً أنّ ذنوبه ليست إلّا علوّ همّته وفضائله التي يحسده عليها الناس.",
+    contextEn: "A poem of self-praise from Saqt al-Zand in which al-Maarri proclaims that what he does in pursuit of glory is chastity, courage, resolve, and generosity. He defies slanderers and critics, insisting that his only 'sins' are his lofty aspirations and virtues that arouse envy in others.",
+    source: [
+      "https://www.aldiwan.net/poem101679.html",
+    ],
+  },
+
+  // ───────────────────────────────────────────────
+  // al-Maarri — poem 3 of 3
+  // ───────────────────────────────────────────────
+  {
+    id: "al-maarri-ya-sahir",
+    slug: "al-maarri-ya-sahir",
+    titleAr: "يا ساهِرَ البَرقِ أَيقِظ راقِدَ السَمُرِ",
+    titleEn: "O Watcher of the Lightning, Wake the Sleeping Acacias",
+    poetId: "al-maarri",
+    eraId: "abbasi",
+    type: "qasida",
+    meter: "البسيط",
+    rhyme: "الراء",
+    themes: ["ghazal", "hikma"],
+    linesAr: [
+      "يا ساهِرَ البَرقِ أَيقِظ راقِدَ السَمُرِ لَعَلَّ بِالجِزعِ أَعواناً عَلى السَهَرِ",
+      "وَإِن بَخِلتَ عَنِ الأَحياءِ كُلِّهِمِ فَاسقِ المَواطِرَ حَيّاً مِن بَني مَطَرِ",
+      "وَيا أَسيرَةَ حِجلَيها أَرى سَفَهاً حَملَ الحُلِيِّ لِمَن أَعيا عَنِ النَظَرِ",
+      "ما سِرتُ إِلّا وَطَيفٌ مِنكِ يَصحَبُني سُرىً أَمامي وَتَأويباً عَلى أَثَري",
+      "لَو حَطَّ رَحلي فَوقَ النَجمِ رافِعُهُ وَجَدتُ ثَمَّ خَيالاً مِنكِ مُنتَظِري",
+      "يَوَدُّ أَنَّ ظَلامَ اللَيلِ دامَ لَهُ وَزيدَ فيهِ سَوادُ القَلبِ وَالبَصَرِ",
+    ],
+    linesEn: ["O watcher of the lightning, rouse the sleeping acacias; / perhaps at the valley bend there are companions in wakefulness."],
+    isMuallaqa: false,
+    contextAr: "قصيدة طويلة من ديوان «سقط الزند» تمزج بين الغزل والحكمة، يُخاطب فيها المعري البرقَ الساهر ويسأله أن يوقظ النائمين ليؤنسوه في سهره، ثمّ يتحدّث عن طيف الحبيبة الذي يُلازمه في سفره حتى لو ارتفع فوق النجم.",
+    contextEn: "A long ode from Saqt al-Zand blending love poetry and wisdom. Al-Maarri addresses the sleepless lightning, asking it to awaken the sleepers for company in his vigil, then speaks of his beloved's phantom that accompanies him on every journey, even beyond the stars.",
+    source: [
+      "https://www.aldiwan.net/poem23634.html",
+    ],
+  },
+
+  // ───────────────────────────────────────────────
+  // Ibn Zaydun — poem 2 of 3
+  // ───────────────────────────────────────────────
+  {
+    id: "ibn-zaydun-zahraa",
+    slug: "ibn-zaydun-zahraa",
+    titleAr: "إِنّي ذَكَرتُكِ بِالزَهراءِ مُشتاقاً",
+    titleEn: "I Remembered You at al-Zahra, Longing",
+    poetId: "ibn-zaydun",
+    eraId: "andalusi",
+    type: "qasida",
+    meter: "البسيط",
+    rhyme: "القاف",
+    themes: ["ghazal"],
+    linesAr: [
+      "إِنّي ذَكَرتُكِ بِالزَهراءِ مُشتاقاً وَالأُفقُ طَلقٌ وَمَرأى الأَرضِ قَد راقا",
+      "وَلِلنَسيمِ اعتِلالٌ في أَصائِلِهِ كَأَنَّهُ رَقَّ لي فَاعتَلَّ إِشفاقا",
+      "وَالرَوضُ عَن مائِهِ الفِضِيِّ مُبتَسِمٌ كَما شَقَقتَ عَنِ اللَبّاتِ أَطواقا",
+      "يَومٌ كَأَيّامِ لَذّاتٍ لَنا انصَرَمَت بِتنا لَها حينَ نامَ الدَهرُ سُرّاقا",
+      "نَلهو بِما يَستَميلُ العَينَ مِن زَهَرٍ جالَ النَدى فيهِ حَتّى مالَ أَعناقا",
+      "كَأَنَّ أَعيُنَهُ إِذ عايَنَت أَرَقي بَكَت لِما بي فَجالَ الدَمعُ رَقراقا",
+    ],
+    linesEn: ["I remembered you at al-Zahra, longing, / while the horizon was clear and the earth's vista dazzled."],
+    isMuallaqa: false,
+    contextAr: "قصيدة غزلية أندلسية شهيرة نظمها ابن زيدون في ذكرى حبيبته ولّادة بنت المستكفي وهو يتجوّل في قصر الزهراء بقرطبة. يمزج فيها بين جمال الطبيعة الأندلسية والشوق والذكرى، فالنسيم يعتلّ شفقةً عليه والرياض تبتسم والزهور تبكي لأرقه.",
+    contextEn: "A celebrated Andalusian love poem composed by Ibn Zaydun while wandering through the palace of al-Zahra in Cordoba, remembering his beloved Wallada bint al-Mustakfi. He weaves the beauty of the Andalusian landscape with longing and memory: the breeze falls ill in sympathy, the gardens smile, and the flowers weep at his sleeplessness.",
+    source: [
+      "https://www.aldiwan.net/poem11858.html",
+    ],
+  },
+
+  // ───────────────────────────────────────────────
+  // Ibn Zaydun — poem 3 of 3
+  // ───────────────────────────────────────────────
+  {
+    id: "ibn-zaydun-mata-abuthuk",
+    slug: "ibn-zaydun-mata-abuthuk",
+    titleAr: "مَتى أَبُثُّكِ ما بي",
+    titleEn: "When Shall I Tell You What Ails Me",
+    poetId: "ibn-zaydun",
+    eraId: "andalusi",
+    type: "qasida",
+    meter: "المجتث",
+    rhyme: "الباء",
+    themes: ["ghazal"],
+    linesAr: [
+      "مَتى أَبُثُّكِ ما بي يا راحَتي وَعَذابي",
+      "مَتى يَنوبُ لِساني في شَرحِهِ عَن كِتابي",
+      "اللَهُ يَعلَمُ أَنّي أَصبَحتُ فيكِ لِما بي",
+      "فَلا يَطيبُ طَعامي وَلا يَسوغُ شَرابي",
+      "يا فِتنَةَ المُتَقَرّي وَحُجَّةَ المُتَصابي",
+      "الشَمسُ أَنتِ تَوارَت عَن ناظِري بِالحِجابِ",
+    ],
+    linesEn: ["When shall I tell you what ails me, / O my comfort and my torment?"],
+    isMuallaqa: false,
+    contextAr: "قصيدة غزلية رقيقة من بحر المجتث، يخاطب فيها ابن زيدون حبيبته ولّادة متسائلاً متى يبوح لها بما في نفسه. تتميّز بقصر شطريها وموسيقاها الراقصة، فكلّ بيت ينتهي بقافية الباء الممدودة المكسورة.",
+    contextEn: "A delicate love poem in the short mujtathth meter, in which Ibn Zaydun addresses his beloved Wallada, asking when he will confess what lies within. The poem is distinguished by its short hemistichs and dancing musicality, each verse ending in the extended ba rhyme.",
+    source: [
+      "https://www.aldiwan.net/poem11862.html",
+    ],
+  },
+
+  // ───────────────────────────────────────────────
+  // Ahmad Shawqi — poem 2 of 3
+  // ───────────────────────────────────────────────
+  {
+    id: "shawqi-nahj-al-burda",
+    slug: "shawqi-nahj-al-burda",
+    titleAr: "ريمٌ عَلى القاعِ بَينَ البانِ وَالعَلَمِ",
+    titleEn: "A Gazelle on the Plain between the Ban Trees and the Mountain",
+    poetId: "shawqi",
+    eraId: "hadith",
+    type: "qasida",
+    meter: "البسيط",
+    rhyme: "الميم",
+    themes: ["ghazal", "hikma"],
+    linesAr: [
+      "ريمٌ عَلى القاعِ بَينَ البانِ وَالعَلَمِ أَحَلَّ سَفكَ دَمي في الأَشهُرِ الحُرُمِ",
+      "رَمى القَضاءُ بِعَينَي جُؤذَرٍ أَسَداً يا ساكِنَ القاعِ أَدرِك ساكِنَ الأَجَمِ",
+      "لَمّا رَنا حَدَّثَتني النَفسُ قائِلَةً يا وَيحَ جَنبِكَ بِالسَهمِ المُصيبِ رُمي",
+      "جَحَدتُها وَكَتَمتُ السَهمَ في كَبِدي جُرحُ الأَحِبَّةِ عِندي غَيرُ ذي أَلَمِ",
+      "رُزِقتَ أَسمَحَ ما في الناسِ مِن خُلُقٍ إِذا رُزِقتَ التِماسَ العُذرِ في الشِيَمِ",
+      "يا لائِمي في هَواهُ وَالهَوى قَدَرٌ لَو شَفَّكَ الوَجدُ لَم تَعذِل وَلَم تَلُمِ",
+    ],
+    linesEn: ["A gazelle on the plain between the ban trees and the mountain / permitted the shedding of my blood in the sacred months."],
+    isMuallaqa: false,
+    contextAr: "«نهج البردة» لأمير الشعراء أحمد شوقي، نظمها في 190 بيتاً معارضةً لبُردة البوصيري في مدح النبي ﷺ. يفتتحها بمقدّمة غزلية بديعة يُشبّه فيها المحبوب بالظبي الذي أحلّ سفك دمه في الأشهر الحرم، قبل أن ينتقل إلى المديح النبوي.",
+    contextEn: "Ahmad Shawqi's 'Nahj al-Burda' (The Way of the Mantle), a 190-verse poem composed in emulation of al-Busiri's Burda in praise of the Prophet Muhammad. It opens with an exquisite amatory prelude likening the beloved to a gazelle that made lawful the shedding of blood in the sacred months, before transitioning to prophetic panegyric.",
+    source: [
+      "https://www.aldiwan.net/poem20976.html",
+    ],
+  },
+
+  // ───────────────────────────────────────────────
+  // Ahmad Shawqi — poem 3 of 3
+  // ───────────────────────────────────────────────
+  {
+    id: "shawqi-mudnaka",
+    slug: "shawqi-mudnaka",
+    titleAr: "مُضناكَ جَفاهُ مَرقَدُهُ",
+    titleEn: "Your Lovesick One, Sleep Has Forsaken Him",
+    poetId: "shawqi",
+    eraId: "hadith",
+    type: "qasida",
+    meter: "المتدارك",
+    rhyme: "الدال",
+    themes: ["ghazal"],
+    linesAr: [
+      "مُضناكَ جَفاهُ مَرقَدُهُ وَبَكاهُ وَرَحَّمَ عُوَّدُهُ",
+      "حَيرانُ القَلبِ مُعَذَّبُهُ مَقروحُ الجَفنِ مُسَهَّدُهُ",
+      "أَودى حَرَقاً إِلّا رَمَقاً يُبقيهِ عَلَيكَ وَتُنفِدُهُ",
+      "يَستَهوي الوُرقَ تَأَوُّهُهُ وَيُذيبُ الصَخرَ تَنَهُّدُهُ",
+      "وَيُناجي النَجمَ وَيُتعِبُهُ وَيُقيمُ اللَيلَ وَيُقعِدُهُ",
+      "وَيُعَلِّمُ كُلَّ مُطَوَّقَةٍ شَجَناً في الدَوحِ تُرَدِّدُهُ",
+    ],
+    linesEn: ["Your lovesick one — sleep has forsaken him, / and his visitors wept and pitied him."],
+    isMuallaqa: false,
+    contextAr: "من أشهر غزليات أحمد شوقي وأرقّها، لحّنها وغنّاها محمد عبد الوهاب فذاعت في أرجاء العالم العربي. يصف فيها حال العاشق الذي هجره النوم وبكى عليه عوّاده، يناجي النجوم ويُعلّم الطيور الحزن. جاءت على بحر المتدارك بإيقاعه السريع المتلاحق.",
+    contextEn: "One of Ahmad Shawqi's most famous and tender love poems, set to music and sung by Muhammad Abd al-Wahhab, through which it became known across the Arab world. It describes a lover abandoned by sleep, wept over by his visitors, who converses with the stars and teaches the doves sorrow. Composed in the swift, cascading rhythm of the mutadarik meter.",
+    source: [
+      "https://www.aldiwan.net/poem63667.html",
+    ],
+  },
 ];

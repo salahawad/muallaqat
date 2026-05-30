@@ -24,7 +24,7 @@ export const poets: Poet[] = [
     humanStoryEn:
       "When word reached him of his father's murder he uttered his famous line: 'He neglected me as a child, and burdened me with his blood as a man.' He spent his life between revelry and revenge, weeping over the ruins in an opening no poet has since equaled.",
     themes: ['ghazal', 'fakhr', 'hikma'],
-    signaturePoemIds: ['muallaqat-imru-al-qais'],
+    signaturePoemIds: ['muallaqat-imru-al-qais', 'imru-al-qais-ala-im-sabahan', 'imru-al-qais-liman-talal'],
   },
   {
     id: "antara",
@@ -40,7 +40,7 @@ export const poets: Poet[] = [
     humanStoryAr: "عشِق عنترة ابنة عمه عَبْلة عشقًا عفيفًا، لكن أصله المُستعبَد ولونه الأسود حالا دون زواجه منها، فظلّ يطلب يدها ويُكلَّف بمهور تعجيزية من الغزو والإبل، يخوض الحروب ليُثبت أنّ السيف لا اللون هو ميزان الرجال.",
     humanStoryEn: "'Antara loved his cousin 'Abla with a chaste devotion, but his enslaved origin and black skin barred their marriage; he kept seeking her hand while being set impossible bride-prices of raids and camels, waging war to prove that a man is measured by his sword, not his color.",
     themes: ["fakhr", "ghazal", "hamasa"],
-    signaturePoemIds: ["muallaqat-antara"],
+    signaturePoemIds: ["muallaqat-antara", "antara-afat-al-diyar", "antara-la-yahmil-al-hiqd"],
   },
   {
     id: "zuhayr",
@@ -56,7 +56,7 @@ export const poets: Poet[] = [
     humanStoryAr: "نظم زهير معلقته بعد أن مزّقت حربُ داحس والغبراء قبيلتَي عبس وذبيان أربعين عاماً، فمدح هرم بن سنان والحارث بن عوف اللذين حقَنا الدماء وحملا الدِّيات من مالهما؛ ويفتتحها بوقوفه على أطلال محبوبته أمّ أوفى بعد عشرين حِجّة، يكاد لا يعرف الديار من طول الفراق.",
     humanStoryEn: "Zuhayr composed his Muʿallaqa after the war of Dahis and al-Ghabra had torn the tribes of ʿAbs and Dhubyan apart for forty years, praising Harim ibn Sinan and al-Harith ibn ʿAwf, the two chiefs who stopped the bloodshed and paid the blood-money from their own wealth; he opens it standing over the ruined abode of his beloved Umm Awfa after twenty years, barely able to recognize the place after so long an absence.",
     themes: ["hikma", "ghazal"],
-    signaturePoemIds: ["muallaqat-zuhayr"],
+    signaturePoemIds: ["muallaqat-zuhayr", "zuhayr-saha-al-qalb", "zuhayr-liman-al-diyar"],
   },
   {
     id: "al-khansa",
@@ -72,7 +72,7 @@ export const poets: Poet[] = [
     humanStoryAr: "قُتل أخوها معاوية، فحرّضت أخاها صخراً على الأخذ بثأره، فثأر له ثم مات متأثراً بجراحه، فبكته الخنساء حتى قيل إنها فقدت بصرها من كثرة الدمع. وفي الإسلام قدّمت أبناءها الأربعة إلى معركة القادسية فاستُشهدوا جميعاً، فقالت: «الحمد لله الذي شرّفني بقتلهم».",
     humanStoryEn: "When her brother Mu'awiyah was killed, she goaded her brother Sakhr into avenging him; Sakhr took the revenge but died of his wounds, and al-Khansa' wept for him until, it is said, she lost her sight from weeping. Under Islam she sent her four sons to the battle of al-Qadisiyya, where all were martyred, and she said: \"Praise be to God who honored me with their deaths.\"",
     themes: ["ritha"],
-    signaturePoemIds: ["al-khansa-qasida"],
+    signaturePoemIds: ["al-khansa-qasida", "al-khansa-a3ynayi-juda", "al-khansa-bakat-ayni"],
   },
   {
     id: "tarafa",
@@ -88,7 +88,7 @@ export const poets: Poet[] = [
     humanStoryAr: "يُروى أنّ الملك عمرو بن هند نقم عليه فبعثه إلى عامله بهَجَر حاملاً صحيفةً يحسبها جائزةً وفيها أمرٌ سرّيٌّ بقتله، فحمل حتفه بيده ومات شابّاً لم يُكمل عقده الثالث.",
     humanStoryEn: "It is told that King 'Amr ibn Hind turned against him and sent him to his governor in Hajar bearing a sealed letter he took for a reward, but which secretly ordered his death — so he carried his own doom in his hand and died young, before completing his thirtieth year.",
     themes: ["ghazal", "hikma", "fakhr"],
-    signaturePoemIds: ["muallaqat-tarafa"],
+    signaturePoemIds: ["muallaqat-tarafa", "tarafa-likhawla", "tarafa-sa-ilu"],
   },
   {
     id: "labid",
@@ -104,7 +104,7 @@ export const poets: Poet[] = [
     humanStoryAr: "يُروى أنّه ترك الشعر بعد إسلامه وقال: «أبدلني الله به سُوَرَ البقرة وآل عمران»، وعُمّر طويلاً حتى جاوز المئة، ومات بالكوفة في خلافة معاوية، فكان جسراً حيّاً بين شعر الجاهلية وهدي الإسلام.",
     humanStoryEn: "It is said that he gave up poetry after his conversion, declaring, 'God has given me the chapters of the Cow and of 'Imran's House in its place.' He lived past a hundred years and died at Kufa in the caliphate of Mu'awiya — a living bridge between the poetry of the pre-Islamic age and the guidance of Islam.",
     themes: ["ghazal", "hikma", "fakhr"],
-    signaturePoemIds: ["muallaqat-labid"],
+    signaturePoemIds: ["muallaqat-labid", "labid-ala-tasalan", "labid-balina"],
   },
   {
     id: "amr-ibn-kulthum",
@@ -152,7 +152,7 @@ export const poets: Poet[] = [
     humanStoryAr: "وقعت بينه وبين النعمان بن المنذر جفوةٌ بعد أن سعى به الوشاة، فهرب إلى الغساسنة، ثم نظم أرقّ قصائد الاعتذار يستعطف بها النعمان حتى رضي عنه وأعاده إلى مكانته، فصار إمام المعتذرين في الشعر العربي.",
     humanStoryEn: "A breach opened between him and al-Nu'man ibn al-Mundhir after slanderers turned the king against him, and he fled to the Ghassanids; then he composed the tenderest of apology-odes to win al-Nu'man back, until the king relented and restored him to favour — making him the master of the poetry of apology.",
     themes: ["ghazal", "fakhr", "hikma"],
-    signaturePoemIds: ["muallaqat-al-nabigha"],
+    signaturePoemIds: ["muallaqat-al-nabigha", "al-nabigha-amin-al-miyya", "al-nabigha-kilini-lihamm"],
   },
   {
     id: "al-shanfara",
@@ -168,7 +168,7 @@ export const poets: Poet[] = [
     humanStoryAr: "عاش ثائراً على قومه، يُغير وحده ويقتات من الصيد، وقد آلى أن يثأر لما لقي من ظلم؛ وتبقى لاميّته نشيد كلّ نفسٍ أبيّةٍ تأبى الضيم وتؤثر الوحدة على ذلّ المجالس.",
     humanStoryEn: "He lived in revolt against his people, raiding alone and living by the hunt, and swore vengeance for the wrongs he had suffered; his Lamiyya remains the anthem of every proud soul that refuses to be wronged and prefers solitude to a seat among the humbled.",
     themes: ["fakhr", "hamasa", "hikma"],
-    signaturePoemIds: ["al-shanfara-lamiyya"],
+    signaturePoemIds: ["al-shanfara-lamiyya", "al-shanfara-inna-bilshib", "al-shanfara-ala-umm-amr"],
   },
   {
     id: "jarir",
@@ -184,7 +184,7 @@ export const poets: Poet[] = [
     humanStoryAr: "عاش جرير حياته في حربٍ شعريةٍ ضروسٍ مع غريمه الفرزدق دامت أربعين عامًا حتى ماتا متقاربين، لكنه خلف وراء هذا الهجاء المرّ غزلًا رقيقًا يفيض حنينًا، كأن بيته الخالد \"إن العيون التي في طرفها حور\" شكوى عاشقٍ صرعته نظرةٌ من أضعف خلق الله.",
     humanStoryEn: "Jarir spent his life locked in a ferocious forty-year poetic war with his rival al-Farazdaq, the two dying not long apart, yet behind that bitter satire he left a tender, yearning ghazal — as if his immortal line \"Indeed the eyes whose glance holds languor\" were the lament of a lover felled by a single look from the frailest of God's creatures.",
     themes: ["ghazal", "hija", "fakhr"],
-    signaturePoemIds: ["jarir-qasida"],
+    signaturePoemIds: ["jarir-qasida", "jarir-atashu", "jarir-lawla-alhaya"],
   },
   {
     id: "al-farazdaq",
@@ -200,7 +200,7 @@ export const poets: Poet[] = [
     humanStoryAr: "قضى الفرزدق عمره في صراع شعري عنيف مع غريمه جرير دام نحو خمسين عامًا، يتبادلان النقائض في الفخر والهجاء أمام العرب جميعًا، فكان عداؤهما من أشهر الخصومات الأدبية في تاريخ العربية، ولم يهدأ إلا بموت أحدهما.",
     humanStoryEn: "Al-Farazdaq spent his life locked in a ferocious poetic feud with his rival Jarir that lasted roughly fifty years, the two trading boasts and invectives before all the Arabs; their enmity became one of the most famous literary rivalries in Arabic history, ending only with the death of one of them.",
     themes: ["fakhr", "hija"],
-    signaturePoemIds: ["al-farazdaq-qasida"],
+    signaturePoemIds: ["al-farazdaq-qasida", "al-farazdaq-zayn-al-abidin", "al-farazdaq-azafta"],
   },
   {
     id: "al-mutanabbi",
@@ -216,7 +216,7 @@ export const poets: Poet[] = [
     humanStoryAr: "عاش المتنبي حياة طموح جامح وكبرياء لا يلين، فطمح إلى الإمارة وعاش ربيع عمره في كنف سيف الدولة قبل أن تفسد العلاقة بسبب الحساد والوشاة، فرحل عنه عاتبًا. وقد قُتل في نهاية المطاف لأنه أبى الفرار من المعركة حين عُيّر ببيته «الخيلُ والليلُ والبيداءُ تعرفني»، فمات وفيًّا لكبريائه.",
     humanStoryEn: "Al-Mutanabbi lived a life of unbending pride and a craving for power, spending his prime in Sayf al-Dawla's court until envy and slander poisoned the bond and drove him away in bitter reproach. In the end he was killed because he refused to flee a fight when taunted with his own verse \"The horse, the night, and the desert know me\" — dying true to the pride he had spent a lifetime singing.",
     themes: ["fakhr", "hikma", "hamasa"],
-    signaturePoemIds: ["al-mutanabbi-qasida"],
+    signaturePoemIds: ["al-mutanabbi-qasida", "al-mutanabbi-waharra", "al-mutanabbi-iza-ghamarta"],
   },
   {
     id: "abu-nuwas",
@@ -232,7 +232,7 @@ export const poets: Poet[] = [
     humanStoryAr: "عاش أبو نواس حياة لهوٍ وخمرٍ ومجون، ثم أدركه الندم في أواخر أيامه؛ ويُروى أنه لمّا مات وُجدت تحت رأسه رقعة بخط يده مكتوب فيها هذه الأبيات في التضرّع والتوبة ورجاء عفو الله.",
     humanStoryEn: "Abu Nuwas lived a life of revelry, wine, and dissipation, then remorse overtook him in his final days; it is said that when he died, a scrap of paper in his own hand was found beneath his head bearing these verses of supplication, repentance, and hope in God's forgiveness.",
     themes: ["hikma", "ritha"],
-    signaturePoemIds: ["abu-nuwas-qasida"],
+    signaturePoemIds: ["abu-nuwas-qasida", "abu-nuwas-da-annaka", "abu-nuwas-ala-fasqini"],
   },
   {
     id: "al-maarri",
@@ -248,7 +248,7 @@ export const poets: Poet[] = [
     humanStoryAr: "عاش المعري زاهداً معتزلاً عن الناس، نباتيّاً لم يتزوّج ولم يُنجب، وأوصى أن يُكتب على قبره: «هذا جناه أبي عليّ وما جنيتُ على أحد»، احتجاجاً على ما رأى أنه ظلمُ إيجاد الأبناء في عالمٍ مليء بالألم.",
     humanStoryEn: "Al-Maʿarri lived as an ascetic recluse, a vegetarian who never married or had children, and asked that his epitaph read: \"This wrong was done to me by my father, but I wronged no one,\" a protest against what he saw as the injustice of bringing children into a world full of suffering.",
     themes: ["hikma"],
-    signaturePoemIds: ["al-maarri-qasida"],
+    signaturePoemIds: ["al-maarri-qasida", "al-maarri-ala-fi-sabil", "al-maarri-ya-sahir"],
   },
   {
     id: "ibn-zaydun",
@@ -264,7 +264,7 @@ export const poets: Poet[] = [
     humanStoryAr: "أحبّ ابن زيدون الأميرة الشاعرة ولّادة بنت المستكفي حبًّا عاصفًا، لكنّ الوشاة ومنافسه الوزير ابن عبدوس فرّقوا بينهما، فسُجن ثم نفي عن قرطبة، فنظم نونيته يذوب أسىً على فراقها وذكرى أيامهما الصافية.",
     humanStoryEn: "Ibn Zaydun fell passionately in love with the princess-poet Wallada bint al-Mustakfi, but slanderers and his rival, the vizier Ibn Abdus, drove them apart; imprisoned and then exiled from Cordoba, he poured his anguish at their separation and the memory of their pure days together into his celebrated Nuniyya.",
     themes: ["ghazal"],
-    signaturePoemIds: ["ibn-zaydun-qasida"],
+    signaturePoemIds: ["ibn-zaydun-qasida", "ibn-zaydun-zahraa", "ibn-zaydun-mata-abuthuk"],
   },
   {
     id: "shawqi",
@@ -280,7 +280,7 @@ export const poets: Poet[] = [
     humanStoryAr: "نفاه الاحتلال البريطاني إلى إسبانيا سنة 1915 بسبب مواقفه الوطنية المناهضة، فعاش غربةً مريرة بين ربوع الأندلس يحنّ إلى وطنه ونيله، ومن وحي ذلك المنفى استلهم بعضاً من أصدق شعره في الحنين إلى مصر قبل أن يعود إليها سنة 1920.",
     humanStoryEn: "The British occupation exiled him to Spain in 1915 for his defiant patriotic stance, and he lived a bitter estrangement among the ruins of Andalusia, aching for his homeland and the Nile; that exile inspired some of his most heartfelt verse of longing for Egypt before he was permitted to return in 1920.",
     themes: ["hikma", "fakhr"],
-    signaturePoemIds: ["shawqi-qasida"],
+    signaturePoemIds: ["shawqi-qasida", "shawqi-nahj-al-burda", "shawqi-mudnaka"],
   },
   {
     id: "tarafa",
@@ -302,7 +302,7 @@ export const poets: Poet[] = [
       "hija",
       "hamasa"
     ],
-    signaturePoemIds: ["muallaqat-tarafa"],
+    signaturePoemIds: ["muallaqat-tarafa", "tarafa-likhawla", "tarafa-sa-ilu"],
   },
   {
     id: "labid",
@@ -324,7 +324,7 @@ export const poets: Poet[] = [
       "ghazal",
       "hamasa"
     ],
-    signaturePoemIds: ["muallaqat-labid"],
+    signaturePoemIds: ["muallaqat-labid", "labid-ala-tasalan", "labid-balina"],
   },
   {
     id: "amr-ibn-kulthum",
@@ -382,7 +382,7 @@ export const poets: Poet[] = [
     humanStoryAr: "كان الأخطل نصرانيّ تغلب وشاعر بني أمية، يدخل على عبد الملك بن مروان والصليب معلَّق في صدره يجرّ مطارف الخزّ، لا يُكلَّف بإسلامٍ ولا يُمنَع من خمرٍ، فيُنشد في حضرة الخليفة وقد فاحت منه الراح. ناصر الفرزدق على جرير ودخل معه حربه، فهجاه جرير بقوله في تغلب: «قوم إذا استنبح الأضياف كلبهم قالوا لأمهم بولي على النار»، وردّ الأخطل بأهجى ما قيل في كليب، حتى صار ثالوثهم من أخلد ما في الشعر العربي من مساجلات.",
     humanStoryEn: "Al-Akhtal was the Christian of Taghlib and the poet of the House of Umayya: he would enter upon Abd al-Malik ibn Marwan with a cross hung at his breast, trailing robes of silk, never pressed to convert nor barred from wine, reciting before the caliph with the scent of the cup upon him. He sided with al-Farazdaq against Jarir and entered their war, so that Jarir lampooned his tribe — 'A people whose dog, when guests set it barking, cry to their mother: piss on the fire!' — and al-Akhtal answered with some of the cruellest verse ever aimed at Banu Kulayb, until the three poets' rivalry became among the most enduring duels in all of Arabic poetry.",
     themes: ["hija", "fakhr", "ghazal"],
-    signaturePoemIds: [],
+    signaturePoemIds: ["al-akhtal-khaffa-al-qatin", "al-akhtal-kadhabatka", "al-akhtal-liman-al-diyar"],
   },
   {
     id: "al-jahiz",
