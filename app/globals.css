@@ -695,3 +695,377 @@
   font-size: 1.25rem;
   color: var(--color-ink-light);
 }
+
+/* ============================================================
+   The Living Diwan — the era journey (/diwan)
+   A vertical scroll of full-height era scenes, each carrying its
+   own night-palette via --era-a / --era-b / --era-accent.
+   ============================================================ */
+.diwan {
+  background-color: #06080f;
+  color: var(--color-cream);
+}
+
+.diwan__intro {
+  min-height: 70dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  text-align: center;
+  padding: 4rem 1.5rem;
+  background: radial-gradient(120% 80% at 50% 30%, #1b2640, #06080f 70%);
+}
+
+.diwan__title {
+  font-size: clamp(3rem, 10vw, 6rem);
+  color: var(--color-gold-light);
+  text-shadow: 0 0 32px rgba(212, 168, 85, 0.4);
+}
+
+.diwan__subtitle {
+  max-width: 40ch;
+  font-size: 1.15rem;
+  color: var(--color-cream);
+  opacity: 0.8;
+}
+
+.diwan__scroll-hint {
+  margin-top: 1.5rem;
+  font-size: 0.85rem;
+  color: var(--color-gold-pale);
+  opacity: 0.6;
+  animation: diwan-bob 2.4s ease-in-out infinite;
+}
+
+@keyframes diwan-bob {
+  0%, 100% { transform: translateY(0); opacity: 0.5; }
+  50% { transform: translateY(6px); opacity: 0.9; }
+}
+
+.era-scene {
+  position: relative;
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5rem 1.5rem;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.era-scene__bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(100% 80% at 50% 18%, var(--era-b), var(--era-a) 60%, #06080f 100%);
+}
+
+.era-scene__bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(60% 50% at 50% 85%, color-mix(in srgb, var(--era-accent) 22%, transparent), transparent 70%);
+}
+
+.era-scene__inner {
+  position: relative;
+  max-width: 44rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.era-scene__order {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--era-accent);
+  opacity: 0.55;
+}
+
+.era-scene__name {
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  color: var(--color-cream);
+  text-shadow: 0 0 28px color-mix(in srgb, var(--era-accent) 50%, transparent);
+}
+
+.era-scene__range {
+  font-size: 0.95rem;
+  color: var(--era-accent);
+  opacity: 0.85;
+}
+
+.era-scene__desc {
+  max-width: 34ch;
+  font-size: 1.1rem;
+  line-height: 2;
+  color: var(--color-cream);
+  opacity: 0.82;
+}
+
+.era-scene__poets {
+  list-style: none;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.era-scene__poet {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.6rem 1.4rem;
+  font-size: 1.4rem;
+  color: var(--color-gold-pale);
+  border: 1px solid color-mix(in srgb, var(--era-accent) 45%, transparent);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--era-accent) 8%, transparent);
+  transition: background 250ms ease, color 250ms ease, transform 250ms ease, box-shadow 250ms ease;
+}
+
+.era-scene__poet:hover {
+  color: #1a130a;
+  background: var(--era-accent);
+  transform: translateY(-2px);
+  box-shadow: 0 0 28px color-mix(in srgb, var(--era-accent) 55%, transparent);
+}
+
+.era-scene__muallaqa {
+  font-size: 0.7rem;
+  padding: 0.1rem 0.5rem;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.25);
+  color: var(--color-gold-pale);
+}
+
+.era-scene__soon {
+  font-size: 0.9rem;
+  color: var(--color-cream);
+  opacity: 0.4;
+}
+
+/* ============================================================
+   Poem reading page (/poem/[slug]) — the hanging ode
+   ============================================================ */
+.poem-page {
+  position: relative;
+  min-height: 100dvh;
+  background: radial-gradient(120% 70% at 50% 0%, #14101f, #06080f 60%);
+  color: var(--color-cream);
+  padding: clamp(3rem, 8vw, 6rem) 1.5rem 6rem;
+}
+
+.poem-page__glow {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: radial-gradient(50% 40% at 50% 12%, rgba(212, 168, 85, 0.16), transparent 70%);
+  pointer-events: none;
+}
+
+.poem {
+  position: relative;
+  z-index: 1;
+  max-width: 48rem;
+  margin: 0 auto;
+}
+
+.poem__header {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 3rem;
+}
+
+.poem__badge {
+  font-size: 0.8rem;
+  padding: 0.25rem 0.9rem;
+  border-radius: 999px;
+  color: var(--color-gold-pale);
+  border: 1px solid rgba(212, 168, 85, 0.5);
+}
+
+.poem__title {
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  color: var(--color-gold-light);
+}
+
+.poem__poet {
+  font-size: 1.05rem;
+  color: var(--color-gold-pale);
+  opacity: 0.85;
+}
+
+.poem__poet:hover { color: var(--color-gold-light); }
+
+.poem__meta {
+  display: flex;
+  gap: 2rem;
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--color-cream);
+  opacity: 0.7;
+}
+
+.poem__meta-pair { display: flex; gap: 0.4rem; }
+.poem__meta-pair dt { color: var(--color-gold); }
+.poem__meta-pair dd { margin: 0; }
+
+.poem__body {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.poem__body--hanging .poem__bayt {
+  padding: 1.1rem 1.5rem;
+  border-radius: 6px;
+  background: linear-gradient(180deg, rgba(240, 221, 176, 0.05), transparent);
+  border-top: 1px solid rgba(212, 168, 85, 0.12);
+  box-shadow: 0 18px 40px -28px rgba(0, 0, 0, 0.8);
+}
+
+.poem__bayt-text p {
+  font-size: clamp(1.4rem, 3.5vw, 2rem);
+  line-height: 2.2;
+  color: var(--color-cream);
+}
+
+.poem__context {
+  margin-top: 3rem;
+  max-width: 40ch;
+  margin-inline: auto;
+  text-align: center;
+  font-style: italic;
+  color: var(--color-cream);
+  opacity: 0.7;
+  line-height: 2;
+}
+
+.poem__source {
+  margin-top: 2rem;
+  text-align: center;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  font-size: 0.75rem;
+}
+
+.poem__source a {
+  color: var(--color-gold);
+  opacity: 0.6;
+}
+.poem__source a:hover { opacity: 1; }
+
+/* ============================================================
+   Poet page (/poet/[slug])
+   ============================================================ */
+.poet {
+  background-color: var(--color-cream);
+  color: var(--color-ink);
+}
+
+.poet__hero {
+  position: relative;
+  text-align: center;
+  padding: clamp(3rem, 8vw, 6rem) 1.5rem clamp(2.5rem, 5vw, 4rem);
+  background: radial-gradient(120% 90% at 50% 0%, #1b2640, #0b1020 70%);
+  color: var(--color-cream);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.poet__hero-glow {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(50% 50% at 50% 30%, rgba(212, 168, 85, 0.16), transparent 70%);
+}
+
+.poet__era {
+  font-size: 0.9rem;
+  color: var(--color-gold-light);
+  opacity: 0.85;
+  margin-bottom: 0.75rem;
+}
+
+.poet__name {
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  color: var(--color-gold-light);
+  text-shadow: 0 0 28px rgba(212, 168, 85, 0.35);
+}
+
+.poet__life {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--color-gold-pale);
+  opacity: 0.75;
+}
+
+.poet__body {
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 5rem;
+}
+
+.poet__bio {
+  font-size: 1.1rem;
+  line-height: 2.1;
+  color: var(--color-ink-light);
+  text-align: center;
+}
+
+.poet__story {
+  max-width: 36ch;
+  margin: 0 auto;
+  text-align: center;
+  font-size: clamp(1.3rem, 3vw, 1.7rem);
+  line-height: 2;
+  color: var(--color-burgundy);
+}
+
+.poet__poems-heading {
+  text-align: center;
+  font-size: 1.2rem;
+  color: var(--color-gold);
+  margin-bottom: 1.25rem;
+}
+
+.poet__poems {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.poet__poem {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.poet__poem-link {
+  font-size: 1.5rem;
+  color: var(--color-ink);
+}
+.poet__poem-link:hover { color: var(--color-burgundy); }
+
+.poet__poem-badge {
+  font-size: 0.7rem;
+  padding: 0.15rem 0.6rem;
+  border-radius: 999px;
+  color: var(--color-gold);
+  border: 1px solid rgba(184, 135, 58, 0.4);
+}
