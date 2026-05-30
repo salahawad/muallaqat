@@ -109,6 +109,19 @@ export default async function DiwanPage({ params }: Props) {
                   {isAr ? 'قريبًا' : 'coming soon'}
                 </p>
               )}
+
+              {era.id === 'jahili' ? (
+                <a className="era-scene__gate font-kufi" href={`/${locale}/muallaqat`}>
+                  {t('muallaqat')}
+                  <span aria-hidden="true"> {isAr ? '←' : '→'}</span>
+                </a>
+              ) : null}
+              {era.id === 'umawi' ? (
+                <a className="era-scene__gate font-kufi" href={`/${locale}/hija2`}>
+                  {t('hija')}
+                  <span aria-hidden="true"> {isAr ? '←' : '→'}</span>
+                </a>
+              ) : null}
             </div>
           </section>
         );

@@ -5,6 +5,7 @@ import { setRequestLocale } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
 import { getPoems, getPoemBySlug, getPoetBySlug } from '@/lib/content';
 import { PoemView } from '@/components/poem/PoemView';
+import { verified } from '@/lib/pending';
 
 type Props = {
   params: Promise<{ locale: string; slug: string }>;
@@ -23,7 +24,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const isAr = locale === 'ar';
   return {
     title: isAr ? poem.titleAr : poem.titleEn,
-    description: isAr ? poem.contextAr : poem.contextEn,
+    description: verified(isAr ? poem.contextAr : poem.contextEn),
   };
 }
 

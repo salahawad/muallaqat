@@ -1039,6 +1039,16 @@
   color: var(--color-cream);
 }
 
+.poem__pending {
+  text-align: center;
+  margin: 3rem auto;
+  max-width: 36ch;
+  font-size: 1.3rem;
+  line-height: 2;
+  color: var(--color-cream);
+  opacity: 0.55;
+}
+
 .poem__context {
   font-family: var(--font-display);
   margin-top: 3rem;
@@ -1599,4 +1609,567 @@
   align-items: center;
   gap: 1.1rem;
   text-align: center;
+}
+
+/* ============================================================
+   Cross-hall navigation — gates from the Diwan into the showcases
+   ============================================================ */
+.diwan__gates {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1.75rem;
+}
+
+.diwan__gate,
+.era-scene__gate {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.55rem 1.5rem;
+  font-size: 0.95rem;
+  color: var(--color-gold-pale);
+  border: 1px solid rgba(212, 168, 85, 0.5);
+  border-radius: 999px;
+  background: rgba(212, 168, 85, 0.06);
+  transition: background 250ms ease, color 250ms ease, border-color 250ms ease,
+    box-shadow 250ms ease, transform 250ms ease;
+}
+
+.era-scene__gate {
+  margin-top: 2rem;
+  border-color: color-mix(in srgb, var(--era-accent) 50%, transparent);
+  color: var(--color-gold-pale);
+}
+
+.diwan__gate:hover,
+.diwan__gate:focus-visible,
+.era-scene__gate:hover,
+.era-scene__gate:focus-visible {
+  color: var(--color-ink);
+  background: var(--color-gold-light);
+  border-color: var(--color-gold-light);
+  box-shadow: 0 0 28px rgba(212, 168, 85, 0.45);
+  transform: translateY(-1px);
+}
+
+.era-scene__gate:hover,
+.era-scene__gate:focus-visible {
+  background: var(--era-accent);
+  border-color: var(--era-accent);
+  box-shadow: 0 0 28px color-mix(in srgb, var(--era-accent) 55%, transparent);
+}
+
+/* A quiet way back to the journey — matches the gold-on-night aesthetic. */
+.return-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.95rem;
+  color: var(--color-gold-pale);
+  opacity: 0.8;
+  transition: color 250ms ease, opacity 250ms ease;
+}
+
+.return-link:hover,
+.return-link:focus-visible {
+  color: var(--color-gold-light);
+  opacity: 1;
+}
+
+/* ============================================================
+   المعلقات — the hanging gallery of the Seven (/muallaqat)
+   ============================================================ */
+.muallaqat {
+  position: relative;
+  min-height: 100dvh;
+  background: radial-gradient(120% 80% at 50% 0%, #14101f, #06080f 60%);
+  color: var(--color-cream);
+  padding: clamp(3rem, 8vw, 6rem) 1.5rem 6rem;
+}
+
+.muallaqat__intro {
+  position: relative;
+  isolation: isolate;
+  max-width: 46rem;
+  margin: 0 auto 3.5rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.muallaqat__intro-glow {
+  position: absolute;
+  inset: -10% -20%;
+  z-index: -1;
+  background: radial-gradient(50% 45% at 50% 30%, rgba(212, 168, 85, 0.18), transparent 70%);
+  pointer-events: none;
+}
+
+.muallaqat__kicker {
+  font-size: 0.95rem;
+  letter-spacing: 0.05em;
+  color: var(--color-gold-light);
+  opacity: 0.85;
+}
+
+.muallaqat__title {
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  color: var(--color-gold-light);
+  text-shadow: 0 0 32px rgba(212, 168, 85, 0.4);
+}
+
+.muallaqat__lede {
+  font-family: var(--font-display);
+  max-width: 38ch;
+  font-size: 1.4rem;
+  line-height: 2;
+  color: var(--color-cream);
+  opacity: 0.9;
+}
+
+.muallaqat__legend {
+  max-width: 50ch;
+  font-size: 0.95rem;
+  line-height: 1.9;
+  color: var(--color-cream);
+  opacity: 0.6;
+}
+
+.muallaqat-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(20rem, 100%), 1fr));
+  gap: 2rem 1.5rem;
+  max-width: 64rem;
+  margin: 0 auto;
+  align-items: start;
+}
+
+/* Each ode hangs from a cord and unfurls (opacity + descent) as it enters
+   view; the JS toggles .is-unfurled, CSS transitions it. */
+.hanging-panel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 3rem 1.5rem 2rem;
+  margin-top: 1.5rem;
+  text-align: center;
+  border-radius: 8px;
+  border: 1px solid rgba(212, 168, 85, 0.22);
+  background: linear-gradient(180deg, rgba(240, 221, 176, 0.07), rgba(0, 0, 0, 0.22));
+  box-shadow: 0 28px 56px -34px rgba(0, 0, 0, 0.9);
+  opacity: 0;
+  transform: translateY(-16px);
+  transition: opacity 700ms ease, transform 700ms ease, border-color 400ms ease,
+    box-shadow 400ms ease;
+  transition-delay: calc(var(--panel-index, 0) * 60ms);
+}
+
+.hanging-panel.is-unfurled {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hanging-panel:hover,
+.hanging-panel:focus-visible {
+  border-color: rgba(212, 168, 85, 0.6);
+  box-shadow: 0 34px 64px -30px rgba(212, 168, 85, 0.4);
+}
+
+/* The cord the panel hangs from. */
+.hanging-panel__cord {
+  position: absolute;
+  top: -1.5rem;
+  inset-inline-start: 50%;
+  width: 1px;
+  height: 1.6rem;
+  background: linear-gradient(180deg, transparent, rgba(212, 168, 85, 0.7));
+}
+
+.hanging-panel__cord::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  inset-inline-start: 50%;
+  transform: translateX(-50%);
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, var(--color-gold-light), var(--color-gold) 60%, #5e4420);
+  box-shadow: 0 0 12px rgba(212, 168, 85, 0.6);
+}
+
+.hanging-panel__sheet {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.hanging-panel__ordinal {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--color-gold);
+  opacity: 0.55;
+  line-height: 1;
+}
+
+.hanging-panel__era {
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  color: var(--color-gold-pale);
+  opacity: 0.75;
+}
+
+.hanging-panel__name {
+  font-size: clamp(1.7rem, 4vw, 2.3rem);
+  font-weight: 700;
+  color: var(--color-gold-pale);
+  text-shadow: 0 0 20px rgba(212, 168, 85, 0.35);
+}
+
+.hanging-panel__matla {
+  max-width: 28ch;
+  font-size: 1.25rem;
+  line-height: 2.1;
+  color: var(--color-cream);
+  opacity: 0.92;
+}
+
+.hanging-panel__pending {
+  font-size: 0.9rem;
+  color: var(--color-cream);
+  opacity: 0.5;
+}
+
+.hanging-panel__cta {
+  margin-top: 0.4rem;
+  font-size: 0.85rem;
+  color: var(--color-gold);
+  opacity: 0.85;
+}
+
+.muallaqat__return {
+  margin: 4rem auto 0;
+  text-align: center;
+}
+
+/* ============================================================
+   الهجاء / النقائض — duels index + a single flyting (/hija2)
+   ============================================================ */
+.hija2 {
+  position: relative;
+  min-height: 100dvh;
+  background: radial-gradient(120% 80% at 50% 0%, #1a0e15, #06080f 60%);
+  color: var(--color-cream);
+  padding: clamp(3rem, 8vw, 6rem) 1.5rem 6rem;
+}
+
+.hija2__intro {
+  position: relative;
+  isolation: isolate;
+  max-width: 46rem;
+  margin: 0 auto 3rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.hija2__intro-glow {
+  position: absolute;
+  inset: -10% -20%;
+  z-index: -1;
+  background: radial-gradient(50% 45% at 50% 30%, rgba(107, 45, 62, 0.4), transparent 70%);
+  pointer-events: none;
+}
+
+.hija2__kicker {
+  font-size: 0.95rem;
+  letter-spacing: 0.05em;
+  color: var(--color-gold-light);
+  opacity: 0.85;
+}
+
+.hija2__title {
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  color: var(--color-gold-light);
+  text-shadow: 0 0 32px rgba(212, 168, 85, 0.35);
+}
+
+.hija2__lede {
+  font-family: var(--font-display);
+  max-width: 40ch;
+  font-size: 1.35rem;
+  line-height: 2;
+  color: var(--color-cream);
+  opacity: 0.9;
+}
+
+.hija2__list {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  max-width: 52rem;
+  display: grid;
+  gap: 1.5rem;
+}
+
+.duel-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 2.25rem 1.75rem;
+  text-align: center;
+  border-radius: 10px;
+  border: 1px solid rgba(212, 168, 85, 0.22);
+  background: linear-gradient(180deg, rgba(107, 45, 62, 0.18), rgba(0, 0, 0, 0.22));
+  box-shadow: 0 24px 50px -34px rgba(0, 0, 0, 0.9);
+  transition: transform 300ms ease, border-color 300ms ease, box-shadow 300ms ease;
+}
+
+.duel-card:hover,
+.duel-card:focus-visible {
+  transform: translateY(-4px);
+  border-color: rgba(212, 168, 85, 0.55);
+  box-shadow: 0 30px 60px -30px rgba(212, 168, 85, 0.35);
+}
+
+.duel-card__combatants,
+.duel__combatants {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.duel-card__combatant,
+.duel__combatant {
+  font-size: clamp(1.3rem, 3.5vw, 1.9rem);
+  font-weight: 700;
+  color: var(--color-gold-pale);
+}
+
+.duel-card__versus,
+.duel__versus {
+  font-size: 1.4rem;
+  color: var(--color-burgundy);
+  filter: drop-shadow(0 0 8px rgba(212, 168, 85, 0.4));
+}
+
+.duel-card__title {
+  font-size: 1.4rem;
+  color: var(--color-gold-light);
+}
+
+.duel-card__context {
+  max-width: 46ch;
+  font-size: 0.95rem;
+  line-height: 1.9;
+  color: var(--color-cream);
+  opacity: 0.65;
+}
+
+.duel-card__cta {
+  margin-top: 0.3rem;
+  font-size: 0.85rem;
+  color: var(--color-gold);
+  opacity: 0.85;
+}
+
+.hija2__return {
+  margin: 4rem auto 0;
+  text-align: center;
+}
+
+/* ---- a single flyting (/hija2/[slug]) ---- */
+.hija2-duel {
+  position: relative;
+  min-height: 100dvh;
+  background: radial-gradient(120% 70% at 50% 0%, #1a0e15, #06080f 60%);
+  color: var(--color-cream);
+  padding: clamp(3rem, 8vw, 6rem) 1.5rem 6rem;
+}
+
+.hija2-duel__glow {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: radial-gradient(50% 40% at 50% 12%, rgba(107, 45, 62, 0.35), transparent 70%);
+  pointer-events: none;
+}
+
+.hija2-duel__header {
+  position: relative;
+  z-index: 1;
+  max-width: 44rem;
+  margin: 0 auto 2.5rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+
+.hija2-duel__title {
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  color: var(--color-gold-light);
+}
+
+.hija2-duel__context {
+  max-width: 48ch;
+  font-size: 1rem;
+  line-height: 1.95;
+  color: var(--color-cream);
+  opacity: 0.7;
+}
+
+.duel {
+  position: relative;
+  z-index: 1;
+  max-width: 50rem;
+  margin: 0 auto;
+}
+
+.duel__combatants {
+  margin-bottom: 2.5rem;
+}
+
+.duel__combatant--a { color: var(--color-gold-pale); }
+.duel__combatant--b { color: var(--color-gold-light); }
+
+.duel__stage {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.duel__volley {
+  max-width: 32rem;
+  padding: 1.5rem 1.75rem;
+  border-radius: 8px;
+  border-top: 1px solid rgba(212, 168, 85, 0.18);
+  background: linear-gradient(180deg, rgba(240, 221, 176, 0.05), transparent);
+  box-shadow: 0 18px 40px -28px rgba(0, 0, 0, 0.8);
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 500ms ease, transform 500ms ease;
+}
+
+.duel__volley.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Alternating sides — the rivals answering across a central seam. */
+.duel__volley--a {
+  align-self: flex-start;
+  border-inline-start: 2px solid color-mix(in srgb, var(--color-gold) 50%, transparent);
+}
+
+.duel__volley--b {
+  align-self: flex-end;
+  text-align: end;
+  border-inline-end: 2px solid color-mix(in srgb, var(--color-burgundy) 70%, transparent);
+}
+
+.duel__volley-poet {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--color-gold);
+  margin-bottom: 0.6rem;
+}
+
+.duel__volley-lines p {
+  font-size: clamp(1.2rem, 3vw, 1.6rem);
+  line-height: 2.1;
+  color: var(--color-cream);
+  margin: 0 0 0.4rem;
+}
+
+.duel__volley-pending {
+  font-size: 0.9rem;
+  color: var(--color-cream);
+  opacity: 0.5;
+}
+
+.duel__volley-note {
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+  line-height: 1.8;
+  color: var(--color-cream);
+  opacity: 0.6;
+}
+
+.duel__stepper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  margin-top: 3rem;
+  flex-wrap: wrap;
+}
+
+.duel__step {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 1.4rem;
+  font-size: 0.95rem;
+  color: var(--color-gold-pale);
+  border: 1px solid rgba(212, 168, 85, 0.5);
+  border-radius: 999px;
+  background: rgba(212, 168, 85, 0.06);
+  cursor: pointer;
+  transition: background 250ms ease, color 250ms ease, border-color 250ms ease,
+    box-shadow 250ms ease, transform 250ms ease;
+}
+
+.duel__step:hover:not(:disabled),
+.duel__step:focus-visible:not(:disabled) {
+  color: var(--color-ink);
+  background: var(--color-gold-light);
+  border-color: var(--color-gold-light);
+  box-shadow: 0 0 24px rgba(212, 168, 85, 0.4);
+  transform: translateY(-1px);
+}
+
+.duel__step:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.duel__counter {
+  font-size: 0.9rem;
+  color: var(--color-gold-pale);
+  opacity: 0.8;
+}
+
+.hija2-duel__return {
+  position: relative;
+  z-index: 1;
+  margin: 4rem auto 0;
+  text-align: center;
+}
+
+/* ============================================================
+   Reduced motion — the showcases settle into a static, legible state.
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  .hanging-panel,
+  .duel__volley {
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }
