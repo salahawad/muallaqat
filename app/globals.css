@@ -966,6 +966,79 @@
 }
 .poem__source a:hover { opacity: 1; }
 
+/* ---- Read-aloud control + recitation highlight ---- */
+.poem__listen-bar {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  margin: 0 auto 2.5rem;
+}
+
+.poem__listen {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.5rem 1.4rem;
+  font-size: 0.95rem;
+  color: var(--color-gold-pale);
+  border: 1px solid rgba(212, 168, 85, 0.5);
+  border-radius: 999px;
+  background: rgba(212, 168, 85, 0.06);
+  cursor: pointer;
+  transition: background 250ms ease, color 250ms ease, border-color 250ms ease,
+    box-shadow 250ms ease, transform 250ms ease;
+}
+
+.poem__listen:hover,
+.poem__listen:focus-visible {
+  color: var(--color-ink);
+  background: var(--color-gold-light);
+  border-color: var(--color-gold-light);
+  box-shadow: 0 0 28px rgba(212, 168, 85, 0.45);
+  transform: translateY(-1px);
+}
+
+.poem__listen-icon {
+  font-size: 0.78em;
+  line-height: 1;
+}
+
+.poem__listen--stop {
+  color: var(--color-gold-pale);
+  opacity: 0.8;
+}
+
+/* The word being spoken — a warm gold wash that survives line wraps. */
+.poem__word {
+  border-radius: 5px;
+  padding: 0 0.08em;
+  transition: background-color 220ms ease, color 220ms ease, box-shadow 220ms ease;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+.poem__word.is-active {
+  background: rgba(212, 168, 85, 0.30);
+  color: var(--color-gold-pale);
+  box-shadow: 0 0 18px rgba(212, 168, 85, 0.25);
+}
+
+/* The reading spotlight: while reciting, the rest of the poem recedes so the
+   bayt being read stands out — the always-reliable layer beneath word-level. */
+.poem__body.is-reading .poem__bayt {
+  transition: opacity 400ms ease;
+  opacity: 0.4;
+}
+
+.poem__body.is-reading .poem__bayt.is-active {
+  opacity: 1;
+}
+
+.poem__body--hanging.is-reading .poem__bayt.is-active {
+  border-top-color: rgba(212, 168, 85, 0.4);
+  background: linear-gradient(180deg, rgba(240, 221, 176, 0.1), transparent);
+}
+
 /* ============================================================
    Poet page (/poet/[slug])
    ============================================================ */

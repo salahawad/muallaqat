@@ -5,7 +5,12 @@ import { getPoemBySlug, getPoetBySlug } from '@/lib/content';
 
 const poem = getPoemBySlug('muallaqat-imru-al-qais')!;
 const poet = getPoetBySlug('imru-al-qais');
-const labels = { meter: 'البحر', rhyme: 'القافية', backToPoet: 'الشاعر' };
+const labels = {
+  meter: 'البحر',
+  rhyme: 'القافية',
+  backToPoet: 'الشاعر',
+  listen: { play: 'استمع', pause: 'إيقاف مؤقت', resume: 'متابعة', stop: 'إنهاء' },
+};
 
 describe('PoemView', () => {
   it('renders the poem title and every bayt', () => {
@@ -16,7 +21,11 @@ describe('PoemView', () => {
 
   it('renders the famous opening bayt verbatim', () => {
     render(<PoemView poem={poem} poet={poet} locale="ar" labels={labels} />);
-    expect(screen.getByText(/قِفَا نَبْكِ/)).toBeInTheDocument();
+    // The bayt is now split into per-word spans for highlighting; assert the
+    // full line survives across them.
+    expect(screen.getAllByTestId('poem-bayt')[0]).toHaveTextContent(
+      'قِفَا نَبْكِ مِنْ ذِكْرَى',
+    );
   });
 
   it('marks a Muallaqa with its badge and meter/rhyme', () => {

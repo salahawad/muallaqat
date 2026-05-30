@@ -1,5 +1,5 @@
 import type { Poem, Poet } from '@/lib/schemas';
-import { Verse } from '@/components/typography/Verse';
+import { PoemReader, type ListenLabels } from '@/components/poem/PoemReader';
 
 /**
  * A reading surface for a single poem. A Mu'allaqa is given a "hanging" treatment
@@ -14,6 +14,7 @@ type PoemViewProps = {
     meter: string;
     rhyme: string;
     backToPoet: string;
+    listen: ListenLabels;
   };
 };
 
@@ -50,13 +51,11 @@ export function PoemView({ poem, poet, locale, labels }: PoemViewProps) {
         </dl>
       </header>
 
-      <div className={`poem__body ${poem.isMuallaqa ? 'poem__body--hanging' : ''}`}>
-        {poem.linesAr.map((line, i) => (
-          <div key={i} className="poem__bayt" data-testid="poem-bayt">
-            <Verse lines={[line]} centered className="poem__bayt-text" />
-          </div>
-        ))}
-      </div>
+      <PoemReader
+        lines={poem.linesAr}
+        isMuallaqa={poem.isMuallaqa}
+        labels={labels.listen}
+      />
 
       {(isAr ? poem.contextAr : poem.contextEn) ? (
         <footer className="poem__context font-ui">
