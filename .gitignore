@@ -24,3 +24,7 @@ credentials.json
 /blob-report/
 /playwright/.cache/
 *.tsbuildinfo
+
+# Books archive — third-party copyrighted PDF scans stay local-only
+# (bibliography in books/_meta + docs + fonts are tracked; the PDFs are not)
+books/**/*.pdf
