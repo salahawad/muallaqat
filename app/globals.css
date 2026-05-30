@@ -1343,73 +1343,14 @@
   max-width: 60rem;
 }
 
-.poet-seal {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.85rem;
-  padding: 2rem 1.5rem;
-  text-align: center;
-  border-radius: 10px;
-  border: 1px solid color-mix(in srgb, var(--era-accent) 30%, transparent);
-  background:
-    linear-gradient(180deg, color-mix(in srgb, var(--era-accent) 10%, transparent), rgba(0, 0, 0, 0.18));
-  box-shadow: 0 24px 50px -34px rgba(0, 0, 0, 0.9);
-  transition: transform 300ms ease, border-color 300ms ease, box-shadow 300ms ease;
-}
 
-.poet-seal:hover {
-  transform: translateY(-4px);
-  border-color: var(--era-accent);
-  box-shadow: 0 30px 60px -30px color-mix(in srgb, var(--era-accent) 55%, transparent);
-}
 
 /* The gold medallion bearing the first letter of the name. */
-.poet-seal__medallion {
-  display: grid;
-  place-items: center;
-  width: 4.5rem;
-  height: 4.5rem;
-  border-radius: 50%;
-  background:
-    radial-gradient(circle at 35% 30%, var(--color-gold-light), var(--color-gold) 55%, #5e4420);
-  box-shadow:
-    0 0 0 1px rgba(240, 221, 176, 0.35),
-    0 0 28px color-mix(in srgb, var(--era-accent) 45%, transparent),
-    inset 0 0 12px rgba(0, 0, 0, 0.35);
-}
 
-.poet-seal__letter {
-  font-size: 2.4rem;
-  font-weight: 700;
-  color: #1a130a;
-  line-height: 1;
-}
 
-.poet-seal__name {
-  font-size: clamp(1.8rem, 4vw, 2.4rem);
-  font-weight: 700;
-  color: var(--color-gold-pale);
-  text-shadow: 0 0 22px color-mix(in srgb, var(--era-accent) 45%, transparent);
-}
 
-.poet-seal__matla {
-  max-width: 30ch;
-  font-size: 1.2rem;
-  line-height: 2;
-  color: var(--color-cream);
-  opacity: 0.9;
-}
 
-.poet-seal__cta {
-  font-size: 0.85rem;
-  color: var(--era-accent);
-  opacity: 0.9;
-}
 
-.poet-seal:hover .poet-seal__cta {
-  opacity: 1;
-}
 
 /* ============================================================
    Era dioramas — painterly layered horizons behind each scene
