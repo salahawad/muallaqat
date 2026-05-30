@@ -4,6 +4,16 @@ import { setRequestLocale } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
 import { getEras, getPoets, getPoems } from '@/lib/content';
 import { PoetSeal } from '@/components/diwan/PoetSeal';
+import { EraDiorama } from '@/components/diwan/EraDiorama';
+import { Campfire } from '@/components/diwan/Campfire';
+
+const DIORAMA_VARIANT: Record<string, 'desert-night' | 'duel' | 'golden-court' | 'garden' | 'nahda'> = {
+  jahili: 'desert-night',
+  umawi: 'duel',
+  abbasi: 'golden-court',
+  andalusi: 'garden',
+  hadith: 'nahda',
+};
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -61,6 +71,8 @@ export default async function DiwanPage({ params }: Props) {
             }
           >
             <div className="era-scene__bg" aria-hidden="true" />
+            <EraDiorama variant={DIORAMA_VARIANT[era.id] ?? 'desert-night'} />
+            {era.id === 'jahili' ? <Campfire /> : null}
             <div className="era-scene__inner">
               <p className="era-scene__order font-kufi">
                 {new Intl.NumberFormat(isAr ? 'ar-EG' : 'en').format(era.order)}

@@ -1410,3 +1410,157 @@
 .poet-seal:hover .poet-seal__cta {
   opacity: 1;
 }
+
+/* ============================================================
+   Era dioramas — painterly layered horizons behind each scene
+   ============================================================ */
+.era-scene { position: relative; }
+
+.era-diorama {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.era-diorama__svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* The campfire canvas sits low in the Jahili scene, above the diorama. */
+.era-campfire {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 55%;
+  width: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Lift the readable content above diorama + fire. */
+.era-scene__inner { position: relative; z-index: 2; }
+
+/* ============================================================
+   Poet cartouche — a robed presence in a gilt illuminated frame
+   ============================================================ */
+.poet-cartouche {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 2.5rem 1.5rem 1.75rem;
+  text-align: center;
+  border-radius: 8px;
+  background:
+    radial-gradient(120% 70% at 50% 12%, color-mix(in srgb, var(--era-accent) 16%, transparent), transparent 60%),
+    linear-gradient(180deg, rgba(20, 14, 8, 0.55), rgba(6, 8, 16, 0.72));
+  border: 1px solid color-mix(in srgb, var(--era-accent) 38%, transparent);
+  box-shadow:
+    0 30px 60px -36px rgba(0, 0, 0, 0.95),
+    inset 0 0 40px rgba(0, 0, 0, 0.35);
+  overflow: hidden;
+  transition: transform 320ms ease, border-color 320ms ease, box-shadow 320ms ease;
+}
+
+.poet-cartouche:hover {
+  transform: translateY(-5px);
+  border-color: var(--era-accent);
+  box-shadow:
+    0 40px 70px -32px color-mix(in srgb, var(--era-accent) 55%, transparent),
+    inset 0 0 50px rgba(0, 0, 0, 0.3);
+}
+
+/* Gilt arabesque corner flourishes (manuscript illumination). */
+.poet-cartouche__corner {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  border: 2px solid var(--color-gold);
+  opacity: 0.65;
+}
+.poet-cartouche__corner--tl { top: 8px; inset-inline-start: 8px; border-inline-end: 0; border-bottom: 0; border-start-start-radius: 6px; }
+.poet-cartouche__corner--tr { top: 8px; inset-inline-end: 8px; border-inline-start: 0; border-bottom: 0; border-start-end-radius: 6px; }
+.poet-cartouche__corner--bl { bottom: 8px; inset-inline-start: 8px; border-inline-end: 0; border-top: 0; border-end-start-radius: 6px; }
+.poet-cartouche__corner--br { bottom: 8px; inset-inline-end: 8px; border-inline-start: 0; border-top: 0; border-end-end-radius: 6px; }
+
+/* The robed figure, seated in shadow under a pool of lamplight. */
+.poet-cartouche__figure {
+  position: relative;
+  width: 100%;
+  height: 7rem;
+  display: grid;
+  place-items: end center;
+}
+
+.poet-cartouche__lamp {
+  position: absolute;
+  top: -0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 12rem;
+  height: 9rem;
+  background: radial-gradient(circle at 50% 35%, color-mix(in srgb, var(--era-accent) 55%, #ffd98a) 0%, transparent 65%);
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.poet-cartouche__robe {
+  position: relative;
+  width: 6.5rem;
+  height: 7.5rem;
+  fill: #05070d;
+  filter: drop-shadow(0 -2px 10px color-mix(in srgb, var(--era-accent) 40%, transparent));
+}
+
+/* Rim-light on the robe edges so the figure reads against the dark. */
+.poet-cartouche:hover .poet-cartouche__robe {
+  fill: #0a0c14;
+}
+
+.poet-cartouche__plate {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  padding: 0.4rem 1.25rem;
+  border-radius: 4px;
+  background: linear-gradient(180deg, color-mix(in srgb, var(--era-accent) 14%, transparent), transparent);
+  border-top: 1px solid color-mix(in srgb, var(--era-accent) 40%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--era-accent) 25%, transparent);
+}
+
+.poet-cartouche__name {
+  font-size: clamp(1.7rem, 3.6vw, 2.3rem);
+  font-weight: 700;
+  color: var(--color-gold-pale);
+  text-shadow: 0 0 22px color-mix(in srgb, var(--era-accent) 50%, transparent);
+}
+
+.poet-cartouche__years {
+  font-size: 0.78rem;
+  color: var(--era-accent);
+  opacity: 0.85;
+}
+
+.poet-cartouche__matla {
+  max-width: 30ch;
+  font-size: 1.25rem;
+  line-height: 2.1;
+  color: var(--color-cream);
+  opacity: 0.92;
+}
+
+.poet-cartouche__cta {
+  margin-top: 0.25rem;
+  font-size: 0.85rem;
+  color: var(--era-accent);
+  opacity: 0.9;
+}
+.poet-cartouche:hover .poet-cartouche__cta { opacity: 1; }
